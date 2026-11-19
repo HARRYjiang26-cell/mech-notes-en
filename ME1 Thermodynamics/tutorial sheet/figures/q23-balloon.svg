@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" font-family="Segoe UI, Arial, sans-serif">
   <rect width="900" height="460" fill="#ffffff"/>
-  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.3 Balloon: where the boundary goes 边界画在哪里</text>
-  <text x="24" y="52" font-size="14" fill="#666">system = the gas that starts in the bottle 系统 = 最初在瓶内的气体</text>
+  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.3 Balloon: where the boundary goes</text>
+  <text x="24" y="52" font-size="14" fill="#666">system = the gas that starts in the bottle</text>
 
-  <text x="40" y="96" font-size="24" font-weight="700" fill="#111">Start 开始</text>
+  <text x="40" y="96" font-size="24" font-weight="700" fill="#111">Start</text>
   <rect x="90" y="120" width="120" height="220" rx="10" fill="#eef3fb" stroke="#1f4e9c" stroke-width="3"/>
   <rect x="112" y="140" width="76" height="180" fill="#cfe0f7"/>
   <text x="150" y="240" font-size="20" fill="#1f4e9c" text-anchor="middle">60 bar</text>
   <rect x="214" y="228" width="34" height="26" fill="#ffffff" stroke="#1f4e9c" stroke-width="3"/>
   <circle cx="231" cy="241" r="7" fill="#1f4e9c"/>
-  <text x="258" y="248" font-size="20" fill="#111">valve closed 阀关</text>
-  <text x="90" y="372" font-size="20" fill="#111">balloon collapsed 气球瘪</text>
+  <text x="258" y="248" font-size="20" fill="#111">valve closed</text>
+  <text x="90" y="372" font-size="20" fill="#111">balloon collapsed</text>
   <path d="M330 200 h45" stroke="#1f4e9c" stroke-width="3"/>
   <path d="M368 190 l14 10 -14 10 z" fill="#1f4e9c"/>
-  <text x="340" y="186" font-size="18" fill="#666">slow fill 缓慢充气</text>
+  <text x="340" y="186" font-size="18" fill="#666">slow fill</text>
 
-  <text x="440" y="96" font-size="24" font-weight="700" fill="#111">End 结束</text>
+  <text x="440" y="96" font-size="24" font-weight="700" fill="#111">End</text>
   <rect x="470" y="160" width="110" height="180" rx="10" fill="#eef3fb" stroke="#1f4e9c" stroke-width="3"/>
   <rect x="492" y="178" width="66" height="144" fill="#cfe0f7"/>
   <rect x="578" y="228" width="30" height="24" fill="#ffffff" stroke="#1f4e9c" stroke-width="3"/>
@@ -24,9 +24,9 @@
   <text x="640" y="242" font-size="20" fill="#2f8f4e" text-anchor="middle">0.25 m³</text>
   <text x="640" y="268" font-size="18" fill="#2f8f4e" text-anchor="middle">≈ 1.013 bar</text>
   <rect x="462" y="152" width="272" height="196" fill="none" stroke="#a33" stroke-width="3" stroke-dasharray="10 7" rx="14"/>
-  <text x="452" y="376" font-size="19" fill="#a33">dashed = system boundary 虚线为系统边界</text>
+  <text x="452" y="376" font-size="19" fill="#a33">dashed = system boundary</text>
 
   <rect x="24" y="392" width="852" height="52" rx="8" fill="#fbf6e7" stroke="#c99b1e"/>
-  <text x="40" y="414" font-size="21" fill="#111">W = pΔV = 1.013×10⁵ Pa × 0.25 m³ = 25.3 kJ  (across the balloon skin 越过气球皮)</text>
-  <text x="40" y="438" font-size="19" fill="#7a5b00">bottle wall is rigid → no work there 瓶壁刚性 → 那里不做功；60 bar 用不上</text>
+  <text x="40" y="414" font-size="21" fill="#111">W = pΔV = 1.013×10⁵ Pa × 0.25 m³ = 25.3 kJ (across the balloon skin)</text>
+  <text x="40" y="438" font-size="19" fill="#7a5b00">bottle wall is rigid → no work there</text>
 </svg>

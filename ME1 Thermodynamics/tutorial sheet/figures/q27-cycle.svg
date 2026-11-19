@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="Segoe UI, Arial, sans-serif">
   <rect width="900" height="500" fill="#ffffff"/>
-  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.7 Unfamiliar cycle 陌生循环</text>
+  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.7 Unfamiliar cycle</text>
   <line x1="110" y1="430" x2="800" y2="430" stroke="#111" stroke-width="2"/>
   <line x1="110" y1="430" x2="110" y2="80" stroke="#111" stroke-width="2"/>
   <text x="762" y="462" font-size="22" fill="#111">V</text>
@@ -14,22 +14,22 @@
   <circle cx="300" cy="120" r="7" fill="#111"/><text x="308" y="112" font-size="24" font-weight="700" fill="#111">2</text>
   <circle cx="170" cy="120" r="7" fill="#111"/><text x="140" y="112" font-size="24" font-weight="700" fill="#111">3</text>
 
-  <text x="312" y="250" font-size="21" fill="#1f4e9c">1–2 V const 定容</text>
+  <text x="312" y="250" font-size="21" fill="#1f4e9c">1–2 V const</text>
   <text x="312" y="278" font-size="20" fill="#1f4e9c">Q = +170 kJ, W = 0</text>
-  <text x="120" y="100" font-size="21" fill="#a33" text-anchor="middle">2–3 P const 恒压</text>
+  <text x="120" y="100" font-size="21" fill="#a33" text-anchor="middle">2–3 P const</text>
   <text x="126" y="152" font-size="19" fill="#a33" text-anchor="middle">Q = −100 kJ, W = −42 kJ</text>
-  <text x="196" y="300" font-size="21" fill="#2f8f4e">3–1 adiabatic 绝热</text>
+  <text x="196" y="300" font-size="21" fill="#2f8f4e">3–1 adiabatic</text>
   <text x="150" y="330" font-size="20" fill="#2f8f4e">Q = 0, W = +112 kJ</text>
 
   <rect x="520" y="90" width="352" height="150" rx="8" fill="#fbf6e7" stroke="#c99b1e"/>
-  <text x="536" y="120" font-size="21" fill="#111">Cycle closes 循环闭合: ΔE = 0</text>
+  <text x="536" y="120" font-size="21" fill="#111">Cycle closes: ΔE = 0</text>
   <text x="536" y="152" font-size="20" fill="#111">Q_net = 170 − 100 + 0 = +70 kJ</text>
   <text x="536" y="182" font-size="20" fill="#111">W_net = 0 − 42 + W₃₁ = Q_net</text>
   <text x="536" y="214" font-size="20" fill="#111">→ W₃₁ = +112 kJ, Q₃₁ = 0</text>
 
   <rect x="520" y="264" width="352" height="120" rx="8" fill="#f2f6ff" stroke="#1f4e9c"/>
-  <text x="536" y="294" font-size="19" fill="#111">Signs 符号: Q in = +, W out = +</text>
-  <text x="536" y="322" font-size="19" fill="#111">42 kJ is work TO the system 外界做功</text>
+  <text x="536" y="294" font-size="19" fill="#111">Signs: Q in = +, W out = +</text>
+  <text x="536" y="322" font-size="19" fill="#111">42 kJ is work TO the system</text>
   <text x="536" y="350" font-size="19" fill="#111">→ enter as −42, not +42</text>
-  <text x="536" y="374" font-size="18" fill="#666">NET: heat engine 净输出 70 kJ 功</text>
+  <text x="536" y="374" font-size="18" fill="#666">NET: heat engine 70 kJ</text>
 </svg>

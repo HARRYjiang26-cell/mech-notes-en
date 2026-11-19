@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="Segoe UI, Arial, sans-serif">
   <rect width="900" height="500" fill="#ffffff"/>
-  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.5 Ideal SI (Otto) cycle 理想循环</text>
+  <text x="24" y="38" font-size="26" font-weight="700" fill="#111">2.5 Ideal SI (Otto) cycle</text>
   <line x1="110" y1="420" x2="800" y2="420" stroke="#111" stroke-width="2"/>
   <line x1="110" y1="420" x2="110" y2="90" stroke="#111" stroke-width="2"/>
   <text x="760" y="452" font-size="22" fill="#111">V</text>
@@ -18,15 +18,15 @@
   <circle cx="330" cy="290" r="7" fill="#111"/><text x="296" y="284" font-size="24" font-weight="700" fill="#111">3</text>
   <circle cx="760" cy="288" r="7" fill="#111"/><text x="776" y="282" font-size="24" font-weight="700" fill="#111">4</text>
 
-  <text x="196" y="220" font-size="21" fill="#a33">1–2 adiabatic compression 绝热压缩</text>
+  <text x="196" y="220" font-size="21" fill="#a33">1–2 adiabatic compression</text>
   <text x="196" y="248" font-size="20" fill="#a33">W₁₂ = −563 J</text>
-  <text x="470" y="96" font-size="21" fill="#1f4e9c">2–3 constant V heat in 定容吸热</text>
+  <text x="470" y="96" font-size="21" fill="#1f4e9c">2–3 constant V heat in</text>
   <text x="470" y="122" font-size="20" fill="#1f4e9c">W₂₃ = 0, Q₂₃ = +3580 J</text>
-  <text x="400" y="330" font-size="21" fill="#2f8f4e">3–4 adiabatic expansion 绝热膨胀</text>
+  <text x="400" y="330" font-size="21" fill="#2f8f4e">3–4 adiabatic expansion</text>
   <text x="400" y="358" font-size="20" fill="#2f8f4e">W₃₄ = +2657 J</text>
-  <text x="360" y="470" font-size="21" fill="#c99b1e">4–1 constant V heat out 定容放热, W₄₁ = 0</text>
+  <text x="360" y="470" font-size="21" fill="#c99b1e">4–1 constant V heat out, W₄₁ = 0</text>
 
   <rect x="596" y="60" width="278" height="72" rx="8" fill="#fbf6e7" stroke="#c99b1e"/>
-  <text x="610" y="88" font-size="20" fill="#111">Net work 净功 W = 2.09 kJ</text>
+  <text x="610" y="88" font-size="20" fill="#111">Net work W = 2.09 kJ</text>
   <text x="610" y="116" font-size="20" fill="#111">η = 1 − 1/r^(n−1) = 0.585</text>
 </svg>
