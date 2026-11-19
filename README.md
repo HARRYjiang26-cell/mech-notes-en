@@ -11,7 +11,9 @@ These are personal study notes, not official course material. They were written 
 | MECH40003 Thermodynamics 1 | `MECH40003 Thermodynamics 1/` | Enthalpy, specific heats and the perfect-gas approximation (Ch 4) |
 | MECH40004 Mechatronics 1 | `MECH40004 Mechatronics 1/` | Electromagnets and brushed DC machines (Ch 3–4) |
 | MECH40005 Stress Analysis | `MECH40005 Stress Analysis/` | 3D stress and strain, pressure vessels, indeterminate systems, 3D Hooke's law, plus worked tutorial sets |
-| MECH40006 Materials 1 | `material/` | Lectures 4–6: material selection and atomic bonding |
+| MECH40001 Professional Engineering Skills 1 | `MECH40001 Professional Engineering Skills 1/` | Using AI tools honestly: LLM limits, purpose framing, verification and prompt engineering |
+| MECH40002 Fluid Mechanics 1 | `MECH40002 Fluid Mechanics 1/` | Shear deformation and strain rate, flow classification, hydrostatics, manometers (Ch 1) |
+| MECH40006 Materials 1 | `material/` | Lectures 4–7: material selection, atomic bonding, bond energy and crystal structures |
 | MECH40008 Mathematics and Computing 1 | `MECH40008 Mathematics and Computing 1/` | Taylor remainders, Leibniz rule, ratio test, binomial series, partial differentiation, total derivatives, two-variable Taylor series, plus a master formula sheet |
 | MECH40008 Computing 1 | `MECH40008 Computing 1/` | NumPy arrays versus lists, vectorisation, Matplotlib (Ch 6) |
 | MECH40009 Mechanics | `MECH40009 Mechanics/` | Moments about an axis, work, friction (Ch 2–3) |
