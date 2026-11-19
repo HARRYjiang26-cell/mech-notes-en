@@ -1,0 +1,2582 @@
+[
+ {
+  "slug": "ex_1111_14_sin46",
+  "title": "estimate $\\sin 46°$ to 4 d.p. and bound the error",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\sin 46°$ correct to four decimals, with a proof of that accuracy, not a calculator reading."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "$46°=45°+1°$: $\\sin 45°$ and $\\cos 45°$ are exact, and $h=\\pi/180$ is small."
+    ]
+   ],
+   [
+    "3. Taylor about $45°$",
+    [
+     "$\\sin x=\\frac{\\sqrt2}{2}\\left(1+h-\\frac{h^{2}}{2}\\right)+R_{2}$"
+    ]
+   ],
+   [
+    "4. Lagrange remainder",
+    [
+     "$R_{2}=-\\frac{h^{3}}{3!}\\cos(\\xi)$, $|\\cos\\xi|\\le1$",
+     "$|R_{2}|\\le\\frac{h^{3}}{6}\\approx8.9\\times10^{-7}$"
+    ]
+   ],
+   [
+    "5. Numbers",
+    [
+     "$0.7071068\\times1.0173010\\approx0.7193404$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$8.9\\times10^{-7}<5\\times10^{-5}$: four decimals are safe."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$h$ must be in radians.",
+   "The remainder keeps $\\cos$ at an unknown $\\xi$.",
+   "$|R_{2}|\\le h^{3}/6$ is the whole accuracy proof."
+  ]
+ },
+ {
+  "slug": "ex_1111_24_x2ex",
+  "title": "$D^{n}(x^{2}e^{x})$ by Leibniz",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "A closed formula in $n$ for the high derivatives of a product."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "$x^{2}$ dies after two derivatives; $e^{x}$ never changes."
+    ]
+   ],
+   [
+    "3. Leibniz",
+    [
+     "$D^{n}(uv)=\\sum_{r=0}^{n}\\binom{n}{r}D^{r}u\\,D^{n-r}v$"
+    ]
+   ],
+   [
+    "4. Derivatives of $u$",
+    [
+     "$x^{2},\\ 2x,\\ 2,\\ 0$"
+    ]
+   ],
+   [
+    "5. Assemble",
+    [
+     "$D^{n}=\\left[x^{2}+2nx+n(n-1)\\right]e^{x}$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$n=2$: $(x^{2}+4x+2)e^{x}$; $n=10$: $(x^{2}+20x+90)e^{x}$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Choose as $u$ the factor that eventually vanishes.",
+   "$\\binom{n}{2}2=n(n-1)$: the 2 cancels."
+  ]
+ },
+ {
+  "slug": "ex_1111_25_arcsin",
+  "title": "find the Taylor series of $y=\\arcsin x$ about $x=0$",
+  "panels": [
+   [
+    "1. Derive the ODE",
+    [
+     "$y'=\\frac{1}{\\sqrt{1-x^{2}}}$, $y''=\\frac{x}{(1-x^{2})^{3/2}}$",
+     "$\\Rightarrow(1-x^{2})y''-xy'=0$"
+    ]
+   ],
+   [
+    "2. Leibniz",
+    [
+     "$(1-x^{2})y^{(n+2)}-(2n+1)xy^{(n+1)}-n^{2}y^{(n)}=0$"
+    ]
+   ],
+   [
+    "3. At $x=0$",
+    [
+     "$y^{(n+2)}(0)=n^{2}y^{(n)}(0)$, $y(0)=0$, $y'(0)=1$"
+    ]
+   ],
+   [
+    "4. Roll it out",
+    [
+     "$y'''(0)=1$, $y^{(5)}(0)=9$, $y^{(7)}(0)=225$; even derivatives are 0."
+    ]
+   ],
+   [
+    "5. Taylor series",
+    [
+     "$\\arcsin x=x+\\frac{x^{3}}{6}+\\frac{3x^{5}}{40}+\\frac{5x^{7}}{112}+\\cdots$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$x=0.5\\Rightarrow0.5236\\approx\\pi/6$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Start from the ODE, never from $\\arcsin$ directly.",
+   "$-2n-1=-(2n+1)$ and $-n(n-1)-n=-n^{2}$.",
+   "Coefficient equals $y^{(n)}(0)/n!$."
+  ]
+ },
+ {
+  "slug": "ex_1111_35_sineseries",
+  "title": "ratio test on the sine series",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "For which $x$ does $\\sum\\frac{(-1)^{r}x^{2r+1}}{(2r+1)!}$ converge absolutely?"
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Powers and factorials: the ratio cancels the factorial."
+    ]
+   ],
+   [
+    "3. The ratio",
+    [
+     "$\\left|\\frac{a_{r+1}}{a_{r}}\\right|=\\frac{x^{2}}{(2r+2)(2r+3)}$"
+    ]
+   ],
+   [
+    "4. Limit",
+    [
+     "$\\lim_{r\\to\\infty}\\frac{x^{2}}{(2r+2)(2r+3)}=0<1$"
+    ]
+   ],
+   [
+    "5. Conclusion",
+    [
+     "Absolutely convergent for every finite $x$; radius $R=\\infty$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$x=10$, $r=5$: $\\frac{100}{12\\cdot13}<1$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$(2r+3)!=(2r+3)(2r+2)(2r+1)!$ gives the denominator.",
+   "$x$ is frozen while $r\\to\\infty$."
+  ]
+ },
+ {
+  "slug": "ex_1112_A_x2ex",
+  "title": "Leibniz on $x^{2}e^{x}$: $D^{2}$ and $D^{10}$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Two high derivatives from one formula."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Three rows survive: $r=0,1,2$."
+    ]
+   ],
+   [
+    "3. Formula",
+    [
+     "$D^{n}=\\left[x^{2}+2nx+n(n-1)\\right]e^{x}$"
+    ]
+   ],
+   [
+    "4. Numbers",
+    [
+     "$n=2$: $(x^{2}+4x+2)e^{x}$",
+     "$n=10$: $(x^{2}+20x+90)e^{x}$"
+    ]
+   ],
+   [
+    "5. Where the constants come from",
+    [
+     "$2n=20$ and $\\binom{10}{2}2=90$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$n=1$ matches the product rule."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Same template as $x^{3}e^{x}$, fewer rows."
+  ]
+ },
+ {
+  "slug": "ex_1112_B_x3ex",
+  "title": "Leibniz on $x^{3}e^{x}$ to $n=5$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$D^{n}(x^{3}e^{x})$ and $n=5$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Four candidate rows for $n\\ge3$; for $n=1$ only two."
+    ]
+   ],
+   [
+    "3. Derivatives of $u$",
+    [
+     "$x^{3},\\ 3x^{2},\\ 6x,\\ 6,\\ 0$"
+    ]
+   ],
+   [
+    "4. Assemble",
+    [
+     "$D^{n}(x^{3}e^{x})=$",
+     "$\\left[x^{3}+3nx^{2}+3n(n-1)x+n(n-1)(n-2)\\right]e^{x}$"
+    ]
+   ],
+   [
+    "5. $n=5$",
+    [
+     "$(x^{3}+15x^{2}+60x+60)e^{x}$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$n=3$ gives the constant 6."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$\\binom{n}{3}6$ loses its 6 to the denominator."
+  ]
+ },
+ {
+  "slug": "ex_1112_C_arcsin",
+  "title": "the arcsin recurrence in one poster",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Derivatives at 0 and the Maclaurin series of $\\arcsin$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "$(1-x^{2})y''-xy'=0$ is the manageable object."
+    ]
+   ],
+   [
+    "3. Leibniz",
+    [
+     "$(1-x^{2})y^{(n+2)}-(2n+1)xy^{(n+1)}-n^{2}y^{(n)}=0$"
+    ]
+   ],
+   [
+    "4. At $x=0$",
+    [
+     "$y^{(n+2)}(0)=n^{2}y^{(n)}(0)$; $1,\\ 1,\\ 9,\\ 225$"
+    ]
+   ],
+   [
+    "5. Series",
+    [
+     "$\\arcsin x=x+\\frac{x^{3}}{6}+\\frac{3x^{5}}{40}+\\frac{5x^{7}}{112}+\\cdots$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "All even-order derivatives vanish at $x=0$, not everywhere."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$-n^{2}=-n(n-1)-n$; moving this term gives the recurrence."
+  ]
+ },
+ {
+  "slug": "ex_1112_ball",
+  "title": "total distance of a bouncing ball",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$h=1.5$ m, $r=0.7$: total distance over infinitely many bounces."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Each bounce is a geometric piece."
+    ]
+   ],
+   [
+    "3. Model",
+    [
+     "$D=h+2hr+2hr^{2}+\\cdots$"
+    ]
+   ],
+   [
+    "4. Sum",
+    [
+     "$D=h\\frac{1+r}{1-r}$"
+    ]
+   ],
+   [
+    "5. Numbers",
+    [
+     "$D=1.5\\cdot\\frac{1.7}{0.3}=8.5$ m",
+     "$D_{3}=6.099$ m $\\approx6.10$ m"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$r\\to0$: $D\\to h$; $r\\to1$: $D\\to\\infty$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Initial drop once; every completed rebound travels up and down.",
+   "$h>0$, $0\\le r<1$; the factor $2$ counts the two legs."
+  ]
+ },
+ {
+  "slug": "ex_1112_sqrt51",
+  "title": "estimate $\\sqrt{51}$ with the binomial series",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\sqrt{51}$ to four decimals by series."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The safe interior $|u|<1$ permits the binomial expansion; extract $49$."
+    ]
+   ],
+   [
+    "3. Factor out",
+    [
+     "$\\sqrt{51}=7\\left(1+\\frac{2}{49}\\right)^{\\frac{1}{2}}$",
+     "$u=\\frac{2}{49}\\approx0.040816$"
+    ]
+   ],
+   [
+    "4. Expand",
+    [
+     "$(1+u)^{\\frac{1}{2}}=1+\\frac{u}{2}-\\frac{u^2}{8}+\\cdots$"
+    ]
+   ],
+   [
+    "5. Numbers",
+    [
+     "$S_2=7\\left(1+\\frac{1}{49}-\\frac{1}{4802}\\right)$",
+     "$S_2\\approx7.1413994169$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$0<\\sqrt{51}-S_2<\\frac{7u^3}{16}<0.00002975$",
+     "Both ends of this bound round to $7.1414$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Never feed $x=50$ in: $|x|>1$ diverges.",
+   "$\\frac{n(n-1)}{2}$ at $n=\\frac12$ gives $-\\frac18$."
+  ]
+ },
+ {
+  "slug": "ex_1112_partials",
+  "title": "partial derivatives of $f=x^{2}y+\\sin y$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f_{x},f_{y},f_{xx},f_{yy},f_{xy}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Freeze the other variable and differentiate normally."
+    ]
+   ],
+   [
+    "3. First order",
+    [
+     "$f_{x}=2xy$, $f_{y}=x^{2}+\\cos y$"
+    ]
+   ],
+   [
+    "4. Second order",
+    [
+     "$f_{xx}=2y$, $f_{xy}=2x$, $f_{yy}=-\\sin y$"
+    ]
+   ],
+   [
+    "5. Mixed",
+    [
+     "$f_{xy}=f_{yx}=2x$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$f_{x}$ still contains $y$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Freezing applies only during differentiation.",
+   "$f=e^{xy}$: $f_{x}=ye^{xy}$, $f_{y}=xe^{xy}$."
+  ]
+ },
+ {
+  "slug": "ex_1111_34_L1",
+  "title": "what $L=1$ actually tells you",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Is $SUM (-1)^r/(1+r)$ absolutely convergent?"
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The signs alternate, so take absolute values first and apply the ratio test."
+    ]
+   ],
+   [
+    "3. The ratio",
+    [
+     "$a_r=(-1)^r/(1+r)$, $|a_r|=1/(1+r)$",
+     "ratio $=(1+r)/(2+r)$"
+    ]
+   ],
+   [
+    "4. Limit",
+    [
+     "$(1+r)/(2+r) -> 1$, so $L=1$."
+    ]
+   ],
+   [
+    "5. What that means",
+    [
+     "$L=1$ is inconclusive: the test says nothing, neither convergence nor divergence.",
+     "Compare with the harmonic series instead: the absolute series diverges."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "Conditionally convergent, not absolutely convergent."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$L=1$ never means diverge; it means change tools.",
+   "Compare with $SUM 1/(1+r)$, a harmonic-type series."
+  ]
+ },
+ {
+  "slug": "ex_1112_exam",
+  "title": "exam-style: ball from 3 m with $r=0.6$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "(a) total distance, (b) absolute convergence of the series, (c) $D_2$ and a comparison."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Model, sum, test, substitute, check: the standard three-part exam shape."
+    ]
+   ],
+   [
+    "3. (a) Total distance",
+    [
+     "$D=h\\frac{1+r}{1-r}=3\\cdot\\frac{1.6}{0.4}=12$ m"
+    ]
+   ],
+   [
+    "4. (b) Ratio test",
+    [
+     "$a_n=r^n$, $L=\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=0.6<1$",
+     "so the series is absolutely convergent."
+    ]
+   ],
+   [
+    "5. (c) $D_2$",
+    [
+     "$D_{2}=3+2\\times3\\times(0.6+0.36)=8.76$ m $<12$ m"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Compare the same height: $\\frac{D}{h}=4<\\frac{17}{3}$ for $r=0.6$ versus $r=0.7$.",
+     "At $h=3$ m the totals are $12$ m and $17$ m."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Model -> sum -> ratio test -> limit -> numbers -> sanity check."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e1_eval",
+  "title": "Evaluate $f=x^{2}+xy+y^{2}$ at four points",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f(a,b)$, $f(0,0)$, $f(1,2)$, $f(x,0)$ for $f=x^{2}+xy+y^{2}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Both slots are filled at once; $a,b$ are just labels for the same two variables."
+    ]
+   ],
+   [
+    "3. Substitution",
+    [
+     "$f(a,b)=a^{2}+ab+b^{2}$",
+     "$f(x,0)=x^{2}+0+0=x^{2}$"
+    ]
+   ],
+   [
+    "4. The number",
+    [
+     "$f(1,2)=1+2+4=7$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "$f(0,b)=b^2=f(b,0)$ is a consistency check.",
+     "Symmetry cannot detect swapped inputs. Check $f(1,2)=1^2+1\\cdot2+2^2$ term by term."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$a^{2}+ab+b^{2},\\quad 0,\\quad 7,\\quad x^{2}$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Both inputs are substituted together.",
+   "$f(x,0)=x^{2}$: the $y$-terms die, the function does not.",
+   "$f(0,0)=0$ costs no work."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e2_poly_first",
+  "title": "First partials of $x^{3}+y^{3}+x^{2}y+xy$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f_x$ and $f_y$ of $f=x^{3}+y^{3}+x^{2}y+xy$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Freeze one variable and differentiate term by term; $x^{2}y$ and $xy$ are products."
+    ]
+   ],
+   [
+    "3. With respect to $x$",
+    [
+     "$f_x=3x^{2}+2xy+y$"
+    ]
+   ],
+   [
+    "4. With respect to $y$",
+    [
+     "$f_y=3y^{2}+x^{2}+x$"
+    ]
+   ],
+   [
+    "5. Where the constants come from",
+    [
+     "$x^{2}y$ contributes $2xy$ to $f_x$ and $x^{2}$ to $f_y$; $xy$ contributes $y$ and $x$."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$f_x=3x^{2}+2xy+y,\\quad f_y=3y^{2}+x^{2}+x$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "No term is lost in the frozen direction.",
+   "$f_y$ still contains $x$: a partial is a function, not a number.",
+   "Product terms produce one piece on each side."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e3_xsiny",
+  "title": "$f=x^{2}y+x\\sin y$: keep the $x$ in front of $\\sin$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f_x$ and $f_y$ of $f=x^{2}y+x\\sin y$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "$x\\sin y$ is a product: with respect to $x$ it is $x$ times the constant $\\sin y$."
+    ]
+   ],
+   [
+    "3. With respect to $x$",
+    [
+     "$f_x=2xy+\\sin y$"
+    ]
+   ],
+   [
+    "4. With respect to $y$",
+    [
+     "$f_y=x^{2}+x\\cos y$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "$f(0,y)=0$ for all $y$, so $f_y(0,y)=0$; the formula gives $0+0\\cos y=0$."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$f_x=2xy+\\sin y,\\quad f_y=x^{2}+x\\cos y$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The $x$ before $\\sin y$ must survive.",
+   "Dropping it gives $f_x=2xy$ and $f_y=x^{2}+\\cos y$: the classic error.",
+   "$f_y$ keeps $x$ in both terms."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e4_poly_second",
+  "title": "Second and mixed partials of $x^{3}+y^{3}+x^{2}y+xy$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f_{xx},f_{yy},f_{xy},f_{yx}$ for the polynomial of E2."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Differentiate the first partials again; mixed order must agree when they are continuous."
+    ]
+   ],
+   [
+    "3. Pure second partials",
+    [
+     "$f_{xx}=6x+2y,\\quad f_{yy}=6y$"
+    ]
+   ],
+   [
+    "4. Mixed partial",
+    [
+     "$f_{xy}=\\frac{\\partial}{\\partial y}(3x^{2}+2xy+y)=2x+1$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "$f_{yx}=\\frac{\\partial}{\\partial x}(3y^{2}+x^{2}+x)=2x+1$: equal, as required."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$f_{xx}=6x+2y,\\quad f_{yy}=6y,\\quad f_{xy}=f_{yx}=2x+1$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "For this smooth polynomial the mixed partials agree.",
+   "$\\partial_y(2xy+y)=2x+1$; independently $\\partial_x(x^2+x)=2x+1$."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e5_exp",
+  "title": "First and second partials of $e^{x^{2}y}$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f_x,f_y,f_{xx},f_{yy},f_{xy}$ for $f=e^{x^{2}y}$, written with $E=e^{x^{2}y}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Every derivative of the exponential brings down the inner derivative of $x^{2}y$."
+    ]
+   ],
+   [
+    "3. First partials",
+    [
+     "$f_x=2xyE,\\quad f_y=x^{2}E$"
+    ]
+   ],
+   [
+    "4. Second partials",
+    [
+     "$f_{xx}=(2y+4x^{2}y^{2})E,\\quad f_{yy}=x^{4}E$"
+    ]
+   ],
+   [
+    "5. Mixed partial",
+    [
+     "$f_{xy}=2xE+2xy\\cdot x^{2}E=(2x+2x^{3}y)E$"
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$f_x=2xyE,\\quad f_y=x^2E$",
+     "$f_{xx}=(2y+4x^2y^2)E,\\quad f_{yy}=x^4E$",
+     "$f_{xy}=(2x+2x^3y)E$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$4x^{2}y^{2}$ is $(2xy)^{2}$, straight from the product rule.",
+   "$f_{yy}=x^{4}E$: $x^{2}$ is brought down twice.",
+   "Every answer carries the factor $E$.",
+   "At fixed $y$: $E=1+yx^2+O(x^4)$, so $f_{xx}(0,y)=2y$."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e6_disc",
+  "title": "Relative error of $I=\\frac{Ma^2}{2}$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Relative error of $I$ when $M$ gains $0.1\\%$ and $a$ loses $0.2\\%$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "$I$ is a product of powers, so the relative errors add with their exponents."
+    ]
+   ],
+   [
+    "3. Logarithmic differential",
+    [
+     "$\\frac{dI}{I}=\\frac{dM}{M}+2\\frac{da}{a}$",
+     "For finite changes: $\\frac{\\Delta I}{I}\\approx\\frac{\\Delta M}{M}+2\\frac{\\Delta a}{a}$."
+    ]
+   ],
+   [
+    "4. Numbers",
+    [
+     "$0.1\\%+2(-0.2\\%)=-0.3\\%$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "Exact: $1.001\\times0.998^{2}-1=-0.2999996\\%$."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\frac{\\delta I}{I}\\approx-0.3\\%$, a decrease"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The exponent $2$ doubles the radius percentage change.",
+   "With $u=0.001$, $v=-0.002$: $v^2+2uv=0$.",
+   "The remaining $uv^2=4\\times10^{-9}$ is $4\\times10^{-7}$ percentage points."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e7_pendulum",
+  "title": "Relative change of $T=2\\pi\\sqrt{\\frac{l}{g}}$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Relative change of $T$ when $l$ gains $2\\%$ and $g$ loses $1\\%$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Take logs: $T$ is proportional to $l^{\\frac12}g^{-\\frac12}$."
+    ]
+   ],
+   [
+    "3. Logarithmic differential",
+    [
+     "$\\frac{dT}{T}=\\frac12\\frac{dl}{l}-\\frac12\\frac{dg}{g}$",
+     "Finite relative changes use $\\approx$, not equality."
+    ]
+   ],
+   [
+    "4. Numbers",
+    [
+     "$\\frac12(2\\%)-\\frac12(-1\\%)=1.5\\%$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "$\\frac{\\Delta T}{T}=\\sqrt{\\frac{1.02}{0.99}}-1\\approx1.5038438\\%$"
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\frac{\\delta T}{T}\\approx+1.5\\%$, the period grows"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The square root halves the first-order percentages.",
+   "A smaller $g$ makes $T$ larger.",
+   "Exact change minus linear estimate: about $0.0038438$ percentage points."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e8_implicit",
+  "title": "Change in $z$ from $z^{2}=x^{2}+2y$ at $(3,4)$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\Delta z$ and $\\frac{\\Delta z}{z}$ when $x=3$, $y=4$ both rise by $1\\%$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Differentiate the relation implicitly: $z$ is not given explicitly."
+    ]
+   ],
+   [
+    "3. Differential",
+    [
+     "$2z\\,dz=2x\\,dx+2\\,dy$",
+     "$\\Delta z\\approx dz=\\frac{x\\,\\Delta x+\\Delta y}{z}$"
+    ]
+   ],
+   [
+    "4. Numbers",
+    [
+     "$\\Delta x=0.03$, $\\Delta y=0.04$, $z=\\pm\\sqrt{17}$",
+     "$dz=\\pm\\frac{0.13}{\\sqrt{17}}\\approx\\pm0.0315296313$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "Positive branch: $\\sqrt{17.2609}-\\sqrt{17}\\approx0.0315183044$.",
+     "Negative branch gives the opposite change."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\Delta z\\approx\\pm0.03153$",
+     "$\\frac{\\Delta z}{z}\\approx\\frac{0.13}{17}\\approx0.764706\\%$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The sign follows the branch $z=\\pm\\sqrt{17}$; relative changes agree.",
+   "Check $z\\ne0$ before division; state the branch for a numerical answer.",
+   "The differential is a linear estimate, not the exact finite change."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e9_chain_t",
+  "title": "Chain rule for $z=e^{xy^{2}}$ with $x=t^{2}$, $y=\\sin t$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\frac{dz}{dt}$ along $x=t^2$, $y=\\sin t$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Both inputs depend on $t$, so both paths contribute."
+    ]
+   ],
+   [
+    "3. Ingredients",
+    [
+     "$z_x=y^2e^{xy^2},\\quad z_y=2xye^{xy^2}$",
+     "$x'=2t,\\quad y'=\\cos t$"
+    ]
+   ],
+   [
+    "4. Assemble",
+    [
+     "$\\frac{dz}{dt}=e^{xy^{2}}\\left(2ty^{2}+2xy\\cos t\\right)$"
+    ]
+   ],
+   [
+    "5. Back in $t$",
+    [
+     "$\\frac{dz}{dt}=e^{t^{2}\\sin^{2}t}\\left(2t\\sin^{2}t+2t^{2}\\sin t\\cos t\\right)$"
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\frac{dz}{dt}=e^{t^{2}\\sin^{2}t}\\left(2t\\sin^{2}t+2t^{2}\\sin t\\cos t\\right)$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$2xy$ in $z_y$ is where $2t^{2}\\sin t\\cos t$ comes from.",
+   "Substituting first and differentiating in $t$ reproduces the same line.",
+   "Two paths, two terms: neither may be dropped.",
+   "Near $0$: $z(t)=1+t^4+O(t^6)$, hence $z'(0)=0$."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e10_chain_x",
+  "title": "$z=\\arctan\\left(\\frac{x}{y}\\right)$ with $y=\\sin x$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Find $\\frac{dz}{dx}$ along $y=\\sin x$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Case 2 of the chain rule: $\\frac{dz}{dx}=z_x+z_y\\,y'$."
+    ]
+   ],
+   [
+    "3. Partial derivatives",
+    [
+     "$z_x=\\frac{y}{x^{2}+y^{2}},\\quad z_y=-\\frac{x}{x^{2}+y^{2}}$"
+    ]
+   ],
+   [
+    "4. Combine",
+    [
+     "$\\frac{dz}{dx}=\\frac{y-x\\cos x}{x^{2}+y^{2}}$"
+    ]
+   ],
+   [
+    "5. Substitute $y=\\sin x$",
+    [
+     "$\\frac{dz}{dx}=\\frac{\\sin x-x\\cos x}{x^{2}+\\sin^{2}x}$"
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\frac{dz}{dx}=\\frac{\\sin x-x\\cos x}{x^{2}+\\sin^{2}x}$, with $\\sin x\\neq0$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$z_x=\\frac{1}{1+(\\frac{x}{y})^2}\\frac{1}{y}=\\frac{y}{x^2+y^2}$: include the inner derivative.",
+   "The $y$-derivative carries a minus sign.",
+   "$\\sin x=0$ is excluded: state the domain."
+  ]
+ },
+ {
+  "slug": "ex_ch9_e11_implicit",
+  "title": "Implicit slope from $xy+\\sin y=0$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\frac{dy}{dx}$ on $z(x,y)=xy+\\sin y=0$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "On the curve $z$ is constant, so its total differential vanishes."
+    ]
+   ],
+   [
+    "3. Partial derivatives",
+    [
+     "$z_x=y,\\quad z_y=x+\\cos y$"
+    ]
+   ],
+   [
+    "4. Solve",
+    [
+     "$y\\,dx+(x+\\cos y)\\,dy=0$"
+    ]
+   ],
+   [
+    "5. Check",
+    [
+     "At $(0,0)$ the curve is horizontal: $\\frac{dy}{dx}=-\\frac{0}{0+1}=0$."
+    ]
+   ],
+   [
+    "6. Answer",
+    [
+     "$\\frac{dy}{dx}=-\\frac{y}{x+\\cos y}$, with $x+\\cos y\\neq0$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The denominator $z_y=x+\\cos y$ must be nonzero.",
+   "The minus sign comes from moving $z_x\\,dx$ across.",
+   "No solving for $y$ is needed."
+  ]
+ },
+ {
+  "slug": "ex_l6_e9_diffusion",
+  "title": "Heat diffusion: aliasing, three aligned slices, double buffering",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "A 1-D rod with fixed cold ends, inner points updated by $u_i^{\text{new}}=u_i+\frac14(u_{i-1}-2u_i+u_{i+1})$: find the aliasing bug, write the vectorised version, run 20 steps on 21 points, fix the history snapshots."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The right-hand side must read one old time level, so shared memory between new and old decides correctness before speed; the slices $T[:-2]$, $T[1:-1]$, $T[2:]$ align left, centre and right neighbours."
+    ]
+   ],
+   [
+    "3. Step 1 - the aliasing bug",
+    [
+     "new = T writes in place: $u_1=0+\frac14(0-0+8)=2$, then $u_2=8+\frac14(2-16+0)=4.5$.",
+     "Input and output both end up as $[0,\\ 2,\\ 4.5,\\ 1.125,\\ 0]$."
+    ]
+   ],
+   [
+    "4. Step 2 - copy + three slices",
+    [
+     "$\\text{new}[1:-1]=T[1:-1]+\\frac14\\left(T[:-2]-2\\,T[1:-1]+T[2:]\\right)$",
+     "One correct step gives $[0,\\ 2,\\ 4,\\ 2,\\ 0]$ and $T$ stays $[0,0,8,0,0]$."
+    ]
+   ],
+   [
+    "5. Step 3 - 20 steps, 21 points",
+    [
+     "$T^{(k+1)}=\text{diffuse}(T^{(k)})$ rebinding is safe because the fixed function never writes in place.",
+     "The centre spike 100 spreads into a wider, lower, symmetric profile, peak $\\approx 12.5$."
+    ]
+   ],
+   [
+    "6. Step 4 - double buffering",
+    [
+     "history $=[A,B,A,B]$ repeats references; snapshot the initial state and every step with current.copy().",
+     "Snapshots: $[0,0,8,0,0]$, $[0,2,4,2,0]$, $[0,2,3,2,0]$, $[0,1.75,2.5,1.75,0]$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "One-step check: symmetric, ends stay 0, total heat stays 8.",
+   "The time recursion cannot be vectorised away: each step reads the previous one.",
+   "Working storage $O(n)$, full history $O(mn)$, total time $O(mn)$.",
+   "Copy at both ends: the initial snapshot and every appended step."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_case1",
+  "title": "Differentiate $z=e^{xy^{2}}$ along $x=t^{2}$ and $y=\\sin t$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Find $\\frac{dz}{dt}$ for $z=e^{xy^{2}}$, $x=t^{2}$ and $y=\\sin t$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Both inputs move with $t$, so add both dependency paths.",
+     "$\\frac{dz}{dt}=\\frac{\\partial z}{\\partial x}\\frac{dx}{dt}+\\frac{\\partial z}{\\partial y}\\frac{dy}{dt}$."
+    ]
+   ],
+   [
+    "3. Differentiate the output",
+    [
+     "$\\frac{\\partial z}{\\partial x}=y^{2}e^{xy^{2}}$, $\\frac{\\partial z}{\\partial y}=2xye^{xy^{2}}$.",
+     "Each partial keeps the exponential and differentiates its exponent."
+    ]
+   ],
+   [
+    "4. Trace the factors",
+    [
+     "$\\frac{dx}{dt}=2t$ and $\\frac{dy}{dt}=\\cos t$.",
+     "The two factors of $2$ come separately from differentiating $t^{2}$ and $y^{2}$."
+    ]
+   ],
+   [
+    "5. Numbers and substitution",
+    [
+     "$\\frac{dz}{dt}=e^{xy^{2}}y^{2}(2t)+e^{xy^{2}}2xy\\cos t$, with $x=t^{2}$ and $y=\\sin t$.",
+     "At $t=0$, the derivative is $0$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Substitute first: $z=e^{t^{2}(\\sin t)^{2}}$.",
+     "Differentiating its exponent gives $2t(\\sin t)^{2}+2t^{2}\\sin t\\cos t$, matching both paths."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Include both paths from $t$ to $z$.",
+   "The square belongs to $y$ in $xy^{2}$.",
+   "Use radians for trigonometric derivatives."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_arctan_constraint",
+  "title": "Differentiate $z=\\arctan(x/y)$ under $y=\\sin x$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Find $\\frac{dz}{dx}$ in terms of $x$ for $z=\\arctan(x/y)$ and $y=\\sin x$.",
+     "The original expression requires nonzero $\\sin x$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The constraint moves $y$ with $x$, so include the indirect route.",
+     "$\\frac{dz}{dx}=\\frac{\\partial z}{\\partial x}+\\frac{\\partial z}{\\partial y}\\frac{dy}{dx}$."
+    ]
+   ],
+   [
+    "3. Find the ingredients",
+    [
+     "$\\frac{\\partial z}{\\partial x}=\\frac{1}{1+(x/y)^{2}}\\frac{1}{y}$.",
+     "$\\frac{\\partial z}{\\partial y}=\\frac{1}{1+(x/y)^{2}}\\frac{-x}{y^{2}}$, $\\frac{dy}{dx}=\\cos x$."
+    ]
+   ],
+   [
+    "4. Trace signs and coefficients",
+    [
+     "The $1$ comes from the inverse-tangent derivative; the minus sign comes from differentiating $y^{-1}$.",
+     "The common denominator is $y^{2}(1+(x/y)^{2})=y^{2}+x^{2}$."
+    ]
+   ],
+   [
+    "5. Numbers and substitution",
+    [
+     "$\\frac{dz}{dx}=\\frac{y-x\\cos x}{y^{2}+x^{2}}=\\frac{\\sin x-x\\cos x}{\\sin^{2}x+x^{2}}$.",
+     "Substitute $y=\\sin x$; no numerical point is specified."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Direct substitution gives $\\frac{d}{dx}\\arctan\\left(\\frac{x}{\\sin x}\\right)=\\frac{1}{1+(x/\\sin x)^{2}}\\frac{\\sin x-x\\cos x}{\\sin^{2}x}$.",
+     "This simplifies to the same result and retains the original domain restriction."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The total derivative includes the moving $y$.",
+   "The cosine multiplies only the indirect route.",
+   "Simplification does not restore excluded points."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_inverse_tangent",
+  "title": "Recover $\\frac{d}{dx}\\arctan x$ from $\\tan y=x$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "For $y=\\arctan x$ on the principal branch, find $\\frac{dy}{dx}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Undo inverse tangent to obtain $\\tan y=x$.",
+     "This locally invertible one-variable relation allows reciprocal ordinary derivatives."
+    ]
+   ],
+   [
+    "3. Differentiate the forward relation",
+    [
+     "$\\frac{dx}{dy}=\\sec^{2}y=1+\\tan^{2}y=1+x^{2}$.",
+     "Replace $\\tan y$ by $x$."
+    ]
+   ],
+   [
+    "4. Locate the constant",
+    [
+     "The constant $1$ comes from $\\sec^{2}y=1+\\tan^{2}y$.",
+     "The forward derivative is positive, so its reciprocal has no minus sign."
+    ]
+   ],
+   [
+    "5. Numbers",
+    [
+     "$\\frac{dy}{dx}=\\frac{1}{1+x^{2}}$.",
+     "At $x=0$, $y=0$ and the derivative is $1$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Implicit differentiation gives $\\sec^{2}y\\frac{dy}{dx}=1$.",
+     "Solving yields the same $\\frac{1}{1+x^{2}}$, whose denominator is positive for every real $x$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Inverse tangent is not reciprocal tangent.",
+   "Undo the inverse function before differentiating.",
+   "This reciprocal argument concerns an ordinary one-variable derivative."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_implicit",
+  "title": "Find the slope along $xy+\\sin y=0$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Find $\\frac{dy}{dx}$ along $z(x,y)=xy+\\sin y=0$.",
+     "The output is constant while the inputs remain linked."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "A constant output has zero total derivative, avoiding an explicit solution for $y$.",
+     "$0=\\frac{\\partial z}{\\partial x}+\\frac{\\partial z}{\\partial y}\\frac{dy}{dx}$."
+    ]
+   ],
+   [
+    "3. Compute the partials",
+    [
+     "$\\frac{\\partial z}{\\partial x}=y$, $\\frac{\\partial z}{\\partial y}=x+\\cos y$.",
+     "Hold the other input fixed in each partial derivative."
+    ]
+   ],
+   [
+    "4. Trace the minus sign",
+    [
+     "Move $y$ across $0=y+(x+\\cos y)\\frac{dy}{dx}$ to obtain the minus sign.",
+     "The denominator contains $x$ from $xy$ and $\\cos y$ from $\\sin y$."
+    ]
+   ],
+   [
+    "5. Numbers and substitution",
+    [
+     "Substitute the partials: $\\frac{dy}{dx}=-\\frac{y}{x+\\cos y}$.",
+     "No numerical point is given; require a differentiable branch with nonzero $x+\\cos y$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Direct product and chain rules give $y+x\\frac{dy}{dx}+\\cos y\\frac{dy}{dx}=0$.",
+     "Collecting the slope terms reproduces the same quotient."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "A constant output does not freeze both inputs.",
+   "Differentiating $xy$ along the curve needs both product-rule terms.",
+   "Check the denominator before dividing."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_polar",
+  "title": "Transform the partial derivatives of $z(x,y)$ into polar coordinates",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Given $x=r\\cos\\theta$ and $y=r\\sin\\theta$, find $\\frac{\\partial z}{\\partial r}$ and $\\frac{\\partial z}{\\partial\\theta}$ for differentiable $z(x,y)$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Each new input changes both old coordinates, so use the two-path chain rule.",
+     "Keep the old partials symbolic because $z$ is unspecified."
+    ]
+   ],
+   [
+    "3. Build the radial derivative",
+    [
+     "$\\frac{\\partial x}{\\partial r}=\\cos\\theta$, $\\frac{\\partial y}{\\partial r}=\\sin\\theta$ at fixed angle.",
+     "$\\frac{\\partial z}{\\partial r}=\\frac{\\partial z}{\\partial x}\\cos\\theta+\\frac{\\partial z}{\\partial y}\\sin\\theta$."
+    ]
+   ],
+   [
+    "4. Trace the angular coefficients",
+    [
+     "At fixed radius, $\\frac{\\partial x}{\\partial\\theta}=-r\\sin\\theta$ and $\\frac{\\partial y}{\\partial\\theta}=r\\cos\\theta$.",
+     "The minus sign comes from cosine; the fixed factor $r$ remains."
+    ]
+   ],
+   [
+    "5. Numbers and substitution",
+    [
+     "$\\frac{\\partial z}{\\partial\\theta}=-\\frac{\\partial z}{\\partial x}r\\sin\\theta+\\frac{\\partial z}{\\partial y}r\\cos\\theta$.",
+     "Evaluate the old partials at $x=r\\cos\\theta$, $y=r\\sin\\theta$; no numerical $z$ is given."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "For $z=x$, the old partials are $1$ and $0$, giving $\\frac{\\partial z}{\\partial r}=\\cos\\theta$ and $\\frac{\\partial z}{\\partial\\theta}=-r\\sin\\theta$.",
+     "Direct differentiation of $z=r\\cos\\theta$ agrees; at $\\theta=0$ the angular derivative is $0$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Radial differentiation holds the angle fixed.",
+   "Angular differentiation holds the radius fixed and retains $r$.",
+   "An invertible polar coordinate description requires $r>0$."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_reciprocal",
+  "title": "Explain why reversing a polar partial derivative does not give its reciprocal",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Compare $\\frac{\\partial x}{\\partial r}$ at fixed $\\theta$ with $\\frac{\\partial r}{\\partial x}$ at fixed $y$ for $x=r\\cos\\theta$, $y=r\\sin\\theta$.",
+     "Use $r>0$ and nonzero $\\cos\\theta$ when taking the forward reciprocal."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The held-fixed variables differ, so reconstruct radius from both Cartesian inputs.",
+     "$x^{2}+y^{2}=r^{2}$ gives $r=\\sqrt{x^{2}+y^{2}}$."
+    ]
+   ],
+   [
+    "3. Differentiate at fixed input",
+    [
+     "At fixed $\\theta$, $\\frac{\\partial x}{\\partial r}=\\cos\\theta$, whose reciprocal is $\\frac{1}{\\cos\\theta}$.",
+     "At fixed $y$, $\\frac{\\partial r}{\\partial x}=\\frac{1}{2}(x^{2}+y^{2})^{-1/2}2x=\\frac{x}{\\sqrt{x^{2}+y^{2}}}=\\cos\\theta$."
+    ]
+   ],
+   [
+    "4. Trace the square-root factors",
+    [
+     "The outer square root gives $\\frac{1}{2}$, and differentiating the inner $x^{2}$ gives $2x$.",
+     "The numerical factors cancel; fixed $y^{2}$ contributes $0$."
+    ]
+   ],
+   [
+    "5. Numbers",
+    [
+     "At $r=1$, $\\theta=\\frac{\\pi}{3}$, we have $x=\\frac{1}{2}$ and $y=\\frac{\\sqrt{3}}{2}$.",
+     "Then $\\frac{\\partial r}{\\partial x}=\\frac{1}{2}$, while the reciprocal of $\\frac{\\partial x}{\\partial r}$ is $2$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "The numerical values differ, disproving the general reciprocal claim.",
+     "At $\\theta=0$ both equal $1$, but special agreement does not establish a general rule."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Name the held-fixed variable before reversing a partial.",
+   "Use both Cartesian inputs in $r=\\sqrt{x^{2}+y^{2}}$.",
+   "At fixed $y$, the angle generally changes with $x$."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_polynomial_proof",
+  "title": "Prove the chain-rule identity for $x=s^{2}-t^{2}$ and $y=2st$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "For differentiable $u(x,y)$ with $x=s^{2}-t^{2}$ and $y=2st$, prove $s\\frac{\\partial u}{\\partial s}-t\\frac{\\partial u}{\\partial t}=2(s^{2}+t^{2})\\frac{\\partial u}{\\partial x}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Expand the left side using the known coordinate derivatives.",
+     "Keep the old partials symbolic and cancel the $y$ contributions."
+    ]
+   ],
+   [
+    "3. Expand both derivatives",
+    [
+     "$\\frac{\\partial u}{\\partial s}=2s\\frac{\\partial u}{\\partial x}+2t\\frac{\\partial u}{\\partial y}$.",
+     "$\\frac{\\partial u}{\\partial t}=-2t\\frac{\\partial u}{\\partial x}+2s\\frac{\\partial u}{\\partial y}$."
+    ]
+   ],
+   [
+    "4. Trace coefficients and signs",
+    [
+     "The factors $2s$, $-2t$, $2t$ and positive $2s$ come from differentiating $s^{2}-t^{2}$ and $2st$.",
+     "The outer $-t$ changes the inner $-2t$ into $+2t^{2}$ and the inner $2s$ into $-2st$."
+    ]
+   ],
+   [
+    "5. Numbers and coefficient substitution",
+    [
+     "The $y$ coefficient is $2st-2st=0$; the $x$ coefficient is $2s^{2}+2t^{2}$.",
+     "Hence $s\\frac{\\partial u}{\\partial s}-t\\frac{\\partial u}{\\partial t}=2(s^{2}+t^{2})\\frac{\\partial u}{\\partial x}$."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "For $u=x$, the left side is $s(2s)-t(-2t)=2(s^{2}+t^{2})$, matching the right side.",
+     "For $u=y$, it is $s(2t)-t(2s)=0$, again matching the right side."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Here $u$ is the output and $s,t$ are independent inputs.",
+   "The derivative of $2st$ with respect to $t$ is positive $2s$.",
+   "Distribute the outer minus to both terms."
+  ]
+ },
+ {
+  "slug": "ex_math_20261117_exponential_proof",
+  "title": "Prove the chain-rule identity for $x=e^{u}$ and $y=e^{v}$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "For differentiable $z(x,y)$ with $x=e^{u}$ and $y=e^{v}$, prove $x\\frac{\\partial z}{\\partial x}+y\\frac{\\partial z}{\\partial y}=\\frac{\\partial z}{\\partial u}+\\frac{\\partial z}{\\partial v}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Start from the new-coordinate derivatives on the right and apply the two-path chain rule.",
+     "No particular formula for $z$ is needed."
+    ]
+   ],
+   [
+    "3. Expand the two routes",
+    [
+     "$\\frac{\\partial z}{\\partial u}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial u}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial u}$.",
+     "$\\frac{\\partial z}{\\partial v}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial v}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial v}$."
+    ]
+   ],
+   [
+    "4. Locate zero and surviving factors",
+    [
+     "$\\frac{\\partial x}{\\partial u}=e^{u}$, $\\frac{\\partial y}{\\partial u}=0$, $\\frac{\\partial x}{\\partial v}=0$, $\\frac{\\partial y}{\\partial v}=e^{v}$.",
+     "Absent dependencies give zero; each exponential differentiates to itself."
+    ]
+   ],
+   [
+    "5. Numbers and substitution",
+    [
+     "Substituting gives $\\frac{\\partial z}{\\partial u}+\\frac{\\partial z}{\\partial v}=e^{u}\\frac{\\partial z}{\\partial x}+e^{v}\\frac{\\partial z}{\\partial y}=x\\frac{\\partial z}{\\partial x}+y\\frac{\\partial z}{\\partial y}$.",
+     "The surviving second partial is with respect to $y$, as supported by the notes."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "For $z=xy$, the old-coordinate side is $xy+yx=2xy$.",
+     "The transformed function is $e^{u+v}$, so adding its two new partials also gives $2xy$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Zero coordinate factors mean absent dependencies, not a constant output.",
+   "The second surviving route keeps $\\frac{\\partial z}{\\partial y}$.",
+   "The exponential transformation gives positive $x$ and $y$."
+  ]
+ },
+ {
+  "slug": "ex_mech40009_20261116_bar_bc",
+  "title": "Moment of a force about bar $BC$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$A=(4,2,2)$ m, $B=(0,0,3)$ m, $C=(0,4,0)$ m, force $\\vec F=-2\\vec i+6\\vec j+3\\vec k$ kN at $A$.",
+     "Find the moment about bar $BC$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The bar is not a coordinate axis, so use axis unit vector, position vector, force in a scalar triple product.",
+     "The order is axis direction, position, force."
+    ]
+   ],
+   [
+    "3. Position and axis direction",
+    [
+     "$\\vec r_{BA}=4\\vec i+2\\vec j-\\vec k$ m",
+     "$\\vec e_{BC}=\\frac{4\\vec j-3\\vec k}{5}=0.8\\vec j-0.6\\vec k$"
+    ]
+   ],
+   [
+    "4. Point moment by cross product",
+    [
+     "$\\vec M_B=\\vec r_{BA}\\times\\vec F=12\\vec i-10\\vec j+28\\vec k$ kN·m"
+    ]
+   ],
+   [
+    "5. Project onto the axis",
+    [
+     "$m_{BC}=\\vec e_{BC}\\cdot\\vec M_B=0.8(-10)-0.6(28)=-24.8$ kN·m"
+    ]
+   ],
+   [
+    "6. Answer and check",
+    [
+     "$\\vec M_{BC}=-24.8\\,\\vec e_{BC}=-19.84\\vec j+14.88\\vec k$ kN·m",
+     "Negative sign means the vector points from $C$ towards $B$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Unit vector has no metre unit.",
+   "Keep the sign when multiplying by $\\vec e_{BC}$."
+  ]
+ },
+ {
+  "slug": "ex_mech40009_20261116_crankshaft",
+  "title": "Two forces on a crankshaft: sum of moments about $x$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\vec F_A=4$ kN with direction cosines $(-0.182,0.818,0.545)$.",
+     "$\\vec F_B=2$ kN with $(0.182,0.818,-0.545)$.",
+     "Find the total moment about the $x$ axis."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Only the $x$ component of each cross product is needed.",
+     "Superposition adds the two signed contributions."
+    ]
+   ],
+   [
+    "3. Position vectors",
+    [
+     "$\\vec r_{OA}=0.16\\vec i+0.08\\vec k$ m",
+     "$\\vec r_{OB}=0.36\\vec i-0.08\\vec k$ m"
+    ]
+   ],
+   [
+    "4. Force components",
+    [
+     "$\\vec F_A=-0.728\\vec i+3.272\\vec j+2.180\\vec k$ kN",
+     "$\\vec F_B=0.364\\vec i+1.636\\vec j-1.090\\vec k$ kN"
+    ]
+   ],
+   [
+    "5. Add the $x$ components",
+    [
+     "$M_x=(-0.08)(3.272)+(0.08)(1.636)$ kN·m",
+     "$=-0.26176+0.13088$ kN·m"
+    ]
+   ],
+   [
+    "6. Answer and check",
+    [
+     "$M_x=-0.13088\\approx-0.131$ kN·m",
+     "The two $y$ forces oppose each other, so the sum is smaller than either term."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$0.08$ m comes from $80$ mm; the two $z$ offsets have opposite signs.",
+   "Do not use $0.16$ and $0.36$ as perpendicular offsets."
+  ]
+ },
+ {
+  "slug": "ex_mech40004_20261116_reluctance",
+  "title": "Reluctance of a car-lifting electromagnet",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$1000$ turns, area $400$ mm$^{2}$, core $\\mu_r=800$, $l=0.5$ m.",
+     "Roof $\\mu_r=200$, $l=0.32$ m.",
+     "Find the total reluctance with no air gap."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The core and the roof form one series magnetic path.",
+     "Compute each reluctance with its own material, then add."
+    ]
+   ],
+   [
+    "3. Convert the area",
+    [
+     "$A=400\\times10^{-6}=4\\times10^{-4}$ m$^{2}$"
+    ]
+   ],
+   [
+    "4. Core reluctance",
+    [
+     "$S_{core}=\\frac{0.5}{800\\times4\\pi\\times10^{-7}\\times4\\times10^{-4}}\\approx1.24\\times10^{6}$ A/Wb"
+    ]
+   ],
+   [
+    "5. Roof reluctance",
+    [
+     "$S_{roof}=\\frac{0.32}{200\\times4\\pi\\times10^{-7}\\times4\\times10^{-4}}\\approx3.18\\times10^{6}$ A/Wb"
+    ]
+   ],
+   [
+    "6. Total and check",
+    [
+     "$S_{total}\\approx4.43\\times10^{6}$ A/Wb",
+     "Shorter but four times less permeable, so the roof must dominate."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$1000$ is the turns count, not $\\mu_r$.",
+   "Reluctance adds for a series path."
+  ]
+ },
+ {
+  "slug": "ex_mech40004_20261116_holding_current",
+  "title": "Minimum holding current for a $2000$ kg car",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Hold $2000$ kg with two pole faces of $4\\times10^{-4}$ m$^{2}$ each.",
+     "Coil has $1000$ turns.",
+     "Find the ideal minimum current."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "At the threshold, magnetic force balances weight.",
+     "Use both faces for force, one section for flux."
+    ]
+   ],
+   [
+    "3. Required force",
+    [
+     "$F=mg=2000\\times9.81\\approx19600$ N"
+    ]
+   ],
+   [
+    "4. Flux density from force",
+    [
+     "$B=\\sqrt{\\frac{2\\mu_0F}{A_{force}}}=\\sqrt{\\frac{19600\\times4\\pi\\times10^{-7}}{8\\times10^{-4}}}\\approx7.85$ T"
+    ]
+   ],
+   [
+    "5. Flux and current",
+    [
+     "$\\phi=BA=7.85\\times4\\times10^{-4}\\approx3.14\\times10^{-3}$ Wb",
+     "$i=\\frac{\\phi S_{total}}{N}\\approx13.9$ A"
+    ]
+   ],
+   [
+    "6. Answer and check",
+    [
+     "$i\\approx13.9$ A",
+     "$7.85$ T is far above steel saturation, so this is a linear idealisation only."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Two faces give force; one section carries flux.",
+   "$9.81$ m/s$^{2}$ is the $g$ used here."
+  ]
+ },
+ {
+  "slug": "ex_mech40005_20261117_composite",
+  "title": "Rod and tube sharing one load",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Tube and coaxial rod, equal length $L$, same rigid end plates.",
+     "Areas $A_1,A_2$, moduli $E_1,E_2$, force $F$.",
+     "Find the load-point displacement."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Two unknown member forces, so equilibrium alone is not enough.",
+     "Add equal-extension compatibility and the elastic law."
+    ]
+   ],
+   [
+    "3. Equilibrium and compatibility",
+    [
+     "$F=F_1+F_2$",
+     "$\\Delta L_1=\\Delta L_2=\\Delta L$, so $\\varepsilon_1=\\varepsilon_2=\\frac{\\Delta L}{L}$"
+    ]
+   ],
+   [
+    "4. Member forces",
+    [
+     "$F_1=E_1A_1\\frac{\\Delta L}{L}$, $F_2=E_2A_2\\frac{\\Delta L}{L}$"
+    ]
+   ],
+   [
+    "5. Solve for the extension",
+    [
+     "$F=\\frac{\\Delta L}{L}(E_1A_1+E_2A_2)$"
+    ]
+   ],
+   [
+    "6. Answer and check",
+    [
+     "$\\Delta L=\\frac{FL}{E_1A_1+E_2A_2}$",
+     "$EA$ has units N, so $FL/(EA)$ has units m."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Equal strain does not mean equal stress.",
+   "$EA$ terms add because the members act in parallel."
+  ]
+ },
+ {
+  "slug": "ex_mech40005_20261117_tie_rods",
+  "title": "Cylinder with four tie rods: shared axial load",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$P=20$ MPa, $R=40$ mm, $t=4$ mm, four rods $d=8$ mm.",
+     "$E=200$ GPa, $\\nu=0.3$, radial stress neglected.",
+     "Find $\\sigma_\\theta$, $\\sigma_{z}$, $\\sigma_{rod}$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Wall and rods share the end load: one equilibrium equation.",
+     "Equal axial extension gives the second equation."
+    ]
+   ],
+   [
+    "3. Areas and pressure force",
+    [
+     "$F_P=P\\pi R^{2}=32000\\pi$ N",
+     "$A_{rod}=16\\pi$ mm$^{2}$ each, $A_{cyl}=336\\pi$ mm$^{2}$"
+    ]
+   ],
+   [
+    "4. Hoop stress",
+    [
+     "$\\sigma_\\theta=\\frac{PR}{t}=\\frac{20\\times40}{4}=200$ MPa"
+    ]
+   ],
+   [
+    "5. Two equations",
+    [
+     "$\\sigma_{rod}+5.25\\sigma_{z}=500$ MPa",
+     "$\\sigma_{rod}-\\sigma_{z}=-\\nu\\sigma_\\theta=-60$ MPa"
+    ]
+   ],
+   [
+    "6. Answer and check",
+    [
+     "$\\sigma_{z}=89.6$ MPa, $\\sigma_{rod}=29.6$ MPa",
+     "$29.6+5.25(89.6)=500$ checks out."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$5.25=336/64$ is the area ratio.",
+   "$\\sigma_r\\approx-20$ MPa is about one tenth of the hoop stress."
+  ]
+ },
+ {
+  "slug": "ex_mech40009_20261116_work_slope",
+  "title": "Work done by a constant force along a slope",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$\\vec r_1=(35\\vec i+51\\vec j)$ m, $\\vec r_2=(100\\vec i+71\\vec j)$ m.",
+     "Constant force $\\vec F=(43\\vec i+50\\vec j)$ N.",
+     "Find the work done."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Constant force and known endpoints, so work is the dot product of force with displacement.",
+     "Force magnitude alone is not enough; direction matters."
+    ]
+   ],
+   [
+    "3. Displacement",
+    [
+     "$\\vec r_2-\\vec r_1=65\\vec i+20\\vec j$ m"
+    ]
+   ],
+   [
+    "4. Dot product",
+    [
+     "$W=43\\times65+50\\times20$ J",
+     "$=2795+1000$ J"
+    ]
+   ],
+   [
+    "5. Answer",
+    [
+     "$W=3795$ J"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "All components positive, so positive work is expected.",
+     "Each product is N·m, which is a joule."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Subtract end minus start, not the reverse.",
+   "Work is J; moment is N·m; different quantities."
+  ]
+ },
+ {
+  "slug": "ex_mech40009_20261116_inclined_block",
+  "title": "A block resting on a slope",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Stationary block of weight $W$ on a slope of angle $\\alpha$.",
+     "Find the normal force $N$ and friction $f$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The block is at rest, so balance forces along and perpendicular to the plane.",
+     "Do not assume friction is already at its maximum."
+    ]
+   ],
+   [
+    "3. Perpendicular balance",
+    [
+     "$N-W\\cos\\alpha=0$",
+     "$N=W\\cos\\alpha$"
+    ]
+   ],
+   [
+    "4. Parallel balance",
+    [
+     "$f-W\\sin\\alpha=0$",
+     "$f=W\\sin\\alpha$"
+    ]
+   ],
+   [
+    "5. Relate the two",
+    [
+     "$f=N\\tan\\alpha$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "At $\\alpha=0$: $f=0$ and $N=W$, which matches a flat floor."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Normal force is perpendicular to the slope, not vertical.",
+   "Friction opposes the tendency to slip."
+  ]
+ },
+ {
+  "slug": "ex_mech40009_20261116_tilt_test",
+  "title": "Estimating $\\mu_s$ from the tilt angle",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "The block starts to slip at about $20$ degrees.",
+     "Estimate the coefficient of static friction."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "At impending slip the friction is at its maximum, so $f=\\mu_sN$.",
+     "Combined with $f=N\\tan\\alpha$ this gives $\\mu_s=\\tan\\alpha$."
+    ]
+   ],
+   [
+    "3. Limiting condition",
+    [
+     "$N\\tan\\alpha_{max}=\\mu_sN$",
+     "$\\mu_s=\\tan\\alpha_{max}$"
+    ]
+   ],
+   [
+    "4. Substitute the angle",
+    [
+     "$\\alpha_{max}\\approx20$ degrees"
+    ]
+   ],
+   [
+    "5. Answer",
+    [
+     "$\\mu_s\\approx\\tan20$ degrees $\\approx0.36$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$\\tan0=0$ and $\\tan$ increases here, so a positive value below $1$ is sensible."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Set the calculator to degrees.",
+   "The angle was approximate, so this is an estimate."
+  ]
+ },
+ {
+  "slug": "ex_mech40004_20261116_emf_ledger",
+  "title": "Induced emf: sign and magnitude",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "A coil of $N$ turns sits in a changing flux $\\phi(t)$.",
+     "State the induced emf and its direction rule."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Faraday gives the magnitude; Lenz fixes the direction.",
+     "Use a consistent positive direction for flux and emf."
+    ]
+   ],
+   [
+    "3. Faraday's law",
+    [
+     "$e=-N\\frac{d\\phi}{dt}$"
+    ]
+   ],
+   [
+    "4. What the minus sign means",
+    [
+     "The induced current opposes the change in flux.",
+     "It does not oppose every field or every motion."
+    ]
+   ],
+   [
+    "5. Units",
+    [
+     "$\\phi$ in Wb, $t$ in s, so $e$ comes out in V."
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Steady flux means $d\\phi/dt=0$, so no emf is induced."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Open circuit: emf exists but no sustained current.",
+   "More turns or faster change gives a bigger emf."
+  ]
+ },
+ {
+  "slug": "ex_mech40004_20261116_commutator",
+  "title": "Why a brushed DC machine needs a commutator",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "A single winding turns between fixed poles.",
+     "Explain why the current must be reversed twice per turn."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The conductor forces reverse when the winding passes the neutral position.",
+     "Without switching, the torque would reverse too."
+    ]
+   ],
+   [
+    "3. Force on each side",
+    [
+     "$F=Bli$ on both sides, in opposite directions."
+    ]
+   ],
+   [
+    "4. Near the neutral position",
+    [
+     "The forces act along the axle line, so the moment about the axis falls to zero."
+    ]
+   ],
+   [
+    "5. The commutator's job",
+    [
+     "The segments swap brushes every half turn, so the coil current reverses."
+    ]
+   ],
+   [
+    "6. Result",
+    [
+     "The torque keeps one sign, but still pulsates with position."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Brushes stay fixed; segments rotate.",
+   "One-way torque does not mean constant torque."
+  ]
+ },
+ {
+  "slug": "ex_math_20261119_reciprocal",
+  "title": "polar partials: $\\frac{\\partial r}{\\partial x}$ is not the reciprocal",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "From $x=r\\cos\\theta$, $y=r\\sin\\theta$ and $r=\\frac{x}{\\cos\\theta}$, find $\\frac{\\partial r}{\\partial x}$.",
+     "Show it equals $\\cos\\theta$, the direct answer."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The mixed form hides $\\theta=\\theta(x,y)$ inside.",
+     "Freezing $\\theta$ drops half the change."
+    ]
+   ],
+   [
+    "3. Product rule",
+    [
+     "$\\frac{\\partial r}{\\partial x}=\\frac{1}{\\cos\\theta}+x\\frac{\\partial}{\\partial x}\\cos^{-1}\\theta$",
+     "second piece $=\\frac{x\\sin\\theta}{\\cos^{2}\\theta}\\frac{\\partial\\theta}{\\partial x}$"
+    ]
+   ],
+   [
+    "4. The missing link",
+    [
+     "$\\theta=\\arctan\\frac{y}{x}\\Rightarrow\\frac{\\partial\\theta}{\\partial x}=-\\frac{y}{r^{2}}$"
+    ]
+   ],
+   [
+    "5. Substitute and cancel",
+    [
+     "$\\frac{\\partial r}{\\partial x}=\\frac{1}{\\cos\\theta}-\\frac{r\\cos\\theta\\sin\\theta}{\\cos^{2}\\theta}\\cdot\\frac{r\\sin\\theta}{r^{2}}$",
+     "$=\\frac{1}{\\cos\\theta}-\\frac{\\sin^{2}\\theta}{\\cos\\theta}$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$=\\frac{1-\\sin^{2}\\theta}{\\cos\\theta}=\\cos\\theta=\\frac{x}{r}$",
+     "matches the direct route."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "A partial derivative freezes the other independent variables, and which ones are independent is a choice.",
+   "$1/\\cos\\theta$ alone is a partial derivative of $x/\\cos\\theta$, just not the one asked for.",
+   "$\\arctan(y/x)$ is quadrant-dependent, but its partials are not."
+  ]
+ },
+ {
+  "slug": "ex_math_20261119_taylor2d",
+  "title": "$f=x^{2}y$ about $(1,2)$: second-order expansion",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Expand $f(x,y)=x^{2}y$ about $(1,2)$ to second order, with $h=x-1$, $k=y-2$.",
+     "Identify the exact leftover."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "School algebra expands this function exactly,",
+     "so the truncation can be checked."
+    ]
+   ],
+   [
+    "3. Value and first derivatives",
+    [
+     "$f=2$, $f_{x}=2xy=4$, $f_{y}=x^{2}=1$"
+    ]
+   ],
+   [
+    "4. Second derivatives",
+    [
+     "$f_{xx}=2y=4$, $f_{xy}=2x=2$, $f_{yy}=0$"
+    ]
+   ],
+   [
+    "5. Assemble",
+    [
+     "$f\\approx2+4h+k+\\frac{1}{2}(4h^{2}+4hk)$",
+     "$=2+4h+k+2h^{2}+2hk$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Exact: $2+4h+k+2h^{2}+2hk+h^{2}k$",
+     "$h=0.1,k=0.2$: $2.66$ vs $2.662$, error $=h^{2}k$"
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The $\\frac{1}{2}$ acts on all three second-order terms, including $2hk f_{xy}$.",
+   "The dropped term is cubic in $h$ only, because there is no $y^{2}$ term.",
+   "At $h\\approx0.1$ the error is already in the third decimal."
+  ]
+ },
+ {
+  "slug": "ex_math_20261119_complete_square",
+  "title": "completing the square: the sign test for $\\Delta f$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Rewrite $\\Delta f=\\frac{1}{2}(ah^{2}+2bhk+ck^{2})$ so its sign can be read.",
+     "$a,b,c$ fixed; $h,k$ free and signed."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Squares are never negative,",
+     "so a sum of squares isolates the sign."
+    ]
+   ],
+   [
+    "3. Pull out $a$",
+    [
+     "$\\Delta f=\\frac{a}{2}\\left[h^{2}+\\frac{2b}{a}hk+\\frac{c}{a}k^{2}\\right]$",
+     "needs $a\\neq0$."
+    ]
+   ],
+   [
+    "4. Complete the square",
+    [
+     "$h^{2}+\\frac{2b}{a}hk=\\left(h+\\frac{b}{a}k\\right)^{2}-\\frac{b^{2}}{a^{2}}k^{2}$"
+    ]
+   ],
+   [
+    "5. Result",
+    [
+     "$\\Delta f=\\frac{a}{2}\\left[\\left(h+\\frac{b}{a}k\\right)^{2}+\\frac{ac-b^{2}}{a^{2}}k^{2}\\right]$"
+    ]
+   ],
+   [
+    "6. Read the sign",
+    [
+     "$ac-b^{2}>0$: sign of $a$ decides ($a<0$ max, $a>0$ min).",
+     "$ac-b^{2}<0$: sign follows $h,k$, so a saddle."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Completing the square is an identity, not an approximation.",
+   "$ac-b^{2}$ is the correction term the square leaves behind.",
+   "The test silently assumes $a\\neq0$ and says nothing when $ac-b^{2}=0$."
+  ]
+ },
+ {
+  "slug": "ex_math_20261119_stationary4",
+  "title": "four stationary points: two saddles, one max, one min",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "$f=x^{2}y-x^{3}-xy^{2}+4x+y^{3}-4y$",
+     "Find all stationary points and classify each."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Both first-order equations are quadratic,",
+     "so look for a combination killing the mixed term."
+    ]
+   ],
+   [
+    "3. First derivatives",
+    [
+     "$f_{x}=2xy-3x^{2}-y^{2}+4$",
+     "$f_{y}=x^{2}-2xy+3y^{2}-4$"
+    ]
+   ],
+   [
+    "4. Add them",
+    [
+     "$-2x^{2}+2y^{2}=0\\Rightarrow y=\\pm x$",
+     "$x=y$: $y^{2}=2$; $x=-y$: $y^{2}=\\frac{2}{3}$"
+    ]
+   ],
+   [
+    "5. Second derivatives",
+    [
+     "$a=2y-6x$, $b=2x-2y$, $c=6y-2x$"
+    ]
+   ],
+   [
+    "6. Classify",
+    [
+     "$(\\pm\\sqrt2,\\pm\\sqrt2)$: $ac-b^{2}=-32$, saddle.",
+     "$(\\sqrt{2/3},-\\sqrt{2/3})$: $32$, $a<0$, max."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Two quadratics normally give four solutions; two means one was lost.",
+   "$b=0$ exactly on the line $y=x$, which checks the algebra.",
+   "Signed square roots make the table the easiest place to slip."
+  ]
+ },
+ {
+  "slug": "ex_math_20261119_a_zero",
+  "title": "when $a=0$: $f=x^{3}+y^{2}$ is a saddle",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Find and classify the stationary point of $f(x,y)=x^{3}+y^{2}$.",
+     "The test divides by $a$, so watch that step."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "A formula that divides must be checked",
+     "at the value where the divisor vanishes."
+    ]
+   ],
+   [
+    "3. Stationary point",
+    [
+     "$f_{x}=3x^{2}$, $f_{y}=2y$",
+     "only $(0,0)$."
+    ]
+   ],
+   [
+    "4. Second derivatives",
+    [
+     "$a=6x=0$, $b=0$, $c=2$",
+     "division by $a$ is illegal here."
+    ]
+   ],
+   [
+    "5. Go back untruncated",
+    [
+     "$\\Delta f=\\frac{1}{2}(0+0+2k^{2})=k^{2}$",
+     "looks like a minimum, wrongly."
+    ]
+   ],
+   [
+    "6. Exact change",
+    [
+     "$\\Delta f=h^{3}+k^{2}$",
+     "$h<0$ gives negative: inflection, so saddle."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "With $a=0$ the quadratic test carries no information.",
+   "The truncation dropped the whole $h$ direction.",
+   "Saddles do not always look like saddles."
+  ]
+ },
+ {
+  "slug": "ex_thermo_20261119_enthalpy",
+  "title": "constant-pressure expansion: where enthalpy comes from",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Gas trapped under a weighted piston, heat $Q_{12}$ added slowly.",
+     "Find $W_{12}$, then $Q_{12}$, at constant $p$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "Weight fixed, atmosphere fixed, so mechanical equilibrium gives $p_{1}=p_{2}$.",
+     "Constant $p$ lets it leave the integral."
+    ]
+   ],
+   [
+    "3. Work",
+    [
+     "$W_{12}=\\int_{V_{1}}^{V_{2}}p\\,dV=p\\left(V_{2}-V_{1}\\right)$",
+     "$=p_{2}V_{2}-p_{1}V_{1}$"
+    ]
+   ],
+   [
+    "4. First law",
+    [
+     "$Q_{12}-W_{12}=U_{2}-U_{1}$",
+     "so $Q_{12}=U_{2}-U_{1}+p_{2}V_{2}-p_{1}V_{1}$"
+    ]
+   ],
+   [
+    "5. Regroup by state",
+    [
+     "$Q_{12}=\\left(U_{2}+p_{2}V_{2}\\right)-\\left(U_{1}+p_{1}V_{1}\\right)$"
+    ]
+   ],
+   [
+    "6. Name the bracket",
+    [
+     "$h=u+pv$, so $Q_{12}=H_{2}-H_{1}$",
+     "valid only at constant pressure."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "$U$, $p$, $V$ are all properties, so $U+pV$ is a property.",
+   "$Q=\\Delta H$ is a constant-pressure special case, not a general law.",
+   "Sign convention here is $Q-W=\\Delta U$."
+  ]
+ },
+ {
+  "slug": "ex_thermo_20261119_cp_minus_cv",
+  "title": "why $c_{p}-c_{v}=R$",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Ideal gas $pv=RT$, $h=u+pv$.",
+     "Show $c_{p}-c_{v}=R$ with $c_{p}=dh/dT$, $c_{v}=du/dT$."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The state equation already tells us $pv$.",
+     "No path is chosen, so the result holds for every state."
+    ]
+   ],
+   [
+    "3. Eliminate $pv$",
+    [
+     "$h=u+pv=u+RT$"
+    ]
+   ],
+   [
+    "4. Differentiate",
+    [
+     "$\\frac{dh}{dT}=\\frac{du}{dT}+R$",
+     "$R$ is constant so it survives as itself."
+    ]
+   ],
+   [
+    "5. Substitute definitions",
+    [
+     "$c_{p}=c_{v}+R$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$R>0$ forces $c_{p}>c_{v}$:",
+     "air $1.005-0.718\\approx0.287=R$."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Do not treat $v$ as constant while differentiating: use the state relation.",
+   "The $R$ here is the same specific gas constant as in $pv=RT$.",
+   "$c_{p}>c_{v}$ because constant pressure also pays for work."
+  ]
+ },
+ {
+  "slug": "ex_thermo_20261119_isentropic_forms",
+  "title": "one isentrope, three forms",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "From $Tv^{\\gamma-1}=$ const, derive $pv^{\\gamma}=$ const",
+     "and $Tp^{(1-\\gamma)/\\gamma}=$ const."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "All three describe the same process,",
+     "so eliminating one variable must reproduce the others."
+    ]
+   ],
+   [
+    "3. Eliminate $T$",
+    [
+     "$T=\\frac{pv}{R}\\Rightarrow pv^{\\gamma}=$ const",
+     "$1/R$ is absorbed into the constant."
+    ]
+   ],
+   [
+    "4. Eliminate $v$",
+    [
+     "$v=\\frac{RT}{p}\\Rightarrow T^{\\gamma}p^{1-\\gamma}=$ const"
+    ]
+   ],
+   [
+    "5. Take the $gamma$-th root",
+    [
+     "$Tp^{\\frac{1-\\gamma}{\\gamma}}=$ const"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "Air, $1\\to10$ bar: $T_{2}/T_{1}=10^{0.2857}\\approx1.93$",
+     "$288\\,\\text{K}\\to\\approx556\\,\\text{K}$, realistic."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "The three constants are different numbers; do not carry one across forms.",
+   "All three need adiabatic, reversible, ideal gas.",
+   "The isentrope is steeper than the isotherm through the same point."
+  ]
+ },
+ {
+  "slug": "ex_thermo_20261119_rigid_tank",
+  "title": "rigid tank: why $c_{v}$ is the right specific heat",
+  "panels": [
+   [
+    "1. What is asked",
+    [
+     "Rigid tank, heat $Q_{12}$ added to reach state 2.",
+     "Find $Q_{12}$ and say why $c_{v}$ applies."
+    ]
+   ],
+   [
+    "2. Why this route",
+    [
+     "The work term can be removed by physical argument,",
+     "with no integration at all."
+    ]
+   ],
+   [
+    "3. First law",
+    [
+     "$Q_{12}-W_{12}=U_{2}-U_{1}=m\\left(u_{2}-u_{1}\\right)$"
+    ]
+   ],
+   [
+    "4. Kill the work",
+    [
+     "$W_{12}=0$: no shaft, no boundary motion",
+     "rigid kills boundary work only."
+    ]
+   ],
+   [
+    "5. Substitute 4-6",
+    [
+     "$Q_{12}=m\\,c_{v}\\left(T_{2}-T_{1}\\right)$"
+    ]
+   ],
+   [
+    "6. Check",
+    [
+     "$T_{2}=T_{1}\\Rightarrow Q_{12}=0$",
+     "constant pressure would need $mR(T_{2}-T_{1})$ more."
+    ]
+   ]
+  ],
+  "keypoints": [
+   "Rigidity only removes boundary work; check shafts and diaphragms.",
+   "$m$ appears only when converting total to specific.",
+   "Heat here is not an enthalpy change, so $c_{v}$ not $c_{p}$."
+  ]
+ }
+]

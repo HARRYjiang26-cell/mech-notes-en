@@ -1,0 +1,11 @@
+# OS and editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Local scratch
+_worker_ready_*.txt
