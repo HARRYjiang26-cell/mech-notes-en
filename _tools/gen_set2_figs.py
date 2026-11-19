@@ -9,7 +9,7 @@ import math, os, re
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "MECH40005 Stress Analysis", "ME1 Thermodynamics - Tutorial Set 2", "figures")
+OUT = os.path.join(ROOT, "ME1 Thermodynamics", "ME1 Thermodynamics - Tutorial Set 2", "figures")
 os.makedirs(OUT, exist_ok=True)
 
 BG = (255, 255, 255)
