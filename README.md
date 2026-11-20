@@ -4,6 +4,10 @@ Study notes for first-year mechanical engineering courses, rewritten in English 
 
 These are personal study notes, not official course material. They were written while following the recorded lectures and handouts; where a note disagrees with the handout, the handout wins.
 
+## Exam scope, straight from the recordings
+
+**[EXAM_SCOPE.md](EXAM_SCOPE.md)** - every ME course recording this term (2026-10-05 to 2026-11-20) was searched for any statement that limits what the exam or progress test covers. Only two courses gave a chapter limit: **Fluid Mechanics up to Chapter 3 inclusive**, **Thermodynamics up to Chapter 4 inclusive (progress test)**. The rest said nothing, or said "anything we cover". Quotes, timestamps and the lecture-by-lecture audit are in that file.
+
 ## What is inside
 
 | Course | Folder | Contents |
@@ -49,6 +53,7 @@ Each course folder has its own `README.md` index. Every folder keeps its figures
 ├── ME1 PEN/
 ├── material/
 ├── _tools/          helper scripts: catalogue, style and link checks, poster rendering
+├── EXAM_SCOPE.md    exam scope audit, 2026-11-20
 └── README.md
 ```
 
