@@ -1,21 +1,24 @@
 # Exam Scope - What the Lecturers Actually Said
 
 **Audit date:** 2026-11-20
-**Source:** every ME course recording on Panopto for this term (2026-10-05 to 2026-11-20), read through the auto-generated captions looking for any statement that puts a chapter limit on the exam or the progress test.
+**Source:** the ME course recordings on Panopto for this term (2026-10-05 to 2026-11-20), read through the auto-generated captions looking for any statement that puts a chapter limit on the exam or the progress test.
 
 **Short answer:** only two courses gave a chapter limit. Everything else either gave no scope at all, or said "anything we covered".
 
+**One naming point first:** MECH40008 is **two separate streams**. The `ME Computing 1` recordings are **Computing** (Python, NumPy, Matplotlib). The `ME MECH40008 - Mathematics and Computing 1` recordings are **Mathematics** (series, Taylor, partial differentiation). They are kept apart below; they are not one course with one answer.
+
 ## 1. The result
 
-| Course | Upper limit | Applies to | Where it was said |
+| Course / stream | Upper limit | Applies to | Where it was said |
 |---|---|---|---|
 | MECH40002 Fluid Mechanics 1 | **Chapter 3, inclusive** | test / exam material | 2026-11-09 lecture, 52:17 |
 | MECH40003 Thermodynamics 1 | **Chapter 4, inclusive** | progress test | 2026-11-19 lecture, 06:02 |
-| MECH40008 Computing / Mathematics | no chapter number - "the first five lectures of this term" | 9 Dec progress test | 2026-11-13 lecture, 04:25 |
+| MECH40008 **Computing** | no chapter number - "**the first five lectures of this term**" | 9 Dec progress test | 2026-11-13 lecture, 04:25 |
+| MECH40008 **Mathematics** | no range at all, only one **exclusion** | test / final exam | 2026-11-19 lecture, 09:48 |
 | MECH40004 Mechatronics 1 | no upper bound - "anything we cover is fair game" | exam | 2026-10-05 lecture, 12:23 |
 | MECH40001, 40005, 40006, 40007, 40009 | nothing said | - | see section 3 |
 
-In one line: the furthest any lecturer went was **Chapter 4 for the Thermodynamics progress test**; Fluid Mechanics is explicit about **Chapter 3 inclusive**. **No course has given a chapter limit for the March exam in any recording this term.**
+In one line: the furthest any lecturer went was **Chapter 4 for the Thermodynamics progress test**; Fluid Mechanics is explicit about **Chapter 3 inclusive**. **Computing** gives lecture counts and no chapter number; **Mathematics** rules one derivation out and gives no limit at all. **No course has given a chapter limit for the March exam in any recording this term.**
 
 ## 2. The quotes
 
@@ -39,7 +42,7 @@ What it means: the **progress test covers everything taught so far, up to and in
 
 "progresses" is the caption engine mishearing "progress test"; the surrounding sentences are about the progress test not counting towards the grade. In the same lecture, at 07:41: "steam is something that you should expect an exam question" - steam is very likely to appear in the exam, but **no chapter number is attached to that remark**.
 
-### 2.3 MECH40008 Computing / Mathematics - 2026-11-13, about 04:25
+### 2.3 MECH40008 **Computing** (the `ME Computing 1` stream) - 2026-11-13, about 04:25
 
 > "There will be a progress test on the 9th of December in this room, and it will cover the first five lectures of this term, and it'll be about 45 minutes."
 >
@@ -47,11 +50,23 @@ What it means: the **progress test covers everything taught so far, up to and in
 >
 > "But the usual expectation is that the start questions are not examined."
 
-What it means: this course defines scope **by lecture count, not by chapter**. The 9 December progress test covers the first five lectures of the term and runs about 45 minutes. The final exam is 19 March, 90 minutes, structured like the progress test: half on the starred material on the gym platform, half on starred problem-set questions. Starred "stretch" questions (captioned as "start questions") are normally **not** examined.
+What it means: the 9 December progress test covers **the first five lectures of the term** and runs about 45 minutes. The final exam is 19 March, 90 minutes, structured like the progress test: half on the starred material on the gym platform, half on starred problem-set questions. Starred "stretch" questions (captioned as "start questions") are normally **not** examined.
 
-The mathematics stream never gives a chapter range. The closest thing is a single exclusion on 2026-11-19 at 09:48-10:25: "This derivation is not examined ... I will not ask you anything about this derivation on this test or the exam" - that is one derivation in Chapter 9 being ruled out, not a limit on the chapter range.
+This stream defines scope **by lecture count, not by chapter**.
 
-### 2.4 MECH40004 Mechatronics 1 - 2026-10-05, about 12:23
+### 2.4 MECH40008 **Mathematics** (the `Mathematics and Computing 1` stream) - 2026-11-19, about 09:48
+
+> "This derivation is not examined. Careful study will help with understanding of the total derivative."
+>
+> "That means I will not ask you anything about this derivation on, uh, this test or the exam."
+>
+> "Uh, but I'm going to skip ahead just to make sure I have enough time for the things that are examined."
+
+What it means: one derivation in Chapter 9 (the total-derivative argument) is ruled out - "I will not ask you anything about this derivation on this test or the exam". He skips it so that the time goes to material that **is** examined.
+
+That is a **single exclusion, not a range**. This stream never states a chapter limit for anything. At 06:10 of the same lecture he says "we're going to cover that in detail in chapter ten, quite soon" - that is **teaching pace, not exam scope**.
+
+### 2.5 MECH40004 Mechatronics 1 - 2026-10-05, about 12:23
 
 > "Exam questions. We used to say the exam questions are covered. Just stuff in the learning outcomes. The exam questions can cover literally anything in the material we give you ... So if you do something in the lab we don't do in the lectures. That's fair game ... So anything is fair game. Anything we cover is fair game."
 
@@ -69,7 +84,7 @@ None of these gave a chapter range in any recording this term:
 
 Lecture-by-lecture check for the last two weeks (11-09 to 11-20): of 21 recordings, only Fluid Mechanics on 11-09 and Thermodynamics on 11-19 put a chapter limit on anything.
 
-| Course | Date | Caption cues | Cues mentioning exam/test | Chapter limit given |
+| Course / stream | Date | Caption cues | Cues mentioning exam/test | Chapter limit given |
 |---|---|---|---|---|
 | 40001 | 2026-11-09 | 475 | 2 | - |
 | 40002 | 2026-11-09 | 435 | 8 | yes - up to Chapter 3 inclusive |
@@ -77,32 +92,34 @@ Lecture-by-lecture check for the last two weeks (11-09 to 11-20): of 21 recordin
 | 40007 | 2026-11-09 | 434 | 4 | - |
 | 40009 | 2026-11-09 | 441 | 1 | - |
 | 40005 | 2026-11-10 | 452 | 3 | - |
-| 40008 Maths | 2026-11-10 | 154 | 1 | - |
+| 40008 Mathematics | 2026-11-10 | 154 | 1 | - |
 | 40006 | 2026-11-11 | 468 | 0 | - |
-| 40008 Maths | 2026-11-11 | 438 | 9 | - |
+| 40008 Mathematics | 2026-11-11 | 438 | 9 | - |
 | 40003 | 2026-11-12 | 463 | 2 | - |
-| 40008 Maths | 2026-11-12 | 450 | 21 | - |
-| 40008 Computing | 2026-11-13 | 494 | 32 | lecture count only |
+| 40008 Mathematics | 2026-11-12 | 450 | 21 | - |
+| 40008 Mathematics | 2026-11-13 | 438 | 0 | - |
+| 40008 Computing | 2026-11-13 | 494 | 32 | lecture count: first five lectures |
 | 40001 | 2026-11-16 | 520 | 1 | - |
 | 40002 | 2026-11-16 | 488 | 1 | - |
 | 40004 | 2026-11-16 | 532 | 0 | - |
 | 40009 | 2026-11-16 | 402 | 0 | - |
 | 40005 | 2026-11-17 | 477 | 19 | - |
-| 40008 Maths | 2026-11-17 | 400 | 3 | - |
+| 40008 Mathematics | 2026-11-17 | 400 | 3 | - |
 | 40006 | 2026-11-18 | 474 | 0 | - |
 | 40003 | 2026-11-19 | 443 | 12 | yes - up to Chapter 4 inclusive |
-| 40008 Maths | 2026-11-19 | 448 | 6 | - |
+| 40008 Mathematics | 2026-11-19 | 448 | 6 | - |
 
 ## 4. How this was checked
 
-1. Signed in to Panopto and paged through all content (6 pages, 125 recordings), filtering to this term's ME course sessions: 62 lectures.
-2. Pulled the auto-generated captions for each session through the transcription endpoint; 59 of 62 succeeded.
+1. Signed in to Panopto and paged through all content (6 pages, 125 recordings), filtering to this term's MECH400xx course sessions (62 lectures) plus the 5 `ME Computing 1` sessions (67 in total).
+2. Pulled the auto-generated captions for each session through the transcription endpoint; 60 succeeded (59 MECH400xx lectures plus Computing 11-13).
 3. Searched the captions for exam, examined, examination, progress test and test, then read the cues on either side looking for scope words: "up to", "including", "chapter" plus a number.
 4. Every hit was read in full and sorted into "describes the exam format" versus "gives a chapter range". The first category is common; the second has exactly two members.
 
 ## 5. Limits of this check
 
-- **Three lectures have no captions**, so they could not be searched: Fluid Mechanics 2026-10-19, Fluid Mechanics 2026-11-02, Stress Analysis 2026-10-27. If a scope statement was made in one of those, it is missing here.
+- **Three lectures have no captions**, so they could not be searched: Fluid Mechanics 2026-10-19, Fluid Mechanics 2026-11-02, Stress Analysis 2026-10-27.
+- **Only one Computing lecture was checked** - 11-13, the one where the exam format was announced. The 10-16, 10-23, 10-30 and 11-06 Computing lectures were not retrieved, so a scope statement made in one of those would be missing.
 - The captions contain errors: "progress test" is transcribed as "progresses", "properties of substances" as "poverty of substances", "star questions" as "start questions". Quotes above keep the original wording; the explanation next to each one states the corrected meaning.
 - This only finds what was **said out loud**. A scope table shown on a slide without being read out would not appear. Checking that means watching the frames of the relevant lecture.
 - Do not treat these as the scope of the March exam. The Thermodynamics Chapter 4 line is about the progress test. As of today, no course has stated a chapter limit for the final exam.

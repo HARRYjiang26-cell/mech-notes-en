@@ -6,7 +6,7 @@ These are personal study notes, not official course material. They were written 
 
 ## Exam scope, straight from the recordings
 
-**[EXAM_SCOPE.md](EXAM_SCOPE.md)** - every ME course recording this term (2026-10-05 to 2026-11-20) was searched for any statement that limits what the exam or progress test covers. Only two courses gave a chapter limit: **Fluid Mechanics up to Chapter 3 inclusive**, **Thermodynamics up to Chapter 4 inclusive (progress test)**. The rest said nothing, or said "anything we cover". Quotes, timestamps and the lecture-by-lecture audit are in that file.
+**[EXAM_SCOPE.md](EXAM_SCOPE.md)** - the ME course recordings for this term (2026-10-05 to 2026-11-20) were searched for any statement that limits what the exam or progress test covers. Only two courses gave a chapter limit: **Fluid Mechanics up to Chapter 3 inclusive**, **Thermodynamics up to Chapter 4 inclusive (progress test)**. **MECH40008 Computing** defines scope by lecture count instead ("the first five lectures of this term" for the 9 December test), and **MECH40008 Mathematics** only rules one derivation out. Everything else said nothing, or said "anything we cover". Quotes, timestamps and the lecture-by-lecture audit are in that file.
 
 ## What is inside
 
