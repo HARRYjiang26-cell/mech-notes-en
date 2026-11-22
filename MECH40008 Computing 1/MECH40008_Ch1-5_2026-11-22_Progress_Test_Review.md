@@ -48,6 +48,41 @@ Predict-the-output questions must be done on paper. Verify each answer two indep
 2. **Name the structure before you discuss the algorithm**: "is this a list, a dictionary or a set" is worth more marks than "how do I write the loop".
 3. **Count the innermost statement**: every complexity answer comes from how many times that one line runs.
 
+### 0.4 What past papers exist
+
+I checked the shared Mechnet archive: its root (ME1、ME2、ME3-4), the Year 1 Mathematics folder, and the thirty-five module folders under Year 3/4. It holds Fluid Mechanics, Materials, Mechanics, Mechatronics, Stress Analysis, Thermodynamics, Mathematics and the Year 3/4 modules, but there is no Computing or programming folder anywhere, and the Year 1 papers filed under Mathematics are twelve pure-mathematics questions with no Python in them. This review therefore cites no past-paper year and no question number, and every practice question in it is labelled as a simulated question written to the lecture scope.
+
+---
+
+## Question-type map / what each prompt wants
+
+Every question on a forty-five-minute paper is one of about twenty shapes. Read the prompt, recognise the shape, and write the first stroke in the third column; if a question does not fit any row, it is two rows stacked, so split it and answer each half with its own route.
+
+| Ch | Shape | What the prompt looks like | What to write first | Trap |
+| --- | --- | --- | --- | --- |
+| 1 | Floats are not exact | why $0.1+0.2 \ne 0.3$ | a binary fraction has finitely many bits, so $0.1$ is stored as a neighbour | saying precision is lost without saying why |
+| 1 | Integer range and wrap | does a 16-bit register hold 35000 | $2^{15}-1=32767$ is the ceiling, one more wraps negative | taking $2^{15}$ as the ceiling |
+| 1 | Division and rounding | what are `7/2`, `7//2`, `-7//2` | `/` always returns a float, `//` floors | flooring a negative the wrong way |
+| 1 | Type mismatch | what does `"3" + 3` do | it raises `TypeError`, convert with `int` or `str` first | assuming Python converts for you |
+| 2 | Return values | what does a function without `return` give | `None`, and `print` produces no value either | treating `print` as `return` |
+| 2 | Scope | can a function change an outer name | assignment inside builds a local, use `global` to change the outer one | believing the global changed |
+| 2 | Mutable default | why the default list keeps growing | the default is built once at definition, then shared | believing it is rebuilt per call |
+| 2 | Argument passing | does mutating a list inside the function show outside | the reference travels, an in-place change is visible | believing a copy is passed |
+| 3 | Branch order | does reordering the `elif` change the output | put the narrowest condition first | a broad condition swallows the rest |
+| 3 | Loop bounds | how many times does `range(1, 5)` run | the stop value is excluded, four passes | counting five |
+| 3 | break and continue | what is printed here | a line per pass, including skipped passes | treating a skip as an exit |
+| 3 | Short-circuit | is `x != 0 and 1/x > 1` safe | `and` stops when the left side is false | believing both sides run |
+| 4 | Aliasing and copying | why does changing `b` change `a` | count the objects first, then the names | treating a slice as a deep copy |
+| 4 | Lists and tuples | why can the list inside a tuple change | slots cannot be rebound, the object still can mutate | saying a tuple is immutable through and through |
+| 4 | Dictionary keys | can a list be a key | keys must be hashable, a list is not, a tuple is | using a list as a key |
+| 5 | Complexity | what is a nested loop | count the innermost statement | reporting $n+n$ instead of $n^{2}$ |
+| 5 | Binary search precondition | why sort first | each step halves, $O(\log n)$ | searching an unsorted list |
+| 5 | Sort stability | what does stable mean | equal keys keep their relative order | confusing it with speed |
+| 5 | Comparing growth | is $n\log n$ always faster than $n^{2}$ | constants decide below the crossover | ignoring the constants |
+
+Three habits make the table usable under time pressure. Name the chapter before you answer, because the wording of the question is set by the chapter, not by the numbers. Write the first stroke before you write the answer, because the first stroke is worth method marks on its own. And when two rows fit, answer the narrower row first, since the marker is looking for the specific mechanism and the broad row never scores it.
+
+
 ## 1 Types and floating point: why 0.1 + 0.2 is not 0.3
 
 ### 1.1 What this chapter is about
@@ -438,6 +473,10 @@ The other options: A ignores the order of the truncation; C treats truncation as
 - Subtracting two nearly equal numbers: the leading digits vanish, so rewrite the formula instead of raising precision.
 - Assuming adding 1 always changes a float: past $2^{53}$ it does not.
 
+
+### 1.4b How this chapter is examined
+
+Chapter 1 is examined in two shapes. The short shape asks you to predict a printed value: a division that surprises you, an integer that overflows a fixed-width register, or a comparison of two floats that should be equal and is not. The long shape asks you to explain: "state why" is a real one or two marks, and the marker wants the mechanism, which is that a binary mantissa with finitely many bits cannot hold most decimals, so the stored value is the nearest one and the arithmetic inherits that error. Writing "because of precision" earns nothing, because it restates the symptom.
 
 ## 2 Variables and functions: names, return and scope
 
@@ -843,6 +882,10 @@ The other options: A multiplies the return value of print, which is $\text{None}
 - Treating units as comments: right type, wrong unit, program runs, result is wrong by a factor.
 - Swapping the argument order: $\text{power(3, 2)}$ is not $\text{power(2, 3)}$.
 
+### 2.4b How this chapter is examined
+
+Chapter 2 is examined as find-the-bug and as short trace. Find-the-bug gives you a function and asks why the second call returns something different from the first: the usual answer is a mutable default argument, built once at definition time. Short trace gives you a function that prints instead of returning, or that rebinds a name inside its own body, and asks what the caller sees: the answer is `None`, or the global unchanged. Both shapes reward the same sentence, "assigning inside a function creates a local name unless `global` is declared", so learn that sentence as a sentence.
+
 ## 3 Control flow: the order of branches is the logic
 
 ### 3.1 What this chapter is about
@@ -866,6 +909,8 @@ Three things to keep from the figure: $\text{if}/\text{elif}/\text{else}$ is tri
 - $\text{is}$ tests whether two names refer to the **same object**, not whether values are equal. Use $\text{is None}$ for $\text{None}$ and $==$ for values.
 - Comparisons chain: $0 \le x < 10$ means both conditions, exactly as in mathematics, and chapter 4 uses it for interval filtering.
 - Chapter 1 still applies: **never compare floats with $==$**; use $\text{math.isclose}$.
+
+$$x = 3 \quad\Longrightarrow\quad x == 3\ \text{is}\ \text{True}, \qquad x != 3\ \text{is}\ \text{False}$$
 
 **(2) Precedence.** Brackets, then function calls and arithmetic, then comparisons, then $\text{not}$, then $\text{and}$, then $\text{or}$.
 
@@ -1248,6 +1293,10 @@ The other options: A works but is verbose; C is true for an empty list as well, 
 - Confusing truthiness with "equals $\text{True}$": an empty list is false but is not equal to $\text{True}$.
 
 
+### 3.4b How this chapter is examined
+
+Chapter 3 is examined by predictable output on a piece of control flow you have not seen before. Two shapes dominate. The branch shape reorders `if` and `elif` so that a broad condition swallows a specific one, and the mark is lost by reading only the first line that matches. The loop shape mixes `break`, `continue` and an accumulator, and the mark is lost by tracing only the passes that print. Write one line per pass, including skipped passes, and the answer becomes mechanical.
+
 ## 4 Data structures: lists, dictionaries, tuples and aliasing
 
 ### 4.1 What this chapter is about
@@ -1427,7 +1476,7 @@ Count directly: $\text{faulty}=3$, $\text{tests}=5$, so $3/5=0.6$, inside $[0,1]
 
 **Answer**
 
-$$\text{fraction}([\text{low},\text{high})) = \frac{\#\{\text{tests with any damage}\}}{\#\{\text{tests}\}}, \qquad \text{cold}: 1.0,\quad \text{warm}: 0.158$$
+$$\text{fraction}([\text{low},\text{high})) = \frac{\#\{\text{tests with any damage}\}}{\#\{\text{tests}\}}, \qquad \text{cold}\ [0,66): 1.0,\quad \text{warm}\ [66,100): 0.158$$
 
 The cold group is entirely damaged; about one warm test in six is. On 28 January 1986 the launch temperature was about $36\ ^\circ\text{F}$ against a previous minimum of $53\ ^\circ\text{F}$, outside the range the data covered. That extrapolation, not the arithmetic, was the risk.
 
@@ -1595,6 +1644,10 @@ The other options: A ignores the meaning; C would happen if the division were at
 - Reporting an average when the question asks for a fraction of tests.
 - Using a list as a dictionary key: unhashable, $\text{TypeError}$; use a tuple.
 
+
+### 4.4b How this chapter is examined
+
+Chapter 4 is examined by "what does the program print" on two names for one object. The examiner builds a short list or dictionary, aliases it with a plain assignment, copies it in one of the three ways, mutates one name, and asks for every printed value. The whole mark comes from counting objects first, names second. A second shape asks a definition question: why a list cannot be a dictionary key, why a tuple holding a list can still change, why removing items while iterating skips elements.
 
 ## 5 Algorithms and complexity: Big-O, search and sorting
 
@@ -1980,6 +2033,332 @@ The other options: A holds only for many lookups; C ignores the sorting cost; D 
 - Assuming greedy is always optimal: unequal costs break it.
 
 
+### 5.4b How this chapter is examined
+
+Chapter 5 is examined by attaching a complexity to a snippet, and the snippet is always a loop nest. Count the innermost statement, not the number of loops: two loops over the same list give $n^{2}$, two loops over the same list where the inner one starts at the outer index give about $n^{2}/2$, which is still $O(n^{2})$. A second shape asks for the precondition rather than the complexity: binary search needs a sorted list, so an unsorted list invalidates both the answer and the method. Keep the sentence "count the innermost statement" ready, because it converts a guess into work you can show.
+
+## Tracing drills
+
+Predict-the-output questions are decided on paper, never by running the code. The whole mark turns on one habit: write the value of every changing variable after every pass, before you commit to an answer. The five drills below are the shapes that appear most often, and each one teaches a rule you can carry into the hall.
+
+### D1 A loop with an accumulator and a skip
+
+```python
+total = 0
+for i in range(1, 6):
+    if i % 2 == 0:
+        continue
+    total += i * i
+print(total)
+```
+
+List one line per pass, including the passes that `continue` throws away. A skipped pass still consumed one value of $i$, so it belongs in the trace; that is exactly where marks are lost.
+
+$$\text{pass }1:\quad i=1,\quad i\bmod 2=1,\quad \text{total}=0+1=1$$
+
+$$\text{pass }2:\quad i=2,\quad i\bmod 2=0,\quad \text{continue},\quad \text{total}=1$$
+
+$$\text{pass }3:\quad i=3,\quad \text{total}=1+9=10$$
+
+$$\text{pass }4:\quad i=4,\quad \text{continue},\quad \text{total}=10$$
+
+$$\text{pass }5:\quad i=5,\quad \text{total}=10+25=35$$
+
+The answer is $\text{total}=35$, and two independent checks support it: the odd squares below six sum to $1+9+25=35$, and the addition ran three times, not five, because two passes were skipped.
+
+### D2 Alias, slice copy and one list
+
+```python
+a = [1, 2, 3]
+b = a
+c = a[:]
+b.append(4)
+c.append(5)
+print(a, b, c)
+```
+
+The question is not what `append` does; it is how many list objects exist. There are two: the one that `a` and `b` both name, and the fresh one that `a[:]` built for `c`. Appending through `b` mutates the shared object, so `a` moves with it; appending through `c` touches the separate object, so `a` stops changing.
+
+$$b=a:\quad \text{one object},\quad a=b=[1,2,3]$$
+
+$$c=a[:]:\quad \text{second object},\quad c=[1,2,3]$$
+
+$$b.\text{append}(4):\quad a=b=[1,2,3,4],\quad c=[1,2,3]$$
+
+$$c.\text{append}(5):\quad a=b=[1,2,3,4],\quad c=[1,2,3,5]$$
+
+The printed line is $[1,2,3,4]\ [1,2,3,4]\ [1,2,3,5]$. The check: replace `b = a` with `b = a[:]` and redo it; if the printed `a` then stops moving, you had the alias step right.
+
+### D3 A while loop that stops early
+
+```python
+n = 10
+while n > 0:
+    n -= 3
+    if n == 1:
+        break
+print(n)
+```
+
+Write down the value of $n$ after the subtraction, not before it: the test `n == 1` runs on the new value, and `break` leaves the loop at once, so what gets printed is the value that triggered the break.
+
+$$\text{test }1:\quad n=10-3=7,\quad n>0\ \text{true},\quad \text{continue}$$
+
+$$\text{test }2:\quad n=7-3=4,\quad \text{continue}$$
+
+$$\text{test }3:\quad n=4-3=1,\quad n==1,\quad \text{break}$$
+
+$$\text{printed}:\quad n=1$$
+
+Without the `break` the sequence would be $10\to7\to4\to1\to-2$ and the printed value would be $-2$, so the `break` saves exactly one pass.
+
+### D4 One dictionary, two names
+
+```python
+d = {"x": 1}
+e = d
+e["y"] = 2
+print(d, len(d))
+```
+
+Assigning a dictionary never copies it. `e = d` gives one object a second name, so the new key shows through both names and the length is two.
+
+$$d=\{\text{x}:1\}\Rightarrow e=d\ \text{names the same object}$$
+
+$$e[\text{y}]=2\Rightarrow d=e=\{\text{x}:1,\text{y}:2\},\quad \text{len}=2$$
+
+Two independent dictionaries would need `e = dict(d)` or `e = d.copy()`; neither appears, so the answer stays "one object, two names".
+
+### D5 What may change inside a tuple or a string
+
+```python
+t = (1, [2])
+t[1].append(3)
+print(t)
+
+s = "ab"
+s[0] = "c"
+```
+
+A tuple is immutable in the sense that its slots cannot be rebound; it does not freeze the objects those slots point at. Slot 1 still names the same list, so calling `append` on that list is legal and changes what the tuple shows. A string is different: it has no mutable slots at all, so character assignment raises `TypeError` and the string stays as it was.
+
+$$t=(1,[2])\Rightarrow t[1].\text{append}(3)\Rightarrow t=(1,[2,3])$$
+
+$$t[1]=[9]\Rightarrow \text{TypeError},\quad \text{tuple slot cannot be rebound}$$
+
+$$s=\text{ab};\ s[0]=\text{c}\Rightarrow \text{TypeError},\quad s\ \text{stays ab}$$
+
+Two questions asked in the margin cover almost every predict-the-output item: am I rebinding a slot or mutating an object, and is this type mutable at all. List is mutable and rebindable, tuple is not rebindable, string is neither, dictionary is both.
+
+---
+
+## Simulated paper A
+
+This is a fifty-mark paper in the shape of the progress test: four questions, no starred parts, no calculator beyond arithmetic. Time yourself, write only on paper, and mark yourself against the eight-beat solutions that follow each question. Every question here is written to the lecture scope, so none of it is a past-paper question.
+
+### A1 Types, floor division and float comparison
+
+```python
+x = 3500
+y = -3500
+print(x // 400, y // 400)
+print(x % 400, y % 400)
+print(3 * 0.1 == 0.3)
+```
+
+**What is asked** — Five printed values: two results of floor division, two remainders, and one boolean. Full marks need the values plus one sentence on why the boolean is the value it is. No explanation of the division direction, no full marks.
+
+**Why this route** — Every symbol here is decided by Python's definitions, not by the numbers: `//` is defined as the floor of the true quotient, and `%` is defined so that the identity below holds for any sign combination, so the route is to apply the definitions in order rather than to divide and round by intuition.
+
+$$\frac{3500}{400}=8.75 \;\Longrightarrow\; \left\lfloor 8.75\right\rfloor = 8$$
+
+$$\frac{-3500}{400}=-8.75 \;\Longrightarrow\; \left\lfloor -8.75\right\rfloor = -9$$
+
+The first line gives $8$, and the second gives $-9$: floor always moves toward minus infinity, which for a negative number is away from zero.
+
+**Get the remainder from the identity**
+
+$$a = b\left\lfloor \frac{a}{b}\right\rfloor + (a \bmod b)$$
+
+$$3500 = 400\times 8 + 300 \;\Longrightarrow\; 3500 \bmod 400 = 300$$
+
+$$-3500 = 400\times(-9) + 100 \;\Longrightarrow\; -3500 \bmod 400 = 100$$
+
+Substituting the floors from step 1 leaves $300$ and $100$, and both remainders come out with the sign of the divisor, which is the property that makes the identity work for negatives.
+
+**Decide the float comparison**
+
+$$3\times 0.1 = 0.30000000000000004 \;\ne\; 0.3$$
+
+$$0.1 \approx 0.1000000000000000055511151231257827$$
+
+The product is one unit in the last place away from $0.3$, so `==` returns `False`; the cause is that $0.1$ is stored as the nearest binary fraction, and the doubling error surfaces at the sixteenth significant digit.
+
+**Where the constant comes from** — $8$ and $-9$ come from the two floors, $300$ and $100$ from the identity, so nothing here is a guess. The one subtle constant is the extra digit in $0.30000000000000004$: it is not a typo, it is the shortest decimal that round-trips to the stored double.
+
+**Sanity check** — Substituting back gives the two identities $3500=3200+300$ and $-3500=-3600+100$, both true; and a second check on the boolean is that $0.1+0.2$ shows the same one-digit excess, so the pattern is consistent rather than a one-off.
+
+**Answer**
+
+$$8,\quad -9,\quad 300,\quad 100,\quad \text{False}$$
+
+**Trap** — Truncating instead of flooring gives $-8$ and remainder $-300$, which breaks the identity $a=bq+r$; and writing "floating point is imprecise" without the mantissa explanation loses the explanation mark.
+
+![Worked example poster: simulated paper A1, floor division and one float test](figures/ex_sim_a1.png)
+
+### A2 A mutable default argument and a fixed version
+
+```python
+def add_item(item, basket=[]):
+    basket.append(item)
+    return len(basket)
+
+def add_item2(item, basket=None):
+    if basket is None:
+        basket = []
+    basket.append(item)
+    return basket
+
+print(add_item("a"), add_item("b"), add_item("c"))
+print(add_item2("a"), add_item2("b"))
+```
+
+**What is asked** — Two printed lines, plus the reason the first function behaves differently on its second and third call, plus what the second function prints.
+
+**Why this route** — The two functions differ in exactly one place, the default value, so the route is to ask when each default is evaluated. Default values are evaluated once, when the `def` statement runs, not once per call; that single fact decides both lines.
+
+**Count the objects**
+
+$$\text{call }1: \text{basket}\to L_1,\quad \text{call }2: \text{basket}\to L_1,\quad \text{call }3: \text{basket}\to L_1$$
+
+The default list $L_1$ is created once at definition, so all three calls append to the same object, and the returned lengths are $1,2,3$.
+
+**See what an explicit argument does**
+
+$$\text{add\_item}(x, [\,])\Rightarrow \text{basket}\to L_{\text{new}}$$
+
+Passing a list yourself replaces the default, so the guard only matters when the argument is omitted; the default object survives between calls in either case.
+
+**Rebuild from None**
+
+$$\text{basket}=\text{None}\Rightarrow \text{basket}\to L_2 \text{ (fresh each call)}$$
+
+In the second function the default is `None`, which is immutable, and a fresh list is built inside the body on every call, so the two calls give $['a']$ and $['b']$.
+
+**Where the constant comes from** — The numbers $1,2,3$ are the lengths after each append, so they come from counting appends to one object; the second line's two single-element lists come from counting objects, one per call.
+
+**Sanity check** — Run the first function twice more in your head: the lengths keep climbing, which is the signature of a persistent object; if the printed lengths restarted at $1$, the default would have been rebuilt and the answer would be wrong.
+
+**Answer**
+
+$$1\ 2\ 3 \qquad\text{then}\qquad [\text{a}]\ [\text{b}]$$
+
+**Trap** — Saying "the default is re-created each call" gives $1\ 1\ 1$ and loses the whole question; the fix is not to forbid defaults but to use an immutable sentinel such as `None` and build inside the body.
+
+![Worked example poster: simulated paper A2, a mutable default argument](figures/ex_sim_a2.png)
+
+### A3 A loop that skips and stops
+
+```python
+total = 0
+for n in range(1, 8):
+    if n % 3 == 0:
+        continue
+    if total + n > 10:
+        break
+    total += n
+print(total, n)
+```
+
+**What is asked** — The two values printed, and which pass ended the loop.
+
+**Why this route** — There are two exit conditions on the same pass, `continue` before the accumulator and `break` before it, so the only reliable route is a pass-by-pass table with the order of the two tests preserved.
+
+**Tabulate every pass**
+
+$$n=1:\ total=0+1=1 \qquad n=2:\ total=1+2=3$$
+
+$$n=3:\ 3\bmod 3=0 \Rightarrow \text{continue} \qquad n=4:\ total=3+4=7$$
+
+$$n=5:\ 7+5=12>10 \Rightarrow \text{break}$$
+
+The first two passes add, the third is skipped before it can add, the fourth adds, and the fifth trips the guard and leaves.
+
+**Confirm what the break carries out**
+
+$$\text{printed}:\quad \text{total}=7,\quad n=5$$
+
+`break` leaves the loop without executing the body's remaining statements, so $n$ keeps the value that triggered it, $5$, and `total` keeps the last value it had, $7$.
+
+**Compute a control case**
+
+$$\text{without the break}:\ total=1+2+4+5+7=19$$
+
+Removing the guard lets every non-multiple-of-three pass add, and the sum would be $19$, so the guard changes the answer rather than merely ending it early.
+
+**Where the constant comes from** — $12$ is the first running total that exceeds $10$, which is why the loop stops at $n=5$ and not at $n=4$; the threshold $10$ and the addend $5$ together decide that pass.
+
+**Sanity check** — Two checks: the three added values are $1,2,4$, and $1+2+4=7$ matches the printed total; and the loop index reached $5$ while `range` would have gone to $7$, so the `break` is confirmed active.
+
+**Answer**
+
+$$\text{total}=7,\qquad n=5$$
+
+**Trap** — Adding on the `continue` pass gives $10$ and then a different $n$; and forgetting that `break` skips the rest of the body gives $n=4$ from a lazily read table.
+
+![Worked example poster: simulated paper A3, a loop that skips and stops](figures/ex_sim_a3.png)
+
+### A4 One grid, three names
+
+```python
+grid = [[1, 2], [3, 4]]
+cp = grid[:]
+deep = [row[:] for row in grid]
+cp[0].append(9)
+deep[1].append(8)
+print(grid)
+print(cp)
+print(deep)
+```
+
+**What is asked** — Three printed lists, and the reason `cp` and `grid` change together while `deep` does not.
+
+**Why this route** — Three names, three different amounts of copying: plain assignment would share everything, a slice copies one level, and a comprehension over slices copies two. The route is to draw the object graph, not to remember the words "shallow" and "deep".
+
+**Draw the outer level**
+
+$$\text{cp} = \text{grid}[:] \Rightarrow \text{new outer list},\ \text{same inner rows}$$
+
+The slice builds a new outer list whose three slots point at the same inner lists, so the rows are shared even though the container is not.
+
+**Draw the inner level**
+
+$$\text{deep} = [\,row[:]\ \text{for}\ row\ \text{in}\ \text{grid}\,] \Rightarrow \text{new rows too}$$
+
+The comprehension applies the slice to each row, so `deep` has new inner lists and shares nothing mutable with `grid`.
+
+**Append one at a time**
+
+$$\text{cp}[0].\text{append}(9) \Rightarrow \text{grid} = [[1,2,9],[3,4]]$$
+
+$$\text{deep}[1].\text{append}(8) \Rightarrow \text{deep} = [[1,2],[3,4,8]]$$
+
+The first append goes through a shared row, so both `grid` and `cp` show it; the second goes into a private row, so only `deep` shows it.
+
+**Where the constant comes from** — The $9$ lands in row $0$ because that is the row `cp` shares; the $8$ lands in row $1$ because `deep` owns its rows; both indices come straight from the code, not from counting.
+
+**Sanity check** — Count mutable objects before and after: two original rows plus two copies is four, and the printed output must show exactly one row changed in two lists and one row changed in one list, which it does.
+
+**Answer**
+
+$$\text{grid} = [[1,2,9],[3,4]],\quad \text{cp} = [[1,2,9],[3,4]],\quad \text{deep} = [[1,2],[3,4,8]]$$
+
+**Trap** — Trusting the slice as a full copy gives `deep` sharing rows and a wrong third line; and `copy.deepcopy` is not needed here, so answering with library calls instead of the object graph loses the explanation mark.
+
+![Worked example poster: simulated paper A4, one grid and three names](figures/ex_sim_a4.png)
+
+---
+
 ## 6 Twelve mixed questions
 
 **Q6.1** What does this print?
@@ -2249,6 +2628,45 @@ The other options: A the loop is correct; C len works on lists; D it crashes. Re
 
 </details>
 
+## Where marks are lost
+
+Every line below is a real way this paper takes marks off, written as "if you write this, you lose that". Read it the night before and again in the corridor: most of the loss is not ignorance, it is a habit that looked harmless while revising.
+
+1. Writing "floating point is inaccurate" without naming the cause → lose the explanation mark, because the binary mantissa cannot store $0.1$ exactly and the sum lands on the nearest representable value.
+2. Calling $2^{15}$ the largest signed 16-bit value → lose the arithmetic, the range is $-2^{15}$ to $2^{15}-1$.
+3. Answering `7 // 2` and `-7 // 2` with the same sign rule → lose both, floor division rounds toward minus infinity, not toward zero.
+4. Treating `/` as integer division when both operands are ints → lose the type mark, in Python 3 a single slash always returns a float.
+5. Explaining `print` as if it returned its argument → lose the return-value mark, it returns `None`.
+6. Claiming a function can rebind a global by plain assignment → lose the scope mark, assignment inside a function always creates a local name unless `global` is declared.
+7. Saying a mutable default argument is "created fresh each call" → lose the mechanism mark, the default object is built once at definition time.
+8. Saying a list passed into a function is copied → lose the aliasing mark, the function receives a reference to the same object.
+9. Writing the loose condition first in an `if/elif` chain → lose the branch that never runs, and the marker sees the dead branch immediately.
+10. Counting `range(a, b)` as $b-a+1$ values → lose the loop count, the stop value is exclusive.
+11. Treating `continue` as `break` in a trace → lose the whole output, a skipped pass still consumes one value.
+12. Claiming both sides of `and` always run → lose the short-circuit mark, the moment the left side is false the right side never evaluates.
+13. Saying `b = a` copies the list → lose every later output, both names point at one object.
+14. Saying a tuple is completely immutable, including what it holds → lose the counter-example, the slots are fixed but a contained list can still be mutated.
+15. Using a list as a dictionary key → lose the statement, keys must be hashable and a list is not.
+16. Reporting the complexity of two nested loops over the same list as $n+n$ → lose it twice, the inner statement runs $n$ times for each of $n$ outer passes.
+17. Binary-searching an unsorted list and reporting $O(\log n)$ → lose the premise and the result, halving only works after sorting.
+18. Confusing "stable sort" with "fast sort" → lose the definition mark, stable means equal keys keep their original relative order.
+19. Claiming $n\log n$ is always faster than $n^{2}$ → lose the nuance, below the crossover the constants decide.
+20. Leaving a complexity answer as a bare $O(\cdot)$ with no counted line → lose the method, the marker wants the innermost statement and how many times it runs.
+
+## The last thirty minutes
+
+Do these seven things in this order and stop when the time is gone. Nothing here needs new thinking, which is the point: the last half hour is for converting things you already know into marks.
+
+1. Minutes 30 to 22: re-read the question-type map and say the first stroke for each row out loud.
+2. Minutes 22 to 15: redo the trace drills on blank paper, all five, without looking at the answers.
+3. Minutes 15 to 10: write down the four numeric facts you are least sure of ($2^{15}-1$, floor division on negatives, $\log n$ halving, $n\log n$ crossover).
+4. Minutes 10 to 6: check that your calculator is in the right mode and that you know how to write a tolerance comparison.
+5. Minutes 6 to 3: skim the chapter traps of Ch1 and Ch3, the two chapters where wording decides the answer.
+6. Minutes 3 to 1: pack pens, water, student card; close every note.
+7. Last minute: breathe, and decide that any question you cannot start gets its "first stroke" line written before you leave it.
+
+---
+
 ## 7 One-page revision sheet
 
 ### 7.1 Formula card
@@ -2257,7 +2675,7 @@ $$\varepsilon_{\text{mach}} = 2^{-52} \approx 2.22\times 10^{-16}, \qquad v = (-
 
 $$2^{53} = 9\,007\,199\,254\,740\,992, \qquad \text{float}(2^{53})+1 = \text{float}(2^{53})$$
 
-$$-2^{15} \le n_{\text{int16}} \le 2^{15}-1$$
+$$-2^{15} \le n_{\text{int16}} \le 2^{15}-1, \qquad \text{int}(10v)\ \text{scales first, truncates second}$$
 
 $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not averaged)}, \qquad \varphi = \frac{1+\sqrt{5}}{2}\approx 1.618$$
 
@@ -2351,8 +2769,8 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 ## 11 Self-check
 
 - Coverage: every section of notes Ch1–Ch5, item by item in the §9 coverage table (20 rows).
-- Worked examples: 5 (E1–E5), all written to the eight-part template, each with its own poster.
-- Questions: $8\times 5 + 12 = 52$, each with four options including a typical wrong answer, and an answer plus per-option reasoning inside the details block.
-- Figures: 7 concept figures plus 5 posters, 12 references in total, no duplicates and none missing, all pointing at existing files under `figures/`.
+- Worked examples: 9 (E1–E5 and the four questions of simulated paper A), all written to the eight-part template, each with its own poster.
+- Questions: $8\times 5 + 12 + 4 = 56$: forty multiple-choice, twelve mixed and four simulated, each with an answer and the reasoning that reaches it.
+- Figures: 7 concept figures plus 9 posters, 16 references in total, no duplicates and none missing, all pointing at existing files under `figures/`.
 - Formulas: inline $\ldots$ and display $$\ldots$$ throughout; no align environment, no boxed, no newcommand.
 - Numbers rechecked: $2^{-52}\approx 2.22\times10^{-16}$, $2^{53}=9\,007\,199\,254\,740\,992$, $32767/10=3276.7$, $3/5=0.6$, $\varphi^{5}\approx 11.09$, all restated exactly as the notes give them.
