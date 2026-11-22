@@ -166,7 +166,7 @@ A common misstatement is that "$\varepsilon$ is the smallest $x$ with $1+x \ne 1
 
 $$2^{53} = 9\,007\,199\,254\,740\,992, \qquad \text{float}(2^{53}) + 1 = \text{float}(2^{53})$$
 
-The spacing there is already 1, so adding 1 lands exactly halfway and rounds back; adding 2 does move. **Consequence**: integers above $2^{53}$ may lose precision when converted to float.
+The spacing just below $2^{53}$ is 1 and just above it is 2, so adding 1 lands exactly halfway between two representable values and rounds back to the even one, while adding 2 does move. **Consequence**: integers above $2^{53}$ may lose precision when converted to float.
 
 **(8) 0.1 cannot be stored exactly, so 0.1+0.2 is not 0.3.** In binary, $0.1$ repeats forever:
 
@@ -193,16 +193,16 @@ $$\frac{1-\cos x}{x^{2}} \quad \longrightarrow \quad \frac{2\sin^{2}(x/2)}{x^{2}
 
 The two are algebraically identical, but the second never subtracts and stays accurate for small $x$.
 
-**(10) Special values and tolerances.** $\text{inf}$ appears when a result is too large; $\text{nan}$ (not a number) when an operation is undefined ($0/0$). $\text{nan}$ compares $\text{False}$ against everything, including itself.
+**(10) Special values and tolerances.** $\text{inf}$ appears when a floating result overflows, for example $1\text{e}308\times1\text{e}308$; $\text{nan}$ (not a number) comes from $\text{float('nan')}$ or from a library call that has no defined result, because plain $0/0$ and $0.0/0.0$ raise $\text{ZeroDivisionError}$, and $1\text{e}308^{2}$ raises $\text{OverflowError}$ instead of returning $\text{inf}$. $\text{nan}$ equals nothing, itself included, so $\text{nan} == \text{nan}$ is $\text{False}$ while $\text{nan} \ne \text{nan}$ is $\text{True}$; test it with $\text{math.isnan}$.
 
-So **never test floating-point equality directly**; use a tolerance:
+So do not lean on exact equality for results that travelled different calculation paths; compare with a tolerance:
 
 ```python
 import math
 math.isclose(0.1 + 0.2, 0.3, rel_tol=1e-9)     # True
 ```
 
-$\text{rel\_tol}$ is a relative tolerance: $1\text{e-}9$ means "about 9 significant digits agree". **Comparisons with zero need $\text{abs\_tol}$**, because a relative tolerance multiplied by zero is always zero.
+$\text{rel\_tol}$ is a relative tolerance: $1\text{e-}9$ means "about 9 significant digits agree". The test is $|a-b| \le \max(\text{rel\_tol}\cdot\max(|a|,|b|),\ \text{abs\_tol})$, so the relative part vanishes near zero and you must pass an $\text{abs\_tol}$ of the size that matters there. Exact cases still work: $0.5 == 0.5$ and $\text{math.isclose}(0.0, 0.0)$ are both $\text{True}$.
 
 ### 1.3 What the code looks like
 
@@ -363,7 +363,7 @@ The other options: A is single precision; C confuses effective precision (53, in
 **Q1.3** What is $\text{float}(2^{53}) + 1 == \text{float}(2^{53})$, and why?
 
 - A. $\text{False}$, because adding 1 always changes something
-- B. $\text{True}$, because near $2^{53}$ the spacing is already 1, so adding 1 rounds back
+- B. $\text{True}$, because $x+1$ is exactly halfway between $x$ and $x+2$ and rounds to the even one
 - C. $\text{True}$, because Python integers overflow
 - D. an error
 
@@ -371,7 +371,7 @@ The other options: A is single precision; C confuses effective precision (53, in
 
 **Answer: B**
 
-Why: the gap doubles at every power of two and reaches $\Delta = 1$ at $2^{53}$, so $x+1$ lands halfway between representable values and rounds back to $x$; $x+2$ does move.
+Why: the gap doubles at every power of two, so it is $1$ on $[2^{52},2^{53})$ and $2$ on $[2^{53},2^{54})$, and $x+1$ is exactly halfway between $x$ and $x+2$, which rounds to the even value $x$; $x+2$ is representable.
 
 The other options: A ignores the spacing; C is wrong because Python integers do not overflow; D is wrong, and the silence is exactly what makes this dangerous.
 
@@ -390,7 +390,7 @@ The other options: A ignores the spacing; C is wrong because Python integers do 
 
 Why: $\text{isclose}$ uses a relative tolerance that scales with magnitude, which matches the relative nature of floating-point precision.
 
-The other options: A is almost always false; B is too strict near $10^{6}$ and too loose near $10^{-6}$; D treats $1.0$ and $1.00$ as different and confuses display with storage. Absolute tolerance is only for comparisons with zero.
+The other options: A is almost always false; B is too strict near $10^{6}$ and too loose near $10^{-6}$; D compares printed strings, which collapses formatting and storage into one question, since $\text{str}(1.0)$ and $\text{str}(1.00)$ are both $\text{'1.0'}$ and neither tells you the stored bits. An absolute tolerance answers a different question: how far from the target counts as close.
 
 </details>
 
@@ -600,7 +600,7 @@ def collect(x, acc=None):
 
 $$\text{inside: } y=7 \quad\Longrightarrow\quad \text{outside: } y \text{ does not exist}$$
 
-A function can **read** outer names, but assigning inside creates a new local name and leaves the outer one alone. Changing the outer one needs $\text{global}$, which the course discourages; return a value instead.
+A function can **read** outer names, but rebinding the same name inside creates a new local and leaves the outer one alone, and reading that name before the assignment raises $\text{UnboundLocalError}$. Rebinding a module-level name needs $\text{global}$, rebinding a name in the enclosing function needs $\text{nonlocal}$; mutating a shared object in place needs neither declaration. The course discourages both keywords, so return a value instead.
 
 **(9) Functions calling functions.** Splitting a problem into small functions is the main way to keep complexity down: five well-named functions read like five physical ideas rather than a pile of algebra.
 
@@ -678,7 +678,7 @@ The value is only $22.5\%$ of the true impulse.
 
 $$\Delta I = (4.448 - 1)\,I_{\text{calc}} \approx 3.45\,I_{\text{calc}}$$
 
-Every burn is short by about $3.45$ times the computed impulse, and the error accumulates linearly with the number of burns.
+Each burn's computed impulse is only about $22.5\%$ of the impulse actually applied, so the miss per burn is about $3.45$ times the computed value, and the error accumulates with the number of burns.
 
 **Where the constant comes from**
 
@@ -1054,11 +1054,11 @@ Mars Polar Lander's descent is divided into control cycles. In cycle $i$, $\text
 
 **Why this route**
 
-One $\text{if}$ cannot express two rules. This needs a **gate** (only readings below the enabling height count) and a **counter** (how many consecutive cycles fired). A gate is a Boolean; "consecutive" is a count; both must be stored. That is the structural difference from a single-condition question: state has to survive between cycles.
+One $\text{if}$ cannot express two rules. This needs a **gate** (only readings at or below the enabling height count) and a **counter** (how many consecutive cycles fired). A gate is a Boolean; "consecutive" is a count; both must be stored. That is the structural difference from a single-condition question: state has to survive between cycles.
 
 **Step 1: write the two rules as a state machine**
 
-$$\text{armed}_i = \left[\, \text{height}[i] < h_{\text{enable}} \,\right], \qquad c_i = c_{i-1}+1 \ \text{if}\ \text{armed}_i \wedge \text{touch}[i],\ \text{else}\ 0$$
+$$\text{armed}_i = \left[\, \text{height}[i] \le h_{\text{enable}} \,\right], \qquad c_i = c_{i-1}+1 \ \text{if}\ \text{armed}_i \wedge \text{touch}[i],\ \text{else}\ 0$$
 
 The counter increments only when the height is low enough and the sensor fired; every other case resets it, which is what "consecutive" means.
 
@@ -1074,7 +1074,7 @@ Testing $\ge 2$ rather than $== 2$ tolerates a repeated delivery in one cycle.
 def touchdown_cycle(height, touch, h_enable):
     count = 0
     for i in range(len(height)):
-        if height[i] < h_enable and touch[i]:
+        if height[i] <= h_enable and touch[i]:
             count += 1
         else:
             count = 0
@@ -1087,7 +1087,7 @@ The function returns the first cycle that satisfies the rule, or $\text{None}$.
 
 **Where the constant comes from**
 
-The $2$ is not estimated: the rule says "two consecutive cycles". The strict $<$ follows the sentence "above the enabling height must have no effect": at exactly the enabling height the sensor is allowed to work. Both come straight from the wording.
+The $2$ is not estimated: the rule says "two consecutive cycles". The $\le$ follows the sentence "above the enabling height must have no effect": at exactly the enabling height the sensor is allowed to work. Both come straight from the wording.
 
 **Sanity check**
 
@@ -1335,7 +1335,7 @@ $$\text{by\_temp} = \{60{:}\ [2, 0],\ 70{:}\ [1]\}, \qquad \text{by\_temp}[60] =
 
 $$\text{point} = (36,\ 70), \qquad x, y = \text{point}$$
 
-- Immutable, so it can be a dictionary key and can be shared safely.
+- The slots are fixed, so a tuple is hashable — and can be a dictionary key — only when every element is hashable: $\text{hash}((1,2))$ works, $\text{hash}((1,[2]))$ raises $\text{TypeError}$. Sharing it is safe from rebinding, not from mutating a list inside it.
 - Unpacking assigns several names at once; swapping variables relies on it.
 - A function returning several values returns one tuple.
 
@@ -1715,7 +1715,7 @@ while n > 1:
     steps += 1
 ```
 
-$n$ halves each round, so there are $\log_{2} n$ rounds: $O(\log n)$. For $n=16$ that is $4$ rounds, for $n=1000$ it is $10$.
+$n$ halves each round, so the count is $\Theta(\log n)$: exactly $\lfloor\log_{2} n\rfloor$ halvings for a positive integer $n$. For $n=16$ that is $4$ rounds; for $n=1000$ the sequence is $1000\to500\to250\to125\to62\to31\to15\to7\to3\to1$, which is $9$ rounds.
 
 **(4) The exponential recursion trap.** Naive Fibonacci satisfies
 
@@ -2202,7 +2202,7 @@ The product is one unit in the last place away from $0.3$, so `==` returns `Fals
 
 $$8,\quad -9,\quad 300,\quad 100,\quad \text{False}$$
 
-**Trap** — Truncating instead of flooring gives $-8$ and remainder $-300$, which breaks the identity $a=bq+r$; and writing "floating point is imprecise" without the mantissa explanation loses the explanation mark.
+**Trap** — Truncating instead of flooring gives the pair $(-8,\,-300)$, which still satisfies $a=bq+r$ but breaks Python's rule that the remainder takes the sign of the divisor; pairing $q=-8$ with Python's own remainder $+100$ gives $400\times(-8)+100=-3100\ne-3500$, which is how the identity actually falls apart. Writing "floating point is imprecise" without the mantissa explanation loses the explanation mark.
 
 ![Worked example poster: simulated paper A1, floor division and one float test](figures/ex_sim_a1.png)
 
