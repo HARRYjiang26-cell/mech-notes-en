@@ -2652,6 +2652,11 @@ Every line below is a real way this paper takes marks off, written as "if you wr
 18. Confusing "stable sort" with "fast sort" → lose the definition mark, stable means equal keys keep their original relative order.
 19. Claiming $n\log n$ is always faster than $n^{2}$ → lose the nuance, below the crossover the constants decide.
 20. Leaving a complexity answer as a bare $O(\cdot)$ with no counted line → lose the method, the marker wants the innermost statement and how many times it runs.
+21. Writing $8$ for $16/2$ → lose the output mark, because a single slash returns $8.0$.
+22. Fixing a comparison with zero by setting $\text{rel\_tol}$ → lose the fix, only an absolute tolerance can pass near zero.
+23. Defining machine epsilon as the smallest positive float → lose the definition, it is the gap between $1.0$ and the next float, $2^{-52}$.
+24. Reaching for $\text{global}$ when the question wants a result → lose the reasoning, the expected fix is to return the value and catch it outside.
+25. Shadowing a builtin such as $\text{sum}$ with a variable → lose the find-the-bug mark, because the builtin is no longer callable.
 
 ## The last thirty minutes
 
