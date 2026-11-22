@@ -6,6 +6,7 @@ desktop.ini
 # Python
 __pycache__/
 *.pyc
+Python/
 
 # Local scratch
 _worker_ready_*.txt

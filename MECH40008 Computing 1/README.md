@@ -10,6 +10,7 @@
 
 | Lecture | Date | Topics | Notes |
 |---|---|---|---|
+| **Progress test (§1–§10)** | 2026-11-22 | Full review of the five examined lectures: types and floating point · variables and functions · control flow · data structures · algorithms and complexity. 52 multiple-choice questions with worked answers, five eight-part worked examples, a one-page revision sheet, a coverage table and a glossary | [MECH40008_Ch1-5_2026-11-22_Progress_Test_Review.md](./MECH40008_Ch1-5_2026-11-22_Progress_Test_Review.md) |
 | **Lecture 6 (§6.1–6.3)** | 2026-11-13 | NumPy arrays vs lists · contiguous memory · timing experiment · initialisation · slicing and masked reductions · 2D arrays and matrices, `*` vs `@` · vectorisation · six Matplotlib plot types, log axes, meshgrid and contourf | [MECH40008_Ch6-6_2026-11-13_NumPy_Matplotlib.md](./MECH40008_Ch6-6_2026-11-13_NumPy_Matplotlib.md) |
 
 ---
