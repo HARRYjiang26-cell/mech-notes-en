@@ -2493,7 +2493,7 @@ while n != 1:
 ```
 
 - A. no, $n$ keeps growing
-- B. yes: $10\to5\to16\to8\to4\to2\to1$
+- B. yes: $10\to5\to16\to8\to4\to2\to1$, six passes through the body
 - C. no, because there is no break
 - D. it raises $\text{ZeroDivisionError}$
 
@@ -2501,7 +2501,7 @@ while n != 1:
 
 **Answer: B**
 
-Why: $10$ halves to $5$, the odd branch maps $5$ to $16$, then repeated halving reaches $1$ in seven steps (chapter 3).
+Why: $10$ halves to $5$, the odd branch maps $5$ to $16$, then halving reaches $1$; that is six passes through the body, and the seventh check sees $n=1$ and exits (chapter 3).
 
 The other options: A even steps divide immediately; C a break is not needed when the condition eventually turns false; D there is no division by zero.
 
