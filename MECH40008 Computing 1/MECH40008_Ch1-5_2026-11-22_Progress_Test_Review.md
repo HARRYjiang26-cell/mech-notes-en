@@ -2347,3 +2347,12 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | complexity | how cost grows with problem size |
 | linearithmic | $O(n\log n)$, the typical cost of a good sort |
 | common-mode failure | duplicates sharing one assumption, so both fail together |
+
+## 11 Self-check
+
+- Coverage: every section of notes Ch1–Ch5, item by item in the §9 coverage table (20 rows).
+- Worked examples: 5 (E1–E5), all written to the eight-part template, each with its own poster.
+- Questions: $8\times 5 + 12 = 52$, each with four options including a typical wrong answer, and an answer plus per-option reasoning inside the details block.
+- Figures: 7 concept figures plus 5 posters, 12 references in total, no duplicates and none missing, all pointing at existing files under `figures/`.
+- Formulas: inline $\ldots$ and display $$\ldots$$ throughout; no align environment, no boxed, no newcommand.
+- Numbers rechecked: $2^{-52}\approx 2.22\times10^{-16}$, $2^{53}=9\,007\,199\,254\,740\,992$, $32767/10=3276.7$, $3/5=0.6$, $\varphi^{5}\approx 11.09$, all restated exactly as the notes give them.
