@@ -1633,6 +1633,10 @@ $$3n^{2} + 100n = O(n^{2}), \qquad \frac{n^{2}}{2} + 5n = O(n^{2})$$
 
 Learn to reproduce this table. $10^{12}$ operations is slow but feasible; $10^{301030}$ exceeds the number of atoms in the observable universe.
 
+![Cost ladder: at the same $n=10^{6}$ the six complexity classes land in wildly different orders of magnitude](figures/fig_review_cost_ladder.png)
+
+The six bars are operation counts at the same problem size $n=10^{6}$, on a log scale. The three on the left sit almost on the axis; the exponential bar has left the chart. **Same problem size, hundreds of thousands of orders of magnitude apart.** That is why complexity beats memorising seconds: the seconds change with the laptop, the order of magnitude does not.
+
 **(3) How to count.** Count how often the **innermost statement** runs as a function of $n$, then keep the dominant term.
 
 ```python
