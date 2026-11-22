@@ -1,36 +1,128 @@
-# MECH40008 Computing 1 — Progress Test Review (Lectures 1–5)
+# MECH40008 Computing 1 — Progress Test and Exam Review (Lectures 1–7)
 
 > **Course**: MECH40008 Mathematics and Computing 1, programming stream (Python).
-> **Scope**: the first five lectures of the term = notes Ch1–Ch5 (types and floating point, variables and functions, control flow, data structures, algorithms and complexity).
-> **Test**: 9 December, about 45 minutes. Roughly half gym material and half problem-set-style questions; starred challenge questions are normally not examined.
-> **Date**: 2026-11-22. **Sources**: the Imperial course notes (printed pages 1–80). Lecture recordings confirm the scope; the notes govern the technical content.
-> **Structure**: §0 how to use this → §1–§5 one chapter each (idea / mechanisms / code / worked example / 8 multiple-choice questions / traps) → §6 twelve mixed questions → §7 one-page revision sheet → §8 answer key → §9 coverage table → §10 glossary.
+> **Scope**: everything in Canvas course 9711, Computing modules — chapters 1 to 5 in depth, chapters 6 and 7 at the level the example sheets demand.
+> **Exams**: progress test 9 December, CAGB 200, 45 minutes, first five lectures, half gym and half problem set, compulsory but not graded; final 19 March at 09:30, 90 minutes, closed book, with a data and syntax sheet supplied.
+> **Date**: 2026-11-22, rebuilt from Canvas. **Sources**: the course-information sheet, the official 139-page notes, the Introductory Examples Sheet and Sheets 1 to 4, published solutions for the introductory sheet and Sheet 1, and the five online gyms.
+> **Structure**: section 0 how to use this review, then chapters 1 to 7, then the Canvas question map and the Canvas sheet solutions, then tracing drills, simulated paper A, mixed questions, where marks are lost, the last thirty minutes, the one-page revision sheet, the answer key, the coverage table and the glossary.
 
 ## Contents
 
-- §0 How to use this review
-- §1 Types and floating point
-- §2 Variables and functions
-- §3 Control flow
-- §4 Data structures
-- §5 Algorithms and complexity
-- §6 Twelve mixed questions
-- §7 One-page revision sheet
-- §8 Answer key
-- §9 Coverage table
-- §10 Glossary
+- [How to use this review](#how-to-use-this-review)
+  - [0.1 Where the scope comes from](#01-where-the-scope-comes-from)
+  - [0.2 Spending forty-five minutes](#02-spending-forty-five-minutes)
+  - [0.3 Three habits](#03-three-habits)
+  - [0.4 What past papers exist](#04-what-past-papers-exist)
+- [Question-type map](#question-type-map)
+  - [0.5 What Canvas actually says about the exam](#05-what-canvas-actually-says-about-the-exam)
+  - [Canvas question map](#canvas-question-map)
+- [Types and floating point: why 0.1 + 0.2 is not 0.3](#types-and-floating-point-why-01-02-is-not-03)
+  - [1.1 What this chapter is about](#11-what-this-chapter-is-about)
+  - [1.2 Mechanisms you must know](#12-mechanisms-you-must-know)
+  - [1.3 What the code looks like](#13-what-the-code-looks-like)
+  - [1.4 Worked example E1: a value of 35000 that will not fit in a 16-bit register](#14-worked-example-e1-a-value-of-35000-that-will-not-fit-in-a-16-bit-register)
+  - [1.4b How this chapter is examined](#14b-how-this-chapter-is-examined)
+  - [1.5 Multiple-choice questions (8)](#15-multiple-choice-questions-8)
+  - [1.6 Chapter traps](#16-chapter-traps)
+- [Variables and functions: names, return and scope](#variables-and-functions-names-return-and-scope)
+  - [2.1 What this chapter is about](#21-what-this-chapter-is-about)
+  - [2.2 Mechanisms you must know](#22-mechanisms-you-must-know)
+  - [2.3 What the code looks like](#23-what-the-code-looks-like)
+  - [2.4 Worked example E2: a unit error of 4.45 and a lost spacecraft](#24-worked-example-e2-a-unit-error-of-445-and-a-lost-spacecraft)
+  - [2.4b How this chapter is examined](#24b-how-this-chapter-is-examined)
+  - [2.5 Multiple-choice questions (8)](#25-multiple-choice-questions-8)
+  - [2.6 Chapter traps](#26-chapter-traps)
+- [Control flow: the order of branches is the logic](#control-flow-the-order-of-branches-is-the-logic)
+  - [3.1 What this chapter is about](#31-what-this-chapter-is-about)
+  - [3.2 Mechanisms you must know](#32-mechanisms-you-must-know)
+  - [3.3 What the code looks like](#33-what-the-code-looks-like)
+  - [3.4 Worked example E3: one false signal and a lost lander](#34-worked-example-e3-one-false-signal-and-a-lost-lander)
+  - [3.4b How this chapter is examined](#34b-how-this-chapter-is-examined)
+  - [3.5 Multiple-choice questions (8)](#35-multiple-choice-questions-8)
+  - [3.6 Chapter traps](#36-chapter-traps)
+- [Data structures: lists, dictionaries, tuples and aliasing](#data-structures-lists-dictionaries-tuples-and-aliasing)
+  - [4.1 What this chapter is about](#41-what-this-chapter-is-about)
+  - [4.2 Mechanisms you must know](#42-mechanisms-you-must-know)
+  - [4.3 What the code looks like](#43-what-the-code-looks-like)
+  - [4.4 Worked example E4: Challenger and what "failure rate" means](#44-worked-example-e4-challenger-and-what-failure-rate-means)
+  - [4.4b How this chapter is examined](#44b-how-this-chapter-is-examined)
+  - [4.5 Multiple-choice questions (8)](#45-multiple-choice-questions-8)
+  - [4.6 Chapter traps](#46-chapter-traps)
+- [Algorithms and complexity: Big-O, search and sorting](#algorithms-and-complexity-big-o-search-and-sorting)
+  - [5.1 What this chapter is about](#51-what-this-chapter-is-about)
+  - [5.2 Mechanisms you must know](#52-mechanisms-you-must-know)
+  - [5.3 What the code looks like](#53-what-the-code-looks-like)
+  - [5.4 Worked example E5: search the likeliest patch of ocean first](#54-worked-example-e5-search-the-likeliest-patch-of-ocean-first)
+  - [5.4b How this chapter is examined](#54b-how-this-chapter-is-examined)
+  - [5.5 Multiple-choice questions (8)](#55-multiple-choice-questions-8)
+  - [5.6 Chapter traps](#56-chapter-traps)
+- [NumPy and matplotlib: the parts Sheets 3 and 4 use](#numpy-and-matplotlib-the-parts-sheets-3-and-4-use)
+  - [6.1 Arrays do arithmetic element by element](#61-arrays-do-arithmetic-element-by-element)
+  - [6.2 Matrices: the star is elementwise, the at sign is matrix product](#62-matrices-the-star-is-elementwise-the-at-sign-is-matrix-product)
+  - [6.3 Plotting data you did not invent](#63-plotting-data-you-did-not-invent)
+  - [Example E6: eighty pulses without eighty loops](#example-e6-eighty-pulses-without-eighty-loops)
+- [Scientific Python: functions that return, random numbers and pandas](#scientific-python-functions-that-return-random-numbers-and-pandas)
+  - [7.1 Functions that return, loops that accumulate](#71-functions-that-return-loops-that-accumulate)
+  - [7.2 Random numbers, Monte Carlo, and the square-root law](#72-random-numbers-monte-carlo-and-the-square-root-law)
+  - [7.3 pandas: split, apply, combine in one call](#73-pandas-split-apply-combine-in-one-call)
+  - [Example E7: Buffon's needle and the square-root law](#example-e7-buffons-needle-and-the-square-root-law)
+- [Canvas sheet solutions: every part, with the number it prints](#canvas-sheet-solutions-every-part-with-the-number-it-prints)
+  - [S0Q1: names, operators and type errors](#s0q1-names-operators-and-type-errors)
+  - [S0Q2: branches in order, and the three arguments of range](#s0q2-branches-in-order-and-the-three-arguments-of-range)
+  - [S0Q3: a function that returns, a loop that calls it](#s0q3-a-function-that-returns-a-loop-that-calls-it)
+  - [S0Q4: linspace, one plot, and a function called in a loop](#s0q4-linspace-one-plot-and-a-function-called-in-a-loop)
+  - [S0Q5: a forty-year simulation, then a plot, then a function](#s0q5-a-forty-year-simulation-then-a-plot-then-a-function)
+  - [S1Q1: cancellation, and the one rearrangement that fixes it](#s1q1-cancellation-and-the-one-rearrangement-that-fixes-it)
+  - [S1Q2: addition is not associative](#s1q2-addition-is-not-associative)
+  - [S1Q3: print versus return, and a margin that never updates](#s1q3-print-versus-return-and-a-margin-that-never-updates)
+  - [S1Q4: range, crossover speed and the battery you cannot buy](#s1q4-range-crossover-speed-and-the-battery-you-cannot-buy)
+  - [S2Q1: one list shared by every instance](#s2q1-one-list-shared-by-every-instance)
+  - [S2Q2: a next-word dictionary, then entropy](#s2q2-a-next-word-dictionary-then-entropy)
+  - [S2Q3: counting zeros and finding the longest run are different questions](#s2q3-counting-zeros-and-finding-the-longest-run-are-different-questions)
+  - [S2Q4: a greedy plan is not the fastest plan](#s2q4-a-greedy-plan-is-not-the-fastest-plan)
+  - [S3Q1: eighty pulses, drawn in an order that occludes correctly](#s3q1-eighty-pulses-drawn-in-an-order-that-occludes-correctly)
+  - [S3Q2: three duplicate checks, three different costs](#s3q2-three-duplicate-checks-three-different-costs)
+  - [S3Q3: rotating a stress tensor and checking it did not cheat](#s3q3-rotating-a-stress-tensor-and-checking-it-did-not-cheat)
+  - [S3Q4: latitude, longitude, and a histogram that hides a choice](#s3q4-latitude-longitude-and-a-histogram-that-hides-a-choice)
+  - [S4Q1: ten-dimensional Monte Carlo, and why a grid cannot compete](#s4q1-ten-dimensional-monte-carlo-and-why-a-grid-cannot-compete)
+  - [S4Q2: one groupby, one agg, three columns](#s4q2-one-groupby-one-agg-three-columns)
+  - [S4Q3: two printed outputs the sheet's own dictionary cannot produce](#s4q3-two-printed-outputs-the-sheets-own-dictionary-cannot-produce)
+  - [S4Q4: Buffon's needle, and the square-root law on one plot](#s4q4-buffons-needle-and-the-square-root-law-on-one-plot)
+  - [S4Q5: peak grows, energy does not](#s4q5-peak-grows-energy-does-not)
+  - [Canvas gyms and the shape of a gym question](#canvas-gyms-and-the-shape-of-a-gym-question)
+- [Tracing drills](#tracing-drills)
+  - [D1 A loop with an accumulator and a skip](#d1-a-loop-with-an-accumulator-and-a-skip)
+  - [D2 Alias, slice copy and one list](#d2-alias-slice-copy-and-one-list)
+  - [D3 A while loop that stops early](#d3-a-while-loop-that-stops-early)
+  - [D4 One dictionary, two names](#d4-one-dictionary-two-names)
+  - [D5 What may change inside a tuple or a string](#d5-what-may-change-inside-a-tuple-or-a-string)
+- [Simulated paper A](#simulated-paper-a)
+  - [A1 Types, floor division and float comparison](#a1-types-floor-division-and-float-comparison)
+  - [A2 A mutable default argument and a fixed version](#a2-a-mutable-default-argument-and-a-fixed-version)
+  - [A3 A loop that skips and stops](#a3-a-loop-that-skips-and-stops)
+  - [A4 One grid, three names](#a4-one-grid-three-names)
+- [Twelve mixed questions](#twelve-mixed-questions)
+- [Where marks are lost](#where-marks-are-lost)
+- [The last thirty minutes](#the-last-thirty-minutes)
+- [One-page revision sheet](#one-page-revision-sheet)
+  - [7.1 Formula card](#71-formula-card)
+  - [7.2 Complexity table](#72-complexity-table)
+  - [7.3 Trap list, to read five minutes before the test](#73-trap-list-to-read-five-minutes-before-the-test)
+- [Answer key](#answer-key)
+- [Coverage table](#coverage-table)
+- [Canvas sheet coverage](#canvas-sheet-coverage)
+- [Glossary](#glossary)
+- [Self-check](#self-check)
 
-## 0 How to use this review
+## How to use this review
 
 ### 0.1 Where the scope comes from
 
 In the 13 November lecture the lecturer said the 9 December progress test **covers the first five lectures of this term** and takes about 45 minutes. Half of it is gym material, half is problem-set-style work, and starred challenge questions are normally not examined. The final exam is on 19 March at 09:30 and runs for 90 minutes with a similar structure.
 
-So the boundary of this review is exactly five chapters:
+Canvas course 9711 is now the source of truth for this review. Its Computing module holds fourteen files and six links: the one-page course and exam information, the official 139-page notes, one 26-page problem-set PDF containing the Introductory Examples Sheet and Examples Sheets 1 to 4, published solutions for the introductory sheet and for Sheet 1 only, the lecture annotations, a notebook, and five online gyms. The 9 December progress test covers the first five lectures; the March final covers all nine, and Sheets 3 and 4 already use NumPy, matplotlib and random sampling, so lectures 6 and 7 cannot honestly be left out.
 
-$$\text{Ch1} \to \text{Ch2} \to \text{Ch3} \to \text{Ch4} \to \text{Ch5}$$
-
-NumPy and Matplotlib (Ch6), scientific Python in the wild (Ch7) and Monte Carlo (Ch8) belong to lectures 6–8 and are outside this test.
+So this review is layered rather than narrowed: chapters 1 to 5 get the full treatment, and chapters 6 and 7 get exactly the machinery that Sheets 3 and 4 ask for, linked to the two lecture notes that cover them in full.
 
 ### 0.2 Spending forty-five minutes
 
@@ -39,6 +131,10 @@ NumPy and Matplotlib (Ch6), scientific Python in the wild (Ch7) and Monte Carlo 
 | First pass | 25 min | Work down the paper, bank the predict-the-output and find-the-bug questions |
 | Second pass | 12 min | Come back for concept discrimination and complexity questions |
 | Finish | 8 min | Check boundaries: half-open ranges, $\ge$ versus $>$, $\text{None}$ versus empty |
+
+A workable rhythm for the whole paper: first sweep the questions you can already do and bank the predict-the-output and find-the-bug marks, then come back to the concept and complexity items, and leave the last few minutes for boundary checks such as inclusive versus exclusive limits and None versus empty.
+
+| --- | --- | --- |
 
 Predict-the-output questions must be done on paper. Verify each answer two independent ways: substitute an endpoint, and check the order of magnitude.
 
@@ -50,40 +146,112 @@ Predict-the-output questions must be done on paper. Verify each answer two indep
 
 ### 0.4 What past papers exist
 
-I checked the shared Mechnet archive: its root (ME1、ME2、ME3-4), the Year 1 Mathematics folder, and the thirty-five module folders under Year 3/4. It holds Fluid Mechanics, Materials, Mechanics, Mechatronics, Stress Analysis, Thermodynamics, Mathematics and the Year 3/4 modules, but there is no Computing or programming folder anywhere, and the Year 1 papers filed under Mathematics are twelve pure-mathematics questions with no Python in them. This review therefore cites no past-paper year and no question number, and every practice question in it is labelled as a simulated question written to the lecture scope.
+There are no past exam papers to cite, and I am not going to pretend otherwise. Canvas holds no earlier Computing exam paper: the only assessment material is the course-information sheet, the official notes, six example sheets, two published solution PDFs and five gyms. The shared Mechnet archive has no Computing folder at all. So every question in this review that is not a Canvas question is labelled as written to the same style, and every solution to Sheets 2 to 4 is my own work, because Canvas publishes none.
 
 ---
 
-## Question-type map / what each prompt wants
+## Question-type map
 
-Every question on a forty-five-minute paper is one of about twenty shapes. Read the prompt, recognise the shape, and write the first stroke in the third column; if a question does not fit any row, it is two rows stacked, so split it and answer each half with its own route.
+Every question on a forty-five-minute paper is one of about twenty shapes. The table below is the whole map: read the wording in the second column, recognise it, and the third column tells you what to write first. If a question does not fit any row, it is a combination of two rows, so split it into two and answer each half with its own route.
 
-| Ch | Shape | What the prompt looks like | What to write first | Trap |
 | --- | --- | --- | --- | --- |
-| 1 | Floats are not exact | why $0.1+0.2 \ne 0.3$ | a binary fraction has finitely many bits, so $0.1$ is stored as a neighbour | saying precision is lost without saying why |
-| 1 | Integer range and wrap | does a 16-bit register hold 35000 | $2^{15}-1=32767$ is the ceiling, one more wraps negative | taking $2^{15}$ as the ceiling |
-| 1 | Division and rounding | what are `7/2`, `7//2`, `-7//2` | `/` always returns a float, `//` floors | flooring a negative the wrong way |
-| 1 | Type mismatch | what does `"3" + 3` do | it raises `TypeError`, convert with `int` or `str` first | assuming Python converts for you |
-| 2 | Return values | what does a function without `return` give | `None`, and `print` produces no value either | treating `print` as `return` |
-| 2 | Scope | can a function change an outer name | assignment inside builds a local, use `global` to change the outer one | believing the global changed |
-| 2 | Mutable default | why the default list keeps growing | the default is built once at definition, then shared | believing it is rebuilt per call |
-| 2 | Argument passing | does mutating a list inside the function show outside | the reference travels, an in-place change is visible | believing a copy is passed |
-| 3 | Branch order | does reordering the `elif` change the output | put the narrowest condition first | a broad condition swallows the rest |
-| 3 | Loop bounds | how many times does `range(1, 5)` run | the stop value is excluded, four passes | counting five |
-| 3 | break and continue | what is printed here | a line per pass, including skipped passes | treating a skip as an exit |
-| 3 | Short-circuit | is `x != 0 and 1/x > 1` safe | `and` stops when the left side is false | believing both sides run |
-| 4 | Aliasing and copying | why does changing `b` change `a` | count the objects first, then the names | treating a slice as a deep copy |
-| 4 | Lists and tuples | why can the list inside a tuple change | slots cannot be rebound, the object still can mutate | saying a tuple is immutable through and through |
-| 4 | Dictionary keys | can a list be a key | keys must be hashable, a list is not, a tuple is | using a list as a key |
-| 5 | Complexity | what is a nested loop | count the innermost statement | reporting $n+n$ instead of $n^{2}$ |
-| 5 | Binary search precondition | why sort first | each step halves, $O(\log n)$ | searching an unsorted list |
-| 5 | Sort stability | what does stable mean | equal keys keep their relative order | confusing it with speed |
-| 5 | Comparing growth | is $n\log n$ always faster than $n^{2}$ | constants decide below the crossover | ignoring the constants |
 
-Three habits make the table usable under time pressure. Name the chapter before you answer, because the wording of the question is set by the chapter, not by the numbers. Write the first stroke before you write the answer, because the first stroke is worth method marks on its own. And when two rows fit, answer the narrower row first, since the marker is looking for the specific mechanism and the broad row never scores it.
+Three habits make this table usable under time pressure. First, name the chapter before answering, because the chapter tells you which formula or which object rule applies. Second, write the first stroke from the fourth column even when you are unsure of the answer: a stated route earns method marks. Third, when a question spans two rows, answer them in order and keep the two answers visibly separate, so a marker can award them independently.
 
+### 0.5 What Canvas actually says about the exam
 
-## 1 Types and floating point: why 0.1 + 0.2 is not 0.3
+The course-information sheet is one page long and settles the logistics in a way a lecture recap does not. Progress test: 9 December, CAGB 200, 45 minutes, covering the first five lectures, half gym-style and half problem-set-style, compulsory but not counting towards the grade.
+
+Marks: 20 per cent from three of your four tutorial participations, 80 per cent from the final examination. Final: 19 March at 09:30, 90 minutes, in CAGB 203, 761 and 762, closed book, pen and paper, with a data and syntax sheet supplied.
+
+The exam repeats the test structure: half gym-style, half problem-set-style. Two starred rules matter. In a gym the last few challenge questions are not examinable. In a problem sheet the starred parts are not examinable without hints, which in an exam means not examinable.
+
+Two support dates belong in a calendar: progress-test feedback at 13:00 on 4 January in CAGB 664, and the exam revision session at noon on 8 March in CAGB 664.
+
+Read this as a constraint on practice rather than trivia: an hour spent on a starred part is an hour taken from the unstarred half that carries the marks. Everything in this review that is not marked starred is practice that can pay off on the day.
+
+### Canvas question map
+
+One row per part, 68 rows in all, with the chapter that teaches it and the solution block that answers it. Sheet 0 is the introductory sheet; sheets 1 to 4 are the four exam-style sheets. Starred parts are listed so you can see what you are skipping, not so that you practise them.
+
+| Sheet | Q | Part | What the part drills | Ch | Star | Solution |
+| --- | --- | --- | --- | --- | --- | --- |
+| S0 | 1 | i | unquoted word raises NameError | 2.2 | no | S0Q1 |
+| S0 | 1 | ii | operators including the power operator | 1.2 | no | S0Q1 |
+| S0 | 1 | iii | str plus int raises TypeError | 1.2 | no | S0Q1 |
+| S0 | 1 | iv | input returns text, so add numbers with int | 1.2 | yes | S0Q1 |
+| S0 | 2 | i | if, elif, else and the boundary at 25 and 10 | 3.2 | no | S0Q2 |
+| S0 | 2 | ii | range start, stop and step | 3.2 | no | S0Q2 |
+| S0 | 2 | iii | an if inside a loop | 3.2 | yes | S0Q2 |
+| S0 | 3 | i | a function that returns a value | 2.2 | no | S0Q3 |
+| S0 | 3 | ii | a loop that calls a function | 3.2 | no | S0Q3 |
+| S0 | 3 | iii | thresholds inside a classifier | 2.2 | yes | S0Q3 |
+| S0 | 4 | i | linspace, array arithmetic and one plot | 6.1 | no | S0Q4 |
+| S0 | 4 | ii | two curves and a legend | 6.1 | no | S0Q4 |
+| S0 | 4 | iii | a plotting function called in a loop | 6.1 | yes | S0Q4 |
+| S0 | 5 | i | repayment function with max | 7.1 | yes | S0Q5 |
+| S0 | 5 | ii | forty-year simulation loop | 7.1 | yes | S0Q5 |
+| S0 | 5 | iii | plotting a list built in a loop | 6.1 | yes | S0Q5 |
+| S0 | 5 | iv | wrapping the simulation in a function | 7.1 | yes | S0Q5 |
+| S1 | 1 | - | cancellation in sqrt of x squared plus one minus x | 1.4 | no | S1Q1 |
+| S1 | 2 | i | addition is not associative in floating point | 1.2 | no | S1Q2 |
+| S1 | 2 | ii | shuffled sums give many totals | 1.2 | no | S1Q2 |
+| S1 | 2 | iii | chunked sums depend on the chunk size | 1.2 | yes | S1Q2 |
+| S1 | 2 | iv | batch invariance and what the fix costs | 1.2 | yes | S1Q2 |
+| S1 | 3 | i | trace a function that prints instead of returning | 3.2 | no | S1Q3 |
+| S1 | 3 | ii | scope of local assignment and return versus print | 2.2 | no | S1Q3 |
+| S1 | 3 | iii | rewrite add_reserve so the margin is correct | 2.2 | no | S1Q3 |
+| S1 | 4 | i | crossover speed by balancing drag and rolling resistance | 2.3 | no | S1Q4 |
+| S1 | 4 | ii | range at two speeds against 660 km | 2.3 | no | S1Q4 |
+| S1 | 4 | iii | battery capacity required at 70 mph | 2.3 | yes | S1Q4 |
+| S2 | 1 | i | class attribute shared by every instance | 4.2 | no | S2Q1 |
+| S2 | 1 | ii | one line in init to give each instance its own list | 4.2 | no | S2Q1 |
+| S2 | 1 | iii | bump_until returns a count | 4.2 | yes | S2Q1 |
+| S2 | 2 | i | build a next-word dictionary with lists | 4.2 | no | S2Q2 |
+| S2 | 2 | ii | missing key, empty list, and a safe accessor | 4.2 | no | S2Q2 |
+| S2 | 2 | iii | tie-breaking in most_common, then generate text | 4.2 | no | S2Q2 |
+| S2 | 2 | iv | zero-order and first-order entropy | 5.2 | yes | S2Q2 |
+| S2 | 3 | i | trace two loops that count zeros | 3.2 | no | S2Q3 |
+| S2 | 3 | ii | name the functions and write docstrings | 2.2 | no | S2Q3 |
+| S2 | 3 | iii | longest run disagrees on one turbine | 3.2 | no | S2Q3 |
+| S2 | 4 | i | which airfields are reachable with the reserve | 2.3 | no | S2Q4 |
+| S2 | 4 | ii | greedy plan of stops and total time | 2.3 | no | S2Q4 |
+| S2 | 4 | iii | a closed airfield makes the trip faster | 5.2 | yes | S2Q4 |
+| S3 | 1 | i | five synthetic pulses | 6.1 | no | S3Q1 |
+| S3 | 1 | ii | eighty pulses with no ticks | 6.1 | no | S3Q1 |
+| S3 | 1 | iii | fill_between so nearer pulses occlude | 6.1 | yes | S3Q1 |
+| S3 | 2 | i | complexity of three duplicate checks | 5.2 | no | S3Q2 |
+| S3 | 2 | ii | timing experiment on log-log axes | 5.2 | no | S3Q2 |
+| S3 | 2 | iii | the ratio at the largest n and what it means | 5.2 | no | S3Q2 |
+| S3 | 3 | i | rotate a stress tensor with R sigma R transpose | 6.2 | no | S3Q3 |
+| S3 | 3 | ii | star is elementwise, at is matrix product | 6.2 | no | S3Q3 |
+| S3 | 3 | iii | scan angles for zero shear | 6.2 | no | S3Q3 |
+| S3 | 3 | iv | eigenvalues and the trace and determinant invariants | 6.2 | yes | S3Q3 |
+| S3 | 4 | i | extract latitude, longitude and category arrays | 6.3 | no | S3Q4 |
+| S3 | 4 | ii | unique with counts, then sort them | 6.3 | no | S3Q4 |
+| S3 | 4 | iii | scatter with transparency and one marked point | 6.3 | no | S3Q4 |
+| S3 | 4 | iv | two-dimensional histogram with a colour bar | 6.3 | no | S3Q4 |
+| S3 | 4 | v | bin size changes the hotspot story | 6.3 | yes | S3Q4 |
+| S4 | 1 | - | ten-dimensional Monte Carlo integral near 0.243 | 7.2 | no | S4Q1 |
+| S4 | 2 | i | groupby with one agg call on the lift-to-drag ratio | 7.3 | no | S4Q2 |
+| S4 | 2 | ii | best config, spread and count together | 7.3 | no | S4Q2 |
+| S4 | 3 | - | replace words and keep punctuation | 4.2 | no | S4Q3 |
+| S4 | 4 | i | Buffon needle estimator without a loop | 7.2 | no | S4Q4 |
+| S4 | 4 | ii | two hundred seeds and their spread | 7.2 | no | S4Q4 |
+| S4 | 4 | iii | root-mean-square error against N | 7.2 | no | S4Q4 |
+| S4 | 4 | iv | darts and needle: same rate, different variance | 7.2 | yes | S4Q4 |
+| S4 | 5 | i | the toy blow-up profile | 7.2 | yes | S4Q5 |
+| S4 | 5 | ii | peak grows while the trapezium integral stays flat | 7.2 | yes | S4Q5 |
+| S4 | 5 | iii | bounded energy with an unbounded peak | 7.2 | yes | S4Q5 |
+| S4 | 5 | iv | a space-scale picture of the spike | 7.2 | yes | S4Q5 |
+
+The chapter column doubles as a study order. If you have an hour, work down the rows whose star column says no and whose chapter is 1 to 5; if you have three hours, add rows 6.1 to 7.3, because the final examination reaches them even though the December test does not.
+
+Every row marked starred is still worth reading once. The point is not to solve it under time pressure but to know what the question is doing, so that a hint in the exam, if one is given, does not arrive as a surprise.
+
+---
+
+## Types and floating point: why 0.1 + 0.2 is not 0.3
 
 ### 1.1 What this chapter is about
 
@@ -98,11 +266,11 @@ False
 
 Nothing is broken. The hardware is doing exactly what the standard says. This chapter takes that from "why" to "what to do about it": how numbers are stored, where the error comes from, when it matters, and how to guard against it in code.
 
-![Roadmap: this chapter starts from values; the later lectures build on them](figures/fig_review_map.png)
+![Figure: worked example poster](figures/fig_review_map.png)
 
 The first stop on the map is values. The next four lectures all sit on top of them: values are function inputs, conditions, container items and data for algorithms. A measurement rounded at this first stop is still that rounded value when it reaches the fourth stop.
 
-![The floating-point number line: the gap between neighbours doubles at every power of two](figures/fig_review_floatline.png)
+![Figure: worked example poster](figures/fig_review_floatline.png)
 
 The second figure is the core picture: a floating-point number line is a **ruler with uneven marks**. The marks are dense near $1$ and sparse near $10^{100}$, yet both regions carry the same number of significant digits.
 
@@ -118,6 +286,8 @@ The second figure is the core picture: a floating-point number line is a **ruler
 | $\text{float}$ | $\text{temp} = 98.6$ | measurements, real numbers |
 | $\text{str}$ | $\text{name} = \text{"Alice"}$ | text, labels |
 | $\text{bool}$ | $\text{done} = \text{False}$ | yes/no conditions |
+
+| --- | --- | --- | --- |
 
 Inspect it with $\text{type}(x)$. First trap: **the division operator $/$ always returns a float**, even when two integers divide exactly.
 
@@ -258,11 +428,7 @@ Both should be $0.5$. The first collapses because $\cos x$ rounds to exactly $1.
 
 ### 1.4 Worked example E1: a value of 35000 that will not fit in a 16-bit register
 
-**What is asked**
-
 Ariane 5's inertial reference software encoded speed as a fixed-point integer. A non-negative speed $v$ in $\text{m s}^{-1}$ is stored as $\text{int}(10v)$ and decoded by dividing by 10. Take $v = 3500.0$ and answer: (a) what integer is stored, of what type, and does it fit a **signed 16-bit** field? (b) how much do "truncate then scale" and "scale then truncate" differ? (c) if the field must cover $0\sim 4000\ \text{m s}^{-1}$ with decoded spacing at most $0.1$, does $\text{int}(5v)$ work?
-
-**Why this route**
 
 The criterion here is not floating-point accuracy but the **range of a fixed-width field**. The number of bits is fixed, so the set of representable integers is fixed, and the only possible failure is "does not fit". So: encode to an integer, then compare with the field limits. You may not argue "Python computed 35000, so it is fine"; Python integers are arbitrary precision and the failure happens **at the transfer**, not in the arithmetic.
 
@@ -288,8 +454,6 @@ $$\text{int}(v)\times 10 = 123 \times 10 = 1230 \quad \text{vs} \quad \text{int}
 
 With $v = 123.75$: the first truncates to $123$, throws away $0.75$ and multiplies to $1230$ (decoded $123.0$); the second multiplies to $1237.5$ and truncates to $1237$ (decoded $123.7$). **Truncating after scaling cannot recover the lost digit.**
 
-**Where the constant comes from**
-
 $32768$ and $32767$ are $2^{15}$ and $2^{15}-1$: one of the sixteen bits is the sign, leaving fifteen for the magnitude. The positive side has one fewer code because zero occupies a slot.
 
 $35000$ is simply $10\times 3500.0$. The spacing $0.1\ \text{m s}^{-1}$ comes from the scale factor 10: adjacent integers differ by 1, so decoded values differ by $1/10$.
@@ -304,17 +468,11 @@ $$\frac{1}{5} = 0.2\ \text{m s}^{-1} > 0.1\ \text{m s}^{-1}$$
 
 **At a fixed bit width, range and resolution trade against each other**, exactly as on the floating-point number line in section 1.2(6). The fix is to keep scale 10 and widen the destination to signed 32 bits, with an explicit physical range check.
 
-**Sanity check**
-
 Three independent checks. Magnitude: $3500\ \text{m s}^{-1}$ scaled by 10 is $3.5\times 10^{4}$, the same order as the 16-bit ceiling $3.28\times 10^{4}$ and slightly larger, which matches a "just over the limit" accident. Endpoints: $v=0$ encodes to $0$; $v=3276.7$ encodes to $32767$ exactly at the ceiling; $v=3276.8$ encodes to $32768$ and overflows. Logic: the active and backup systems ran the **same software**, so the same input produced the same illegal conversion; **duplicating hardware does not remove a shared assumption**.
-
-**Answer**
 
 $$\text{stored} = 35000 > 32767 \ \Rightarrow\ \text{overflow}, \qquad v_{\max} = \frac{32767}{10} = 3276.7\ \text{m s}^{-1}$$
 
 Scaling before truncating is required; a scale factor of 5 keeps the range but drops the spacing to $0.2$, which fails the requirement; use a 32-bit field with a range check.
-
-**Traps**
 
 - Believing "Python computed 35000, so it is fine": the overflow happens when the value is **put into the fixed-width field**.
 - Treating $\text{int}()$ as rounding: it truncates, so $\text{int}(1237.5)=1237$.
@@ -322,7 +480,11 @@ Scaling before truncating is required; a scale factor of 5 keeps the range but d
 - Checking range but not resolution: a smaller scale factor fits larger speeds but coarser spacing.
 - Trusting the backup: same source code, same failure.
 
-![Example poster: Ariane 5 fixed-point telemetry](figures/ex_comp5_ariane.png)
+![Figure: worked example poster](figures/ex_comp5_ariane.png)
+
+### 1.4b How this chapter is examined
+
+Chapter 1 is examined in two shapes. The short shape asks you to predict a printed value: a division that surprises you, an integer that overflows a fixed-width register, or a comparison of two floats that should be equal and is not. The long shape asks you to explain: "state why" is a real one or two marks, and the marker wants the mechanism, which is that a binary mantissa with finitely many bits cannot hold most decimals, so the stored value is the nearest one and the arithmetic inherits that error. Writing "because of precision" earns nothing, because it restates the symptom.
 
 ### 1.5 Multiple-choice questions (8)
 
@@ -333,7 +495,9 @@ Scaling before truncating is required; a scale factor of 5 keeps the range but d
 - C. $\text{None}$
 - D. an error
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{True}$
+- B. $\text{False}$
+- C. $\text{None}$
 
 **Answer: B**
 
@@ -350,8 +514,6 @@ The other options: A is mathematical intuition, not floating-point fact; C is wr
 - C. 64 bits, 53 fraction bits
 - D. 80 bits, 64 fraction bits
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: double precision is $1+11+52=64$ bits: one sign, eleven exponent, fifty-two fraction.
@@ -366,8 +528,6 @@ The other options: A is single precision; C confuses effective precision (53, in
 - B. $\text{True}$, because $x+1$ is exactly halfway between $x$ and $x+2$ and rounds to the even one
 - C. $\text{True}$, because Python integers overflow
 - D. an error
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -384,7 +544,8 @@ The other options: A ignores the spacing; C is wrong because Python integers do 
 - C. $\text{math.isclose}(a, b, \text{rel\_tol}=1\text{e-}9)$
 - D. convert both to strings and compare
 
-<details><summary>Answer and explanation</summary>
+- A. $a == b$
+- C. $\text{math.isclose}(a, b, \text{rel\_tol}=1\text{e-}9)$
 
 **Answer: C**
 
@@ -401,8 +562,6 @@ The other options: A is almost always false; B is too strict near $10^{6}$ and t
 - C. $\text{True}$, because Python uses integers internally
 - D. an error
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: A**
 
 Why: the gap at $1.0$ is $\varepsilon = 2.22\times 10^{-16}$ and half of it is about $1.11\times 10^{-16}$; $1\text{e-}16$ is smaller, so it rounds back to $1.0$. This is absorption.
@@ -417,8 +576,6 @@ The other options: B ignores rounding; C is wrong because a Python float is a ha
 - B. It is the smallest $x$ with $1+x \ne 1$
 - C. It is the gap between $1.0$ and the next float, and one rounding changes a number by at most $\varepsilon/2$ of its size
 - D. It equals $2^{-53}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: C**
 
@@ -435,8 +592,6 @@ The other options: A is off by hundreds of orders of magnitude; B is the common 
 - C. $-32767 \sim 32767$
 - D. $-65536 \sim 65535$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: one bit is the sign and fifteen carry the magnitude, so the negative side reaches $-2^{15}$ and the positive side stops at $2^{15}-1$.
@@ -451,8 +606,6 @@ The other options: A is unsigned 16-bit; C forgets the extra negative code; D is
 - B. $1230$ and $1237$
 - C. $1240$ and $1237$
 - D. $1237$ and $1230$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -473,12 +626,9 @@ The other options: A ignores the order of the truncation; C treats truncation as
 - Subtracting two nearly equal numbers: the leading digits vanish, so rewrite the formula instead of raising precision.
 - Assuming adding 1 always changes a float: past $2^{53}$ it does not.
 
+---
 
-### 1.4b How this chapter is examined
-
-Chapter 1 is examined in two shapes. The short shape asks you to predict a printed value: a division that surprises you, an integer that overflows a fixed-width register, or a comparison of two floats that should be equal and is not. The long shape asks you to explain: "state why" is a real one or two marks, and the marker wants the mechanism, which is that a binary mantissa with finitely many bits cannot hold most decimals, so the stored value is the nearest one and the arithmetic inherits that error. Writing "because of precision" earns nothing, because it restates the symptom.
-
-## 2 Variables and functions: names, return and scope
+## Variables and functions: names, return and scope
 
 ### 2.1 What this chapter is about
 
@@ -486,7 +636,7 @@ One sentence: **a variable is a name, and a function is a name for a stretch of 
 
 Chapter 1 was about what a value looks like. This chapter is about how values get called up and reused. Two things are examined again and again: a function that only prints **returns nothing**, and **assignment does not copy**.
 
-![Names, scope and aliasing: assignment only labels; a local name disappears when the function returns](figures/fig_review_names_scope.png)
+![Figure: worked example poster](figures/fig_review_names_scope.png)
 
 The top half shows two names pointing at one list; the bottom half shows a local name inside a function. The arrows point at **objects**; a name is only an arrow.
 
@@ -522,6 +672,13 @@ After that line the built-in sum is hidden. Use $\text{total}$ instead.
 - **Testing**: a small function can be checked on simple inputs.
 
 **(4) The anatomy of def.**
+
+```python
+def distance(x1, y1, x2, y2):
+    """Return the Euclidean distance between two 2D points."""
+    d = ((x2 - x1)**2 + (y2 - y1)**2)**0.5
+    return d
+```
 
 ```python
 def distance(x1, y1, x2, y2):
@@ -569,6 +726,15 @@ def power(base, exponent=2):
 power(3)                      # positional, exponent takes the default, 9
 power(3, 3)                   # positional, matched by order, 27
 power(3, exponent=3)          # keyword, matched by name, 27
+```
+
+```python
+def power(base, exponent=2):
+    return base ** exponent
+
+power(3)
+power(3, 3)
+power(3, exponent=3)
 ```
 
 - **Positional**: matched by order.
@@ -654,11 +820,7 @@ Either use a temporary variable, or use tuple assignment $\text{a, b = b, a}$.
 
 ### 2.4 Worked example E2: a unit error of 4.45 and a lost spacecraft
 
-**What is asked**
-
 In Mars Climate Orbiter, the module that computed thruster impulse produced pound-force seconds while the navigation module consumed newton-seconds. Given $1\ \text{lbf}\approx 4.448\ \text{N}$, by what factor is the impulse misread? And what would have happened if the computing function had printed instead of returned?
-
-**Why this route**
 
 There is only one route for units: convert both to a common basis and compare. The thrust curve is irrelevant; only the ratio of the two unit systems matters. Structurally the bug is not in the formula but in the **interface contract**: a returned value must carry its unit, otherwise the caller can only guess.
 
@@ -680,29 +842,29 @@ $$\Delta I = (4.448 - 1)\,I_{\text{calc}} \approx 3.45\,I_{\text{calc}}$$
 
 Each burn's computed impulse is only about $22.5\%$ of the impulse actually applied, so the miss per burn is about $3.45$ times the computed value, and the error accumulates with the number of burns.
 
-**Where the constant comes from**
-
 $4.448$ is not arbitrary: one pound-force is the weight of one pound mass under standard gravity.
 
 $$1\ \text{lbf} = 0.45359237 \times 9.80665 \approx 4.4482\ \text{N}$$
 
-**Sanity check**
+So one pound-force second comes out at 4.448 newton seconds, which rounds to 4.45.
 
 Reverse the direction: if the navigation side had misread $\text{N}\cdot\text{s}$ as $\text{lbf}\cdot\text{s}$, the ratio would be $4.448$, i.e. too large, not too small. The observed factor $0.2248$ matches "computed in $\text{lbf}\cdot\text{s}$, consumed as $\text{N}\cdot\text{s}$". Order of magnitude: $0.2248\times 4.448\approx 1.000$, so the two ends close.
 
 On the function level: had the impulse function only printed, the caller would receive $\text{None}$ and raise $\text{TypeError}$ immediately. **The accident happened precisely because the function returned a perfectly good number**; the value was fine, the unit was not documented. Working code is not the same as correct code.
 
-**Answer**
-
 $$\frac{I_{\text{used}}}{I_{\text{true}}} = \frac{1}{4.4482} \approx 0.2248, \qquad \text{bias factor} \approx 4.45$$
 
-**Traps**
+Treating the same number as two different units makes the computed impulse about $4.45$ times too small (the real burn is that much larger), and once that bias is carried through a whole flight the trajectory is hopelessly off.
 
 - Reading $4.45$ as $4.45\%$: it is a factor; $0.2248$ is the fraction.
 - Believing "it returned a number, so it is right": right type, wrong unit is the hardest class of bug.
 - Computing a single burn: the damage is the **accumulation** over the mission.
 
-![Example poster: return versus print](figures/ex_comp5_orbiter.png)
+![Figure: worked example poster](figures/ex_comp5_orbiter.png)
+
+### 2.4b How this chapter is examined
+
+Chapter 2 is examined as find-the-bug and as short trace. Find-the-bug gives you a function and asks why the second call returns something different from the first: the usual answer is a mutable default argument, built once at definition time. Short trace gives you a function that prints instead of returning, or that rebinds a name inside its own body, and asks what the caller sees: the answer is `None`, or the global unchanged. Both shapes reward the same sentence, "assigning inside a function creates a local name unless `global` is declared", so learn that sentence as a sentence.
 
 ### 2.5 Multiple-choice questions (8)
 
@@ -720,7 +882,8 @@ print(double(5))
 - C. $\text{None}$
 - D. $\text{TypeError}$
 
-<details><summary>Answer and explanation</summary>
+- A. $10$
+- C. $\text{None}$
 
 **Answer: B**
 
@@ -738,12 +901,17 @@ b = a
 a = a + 1
 ```
 
+Pick one of the options below.
+
 - A. $a=6$, $b=6$
 - B. $a=6$, $b=5$
 - C. $a=5$, $b=6$
 - D. $a=6$, $b=\text{None}$
 
-<details><summary>Answer and explanation</summary>
+- A. $a=6$, $b=6$
+- B. $a=6$, $b=5$
+- C. $a=5$, $b=6$
+- D. $a=6$, $b=\text{None}$
 
 **Answer: B**
 
@@ -759,8 +927,6 @@ The other options: A treats names as storage cells; C reverses the order; D is u
 - B. $\text{def power(base, exp=2): return base ** exp}$
 - C. $\text{def power(base=2, exp): return base ** exp}$
 - D. $\text{def power(base, exp): return base * exp}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -786,8 +952,6 @@ print(collect(2))
 - C. $[1]$ and $[]$
 - D. an error
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: the default list is created once at definition time, so both calls share it and the second sees the first append.
@@ -802,8 +966,6 @@ The other options: A is the intuitive but wrong answer; C implies a clearing tha
 - B. $\text{print}$ returns to the caller and $\text{return}$ only displays
 - C. $\text{return}$ hands the value back and ends the function; $\text{print}$ only displays and the function returns $\text{None}$
 - D. Every function must use both
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: C**
 
@@ -828,8 +990,6 @@ print(total)
 - C. raises $\text{NameError}$
 - D. raises $\text{TypeError}$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: C**
 
 Why: $\text{total}$ is local and disappears when the call returns, so the name does not exist outside.
@@ -844,8 +1004,6 @@ The other options: A assumes locals leak; B requires an existing name whose valu
 - B. $\text{def mean(a, b): return (a + b) / 2}$
 - C. $\text{def sum(x): return x + 1}$
 - D. $\text{def f(x, y=1): return x * y}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: C**
 
@@ -862,7 +1020,8 @@ The other options: A, B and D are all legal and normal. Naming is style, but sha
 - C. $x = \text{print}((4+8)/2)$ then $x * 2$
 - D. impossible without a variable
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{print((4+8)/2) * 2}$
+- B. $\text{((4+8)/2) * 2}$
 
 **Answer: B**
 
@@ -882,11 +1041,9 @@ The other options: A multiplies the return value of print, which is $\text{None}
 - Treating units as comments: right type, wrong unit, program runs, result is wrong by a factor.
 - Swapping the argument order: $\text{power(3, 2)}$ is not $\text{power(2, 3)}$.
 
-### 2.4b How this chapter is examined
+---
 
-Chapter 2 is examined as find-the-bug and as short trace. Find-the-bug gives you a function and asks why the second call returns something different from the first: the usual answer is a mutable default argument, built once at definition time. Short trace gives you a function that prints instead of returning, or that rebinds a name inside its own body, and asks what the caller sees: the answer is `None`, or the global unchanged. Both shapes reward the same sentence, "assigning inside a function creates a local name unless `global` is declared", so learn that sentence as a sentence.
-
-## 3 Control flow: the order of branches is the logic
+## Control flow: the order of branches is the logic
 
 ### 3.1 What this chapter is about
 
@@ -894,7 +1051,7 @@ One sentence: **the program stops running straight down and starts deciding and 
 
 The first two chapters were straight lines. This chapter adds junctions ($\text{if}$) and loops ($\text{while}$, $\text{for}$). Two things are examined: **the order of branches is the logic**, and **inside a loop somebody must make progress**.
 
-![Control flow: the first true branch wins, break leaves only the innermost loop, continue skips the rest of the iteration](figures/fig_review_control_flow.png)
+![Figure: worked example poster](figures/fig_review_control_flow.png)
 
 Three things to keep from the figure: $\text{if}/\text{elif}/\text{else}$ is tried top to bottom and stops at the first hit; $\text{while}$ must make progress itself; $\text{for}$ makes progress automatically.
 
@@ -932,7 +1089,7 @@ Swap the two conditions and you get $\text{ZeroDivisionError}$.
 
 **(4) Truthiness.** These are false as conditions: $0$, $0.0$, $\text{None}$, the empty string, the empty list, the empty dictionary. Almost everything else is true. $\text{if readings:}$ asks "is there anything in it". While learning, explicit conditions such as $\text{if n != 0:}$ read better.
 
-**(5) if / elif / else.** Tried top to bottom; **the first true branch runs and everything below is skipped**. So the order is the logic:
+**(5) if / elif / else.** Tried top to bottom; **the first true branch runs and everything below is skipped**. So the order is the logic: write $\text{if x > 18}$ before $\text{elif x > 21}$ and the second branch is unreachable.
 
 ```python
 speed = 45
@@ -943,8 +1100,6 @@ elif speed < 30:
 else:
     print("Speed OK")
 ```
-
-Write $\text{if x > 18}$ before $\text{elif x > 21}$ and the second branch is unreachable. **For thresholds, test the most restrictive first.**
 
 **(6) while: repeat an unknown number of times.** It runs while the condition holds, and **you** must change something:
 
@@ -958,6 +1113,8 @@ while x < 3:
 Forgetting the increment, or skipping it with $\text{continue}$, is an infinite loop.
 
 **(7) for: a known number of repetitions, or a walk over a sequence.**
+
+$$\text{range}(\text{start},\ \text{stop},\ \text{step}), \qquad \text{stop excluded}$$
 
 $$\text{range}(\text{start},\ \text{stop},\ \text{step}), \qquad \text{stop excluded}$$
 
@@ -1048,11 +1205,7 @@ This prints $A\ 0\ B\ 0$: the inner loop is cut each time but the outer one cont
 
 ### 3.4 Worked example E3: one false signal and a lost lander
 
-**What is asked**
-
 Mars Polar Lander's descent is divided into control cycles. In cycle $i$, $\text{height}[i]$ is the height above ground (metres, non-increasing) and $\text{touch}[i]$ says whether the touchdown sensor fired. Two rules must hold: readings above the enabling height $h_{\text{enable}}$ must have **no effect**, and touchdown is declared on the **second consecutive** triggered cycle. How do you write this, and why can a single spurious pulse not cut the engines?
-
-**Why this route**
 
 One $\text{if}$ cannot express two rules. This needs a **gate** (only readings at or below the enabling height count) and a **counter** (how many consecutive cycles fired). A gate is a Boolean; "consecutive" is a count; both must be stored. That is the structural difference from a single-condition question: state has to survive between cycles.
 
@@ -1067,8 +1220,6 @@ The counter increments only when the height is low enough and the sensor fired; 
 $$\text{landing} = \left[\, c_i \ge 2 \,\right]$$
 
 Testing $\ge 2$ rather than $== 2$ tolerates a repeated delivery in one cycle.
-
-**Step 3: write the code**
 
 ```python
 def touchdown_cycle(height, touch, h_enable):
@@ -1085,28 +1236,24 @@ def touchdown_cycle(height, touch, h_enable):
 
 The function returns the first cycle that satisfies the rule, or $\text{None}$.
 
-**Where the constant comes from**
-
 The $2$ is not estimated: the rule says "two consecutive cycles". The $\le$ follows the sentence "above the enabling height must have no effect": at exactly the enabling height the sensor is allowed to work. Both come straight from the wording.
 
-**Sanity check**
-
 A spurious-pulse case: $\text{height}=[1000, 900, 200, 150, 40]$, $\text{touch}=[\text{T}, \text{F}, \text{F}, \text{F}, \text{F}]$, $h_{\text{enable}}=300$. The first two cycles are gated out, so the count stays $0$; below $200$ nothing fires, so it stays $0$ and the call returns $\text{None}$: no engine cut. A genuine landing: $\text{height}=[40, 20]$, $\text{touch}=[\text{T}, \text{T}]$ reaches $\text{count}=2$ at the second cycle and returns $1$.
-
-**Answer**
 
 $$\text{arm at } h<h_{\text{enable}},\quad \text{count consecutive triggers},\quad \text{fire when } c_i \ge 2$$
 
 A single pulse can only reach $1$, so it cannot cut the engines; the gate plus the counter is exactly what separates "one misread" from "actually landed".
-
-**Traps**
 
 - Chaining the two rules with $\text{elif}$: one rule swallows the other.
 - Writing only $\text{if touch[i]}$: a high-altitude false trigger cuts the engines.
 - Incrementing but not resetting: two non-consecutive triggers add up and "consecutive" is lost.
 - Using $\text{continue}$ where $\text{break}$ is meant.
 
-![Example poster: control flow and the two-consecutive-cycle rule](figures/ex_comp5_polar.png)
+![Figure: worked example poster](figures/ex_comp5_polar.png)
+
+### 3.4b How this chapter is examined
+
+Chapter 3 is examined by predictable output on a piece of control flow you have not seen before. Two shapes dominate. The branch shape reorders `if` and `elif` so that a broad condition swallows a specific one, and the mark is lost by reading only the first line that matches. The loop shape mixes `break`, `continue` and an accumulator, and the mark is lost by tracing only the passes that print. Write one line per pass, including skipped passes, and the answer becomes mechanical.
 
 ### 3.5 Multiple-choice questions (8)
 
@@ -1127,7 +1274,9 @@ else:
 - C. $A$ then $B$
 - D. $C$
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{A}$
+- B. $\text{B}$
+- D. $\text{C}$
 
 **Answer: A**
 
@@ -1144,7 +1293,9 @@ The other options: B assumes the chain picks the "better" branch; C assumes seve
 - C. $\text{None}$
 - D. an error
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{True}$
+- B. $\text{False}$
+- C. $\text{None}$
 
 **Answer: A**
 
@@ -1170,8 +1321,6 @@ while x < 3:
 - C. prints $0$ then hangs
 - D. raises an error
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: C**
 
 Why: at $x=1$ the $\text{continue}$ skips the increment, so $x$ stays $1$ and the condition stays true forever.
@@ -1186,8 +1335,6 @@ The other options: A ignores continue; B assumes continue advances something; D 
 - B. 9
 - C. 0
 - D. infinitely many
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: C**
 
@@ -1206,12 +1353,12 @@ for i in range(0, 5, 2):
         count += 1
 ```
 
+Pick one of the options below.
+
 - A. 4
 - B. 6
 - C. 10
 - D. 15
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1227,8 +1374,6 @@ The other options: A miscounts the inner lengths; C assumes $i$ runs over all in
 - B. $\text{if x != 0 and (y / x) > 1:}$
 - C. $\text{if x != 0 or (y / x) > 1:}$
 - D. $\text{if not x == 0 or (y / x) > 1:}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1254,7 +1399,10 @@ for outer in ["A", "B"]:
 - C. $A\ 0\ 1\ B\ 0\ 1$
 - D. $A\ 0$
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{A}\ 0\ 1\ 2\ \text{B}\ 0\ 1\ 2$
+- B. $\text{A}\ 0\ \text{B}\ 0$
+- C. $\text{A}\ 0\ 1\ \text{B}\ 0\ 1$
+- D. $\text{A}\ 0$
 
 **Answer: B**
 
@@ -1270,8 +1418,6 @@ The other options: A is the output without break; C misplaces where break takes 
 - B. $\text{if values:}$
 - C. $\text{if values != None:}$
 - D. $\text{if values is True:}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1292,12 +1438,9 @@ The other options: A works but is verbose; C is true for an empty list as well, 
 - Comparing floats with $==$ instead of $\text{math.isclose}$.
 - Confusing truthiness with "equals $\text{True}$": an empty list is false but is not equal to $\text{True}$.
 
+---
 
-### 3.4b How this chapter is examined
-
-Chapter 3 is examined by predictable output on a piece of control flow you have not seen before. Two shapes dominate. The branch shape reorders `if` and `elif` so that a broad condition swallows a specific one, and the mark is lost by reading only the first line that matches. The loop shape mixes `break`, `continue` and an accumulator, and the mark is lost by tracing only the passes that print. Write one line per pass, including skipped passes, and the answer becomes mechanical.
-
-## 4 Data structures: lists, dictionaries, tuples and aliasing
+## Data structures: lists, dictionaries, tuples and aliasing
 
 ### 4.1 What this chapter is about
 
@@ -1305,7 +1448,7 @@ One sentence: **choose the wrong structure and even a good algorithm is slow; ge
 
 The previous chapters handled a single number. Engineering handles collections: a set of measurements, a table from temperature to fault count, a point. This chapter gives three containers and spends most of its time on the trap: **assignment is not copying**.
 
-![Choosing a structure: lists keep order, dictionaries keep lookups, tuples promise immutability](figures/fig_review_structures.png)
+![Figure: worked example poster](figures/fig_review_structures.png)
 
 One line from the figure: **order and duplicates need a list, fast lookup needs a dictionary, a fixed record that must not change needs a tuple.**
 
@@ -1432,11 +1575,7 @@ The name of the game is "create the list once, then append". Writing $\text{grou
 
 ### 4.4 Worked example E4: Challenger and what "failure rate" means
 
-**What is asked**
-
 A set of test records gives, for each test, a temperature and the number of damaged seals. (a) group by temperature; (b) for an interval $[\text{low},\ \text{high})$ return the number of tests and the fraction with any damage; (c) explain why averaging the two interval fractions directly is wrong and how to pool them.
-
-**Why this route**
 
 A statistic is meaningless until the denominator is named. There are two different quantities here: **incidents per flight** (numerator incidents, denominator flights) and **fraction of tests with any damage** (numerator damaged tests, denominator tests). The question asks for the second, so the records must be expanded to one row per test and counted. Averaging an average gets the weights wrong.
 
@@ -1458,8 +1597,6 @@ $$\text{fraction} = \frac{\text{faulty}}{\text{tests}}$$
 
 This is a weighted average, weighted by the number of tests.
 
-**Where the constant comes from**
-
 In the worked data the interval $[60, 80)$ holds five tests, three of them damaged, so $\text{fraction}=3/5=0.6$. Suppose the cold group is $2/3$ and the warm group $1/2$; averaging the fractions gives
 
 $$\frac{2/3 + 1/2}{2} = \frac{7}{12} \approx 0.583$$
@@ -1470,24 +1607,22 @@ $$\frac{3\cdot \frac{2}{3} + 2 \cdot \frac{1}{2}}{3+2} = \frac{2+1}{5} = 0.6$$
 
 The difference comes from the weights $3$ and $2$: averaging gives the smaller group too much say. So $0.583$ versus $0.6$ is a weighting error, not rounding.
 
-**Sanity check**
-
 Count directly: $\text{faulty}=3$, $\text{tests}=5$, so $3/5=0.6$, inside $[0,1]$ and equal to the weighted formula. Check the empty interval: it must return $(0, \text{None})$, because $0/0$ is undefined. **No data and no failures are different statements.**
-
-**Answer**
 
 $$\text{fraction}([\text{low},\text{high})) = \frac{\#\{\text{tests with any damage}\}}{\#\{\text{tests}\}}, \qquad \text{cold}\ [0,66): 1.0,\quad \text{warm}\ [66,100): 0.158$$
 
 The cold group is entirely damaged; about one warm test in six is. On 28 January 1986 the launch temperature was about $36\ ^\circ\text{F}$ against a previous minimum of $53\ ^\circ\text{F}$, outside the range the data covered. That extrapolation, not the arithmetic, was the risk.
-
-**Traps**
 
 - Mixing incidents per flight with the fraction of damaged tests.
 - Averaging two percentages: $0.583$ instead of $0.6$.
 - Dropping the $f=0$ tests from the denominator: the fraction is inflated.
 - Writing the interval closed: it is half-open, like slices and range.
 
-![Example poster: dictionary grouping, weighted fractions and shallow copies](figures/ex_comp5_challenger.png)
+![Figure: worked example poster](figures/ex_comp5_challenger.png)
+
+### 4.4b How this chapter is examined
+
+Chapter 4 is examined by "what does the program print" on two names for one object. The examiner builds a short list or dictionary, aliases it with a plain assignment, copies it in one of the three ways, mutates one name, and asks for every printed value. The whole mark comes from counting objects first, names second. A second shape asks a definition question: why a list cannot be a dictionary key, why a tuple holding a list can still change, why removing items while iterating skips elements.
 
 ### 4.5 Multiple-choice questions (8)
 
@@ -1505,7 +1640,9 @@ print(a)
 - C. $[4]$
 - D. an error
 
-<details><summary>Answer and explanation</summary>
+- A. $[1, 2, 3]$
+- B. $[1, 2, 3, 4]$
+- C. $[4]$
 
 **Answer: B**
 
@@ -1522,8 +1659,6 @@ The other options: A assumes a copy; C treats append as a replacement; D is wron
 - C. a tuple
 - D. a string
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: hashing gives $O(1)$ average membership, so repeated lookups do not slow down.
@@ -1538,8 +1673,6 @@ The other options: A is $O(n)$ per test; C is also linear, only immutable; D is 
 - B. $[20, 30]$
 - C. $[20, 30, 40]$
 - D. $[30]$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1556,8 +1689,6 @@ The other options: A starts too early; C includes index $3$; D takes one item.
 - C. $b = \text{copy.deepcopy}(a)$
 - D. $b = a.append([])$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: C**
 
 Why: deepcopy copies the inner lists too, so changing $b$ cannot touch $a$.
@@ -1572,8 +1703,6 @@ The other options: A is an alias; B is shallow, so $a[0]$ is still shared; D app
 - B. creates $\text{groups[60] = []}$ and then appends $1$
 - C. does nothing
 - D. clears the dictionary
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1590,8 +1719,6 @@ The other options: A is what plain $\text{groups[60]}$ would do; C is the behavi
 - C. lists cannot hold numbers
 - D. lists cannot have equal length
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: nothing in the data enforces that index $i$ belongs to the same record.
@@ -1607,8 +1734,6 @@ The other options: A is irrelevant to correctness; C is false; D is false. Fix: 
 - C. a list
 - D. a dictionary
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: comma-separated return values are packed into a tuple such as $(3, 6)$.
@@ -1623,8 +1748,6 @@ The other options: A is the usual misreading; C needs brackets; D needs braces.
 - B. it says "nothing failed" when the truth is "no data", which can invert the conclusion
 - C. it raises $\text{ZeroDivisionError}$
 - D. it returns $\text{None}$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1644,12 +1767,9 @@ The other options: A ignores the meaning; C would happen if the division were at
 - Reporting an average when the question asks for a fraction of tests.
 - Using a list as a dictionary key: unhashable, $\text{TypeError}$; use a tuple.
 
+---
 
-### 4.4b How this chapter is examined
-
-Chapter 4 is examined by "what does the program print" on two names for one object. The examiner builds a short list or dictionary, aliases it with a plain assignment, copies it in one of the three ways, mutates one name, and asks for every printed value. The whole mark comes from counting objects first, names second. A second shape asks a definition question: why a list cannot be a dictionary key, why a tuple holding a list can still change, why removing items while iterating skips elements.
-
-## 5 Algorithms and complexity: Big-O, search and sorting
+## Algorithms and complexity: Big-O, search and sorting
 
 ### 5.1 What this chapter is about
 
@@ -1657,7 +1777,7 @@ One sentence: **running is not enough; you need to know how much slower it gets 
 
 One and the same mathematical function, written two ways: one chokes at $n=40$, the other reaches $n=1000$ in tens of microseconds. The first program is not wrong, it is using the wrong method. This chapter provides the ruler: how the cost grows with problem size.
 
-![Complexity growth: constant, logarithmic, linear, linearithmic, quadratic and exponential curves separate quickly](figures/fig_review_bigO.png)
+![Figure: worked example poster](figures/fig_review_bigO.png)
 
 The horizontal axis is $n$ and the vertical axis is operations on a log scale. Once the exponential curve lifts, nothing saves it.
 
@@ -1684,9 +1804,11 @@ $$3n^{2} + 100n = O(n^{2}), \qquad \frac{n^{2}}{2} + 5n = O(n^{2})$$
 | quadratic | $O(n^{2})$ | loop inside a loop | $10^{12}$ |
 | exponential | $O(2^{n})$ | every subset | $10^{301030}$ |
 
+| --- | --- | --- | --- |
+
 Learn to reproduce this table. $10^{12}$ operations is slow but feasible; $10^{301030}$ exceeds the number of atoms in the observable universe.
 
-![Cost ladder: at the same $n=10^{6}$ the six complexity classes land in wildly different orders of magnitude](figures/fig_review_cost_ladder.png)
+![Figure: worked example poster](figures/fig_review_cost_ladder.png)
 
 The six bars are operation counts at the same problem size $n=10^{6}$, on a log scale. The three on the left sit almost on the axis; the exponential bar has left the chart. **Same problem size, hundreds of thousands of orders of magnitude apart.** That is why complexity beats memorising seconds: the seconds change with the laptop, the order of magnitude does not.
 
@@ -1761,6 +1883,14 @@ sorted(parts, key=mass, reverse=True)   # custom key, descending
 | 4000 | 0.577 s | 0.0035 s | 0.00045 s |
 | 8000 | 2.339 s | 0.0098 s | 0.00101 s |
 
+Measured on random integer arrays of the stated size, in seconds:
+
+| --- | --- | --- | --- |
+| 1000 | 0.033 s | 0.0008 s | 0.00012 s |
+| 2000 | 0.144 s | 0.0017 s | 0.00021 s |
+| 4000 | 0.577 s | 0.0035 s | 0.00045 s |
+| 8000 | 2.339 s | 0.0098 s | 0.00101 s |
+
 Doubling $n$ quadruples bubble sort but only doubles quicksort.
 
 **(9) Is sorting before searching worth it?** For one lookup, no: $O(n\log n)$ exceeds one $O(n)$ pass. For $m$ lookups, sorting plus $m$ binary searches costs $O(n\log n + m\log n)$ against $O(mn)$, so it wins as soon as $m$ grows.
@@ -1810,11 +1940,7 @@ The second call does not raise; it simply returns nonsense. **It does not check 
 
 ### 5.4 Worked example E5: search the likeliest patch of ocean first
 
-**What is asked**
-
 After AF447, the search area is divided into cells with a probability (percent, summing to $100$) that the wreckage lies in each. (a) rank by probability descending and give the cumulative probability of the first two cells; (b) write a function returning the shortest prefix whose cumulative probability reaches a target such as $70\%$ or $90\%$; (c) after a cell is searched and nothing is found, the remaining probabilities are rescaled to sum to $100$: must they be re-sorted?
-
-**Why this route**
 
 When every cell costs the same to search, the optimal strategy is to search in descending probability: for a fixed number of cells the covered probability is the sum of those cells. This becomes "sort, then prefix-sum", costing $O(n\log n)$ instead of enumerating orderings. So: fix the order by sorting, then sweep once.
 
@@ -1830,8 +1956,6 @@ $$S_k = \sum_{j=1}^{k} p_j, \qquad k^{\ast} = \min\{\, k : S_k \ge \text{target}
 
 The condition is $\ge$: reaching the target exactly counts.
 
-**Step 3: write the code**
-
 ```python
 def search_prefix(ranked, target):
     names, total = [], 0
@@ -1843,7 +1967,7 @@ def search_prefix(ranked, target):
     return names
 ```
 
-**Where the constant comes from**
+This step yields the prefix list, and the loop stops at the first element that reaches the target.
 
 With the sample data the ranking is $B(45), D(30), C(15), A(10)$, summing to $100$.
 
@@ -1852,21 +1976,15 @@ With the sample data the ranking is $B(45), D(30), C(15), A(10)$, summing to $10
 
 The numbers $75$ and $90$ are additions, not guesses. Un-sorted, the order $A, C, D, B$ needs $10+15+30=55$ and then $100$ to pass $70$, that is four cells; sorting cuts it to two.
 
-**Sanity check**
-
 Two independent checks. First, a prefix sum cannot exceed $100$: $75$ and $90$ pass. Second, monotonicity: a larger target cannot need fewer cells, and indeed $70\to 90$ takes two to three. On cost: sorting is $O(n\log n)$ and the sweep is $O(n)$, so the total is $O(n\log n)$.
 
 For part (c): the cleared cell gets probability $0$ and every remaining probability is multiplied by the same positive constant $c = 100/55$. **Multiplying by a positive constant preserves order**, so the ranking stands and the cleared cell is simply removed.
 
 $$p_i < p_j \quad \Longleftrightarrow \quad c\,p_i < c\,p_j \quad (c>0)$$
 
-**Answer**
-
 $$\text{sort descending} \Rightarrow \text{accumulate} \Rightarrow \text{stop at the first } S_k \ge \text{target}, \qquad O(n\log n)$$
 
 Target $70$ gives $[B, D]$ at $75\%$; target $90$ gives $[B, D, C]$ at $90\%$; rescaling needs no re-sort.
-
-**Traps**
 
 - Forgetting $\text{reverse=True}$: the least likely cell is searched first.
 - Using $>$ instead of $\ge$: one extra cell when the total lands exactly on the target.
@@ -1874,7 +1992,11 @@ Target $70$ gives $[B, D]$ at $75\%$; target $90$ gives $[B, D, C]$ at $90\%$; r
 - Sorting inside the loop: $O(n^{2}\log n)$.
 - Assuming greedy is always optimal: with unequal survey times, ranking by probability per hour can fail.
 
-![Example poster: ranking, prefix selection and complexity](figures/ex_comp5_af447.png)
+![Figure: worked example poster](figures/ex_comp5_af447.png)
+
+### 5.4b How this chapter is examined
+
+Chapter 5 is examined by attaching a complexity to a snippet, and the snippet is always a loop nest. Count the innermost statement, not the number of loops: two loops over the same list give $n^{2}$, two loops over the same list where the inner one starts at the outer index give about $n^{2}/2$, which is still $O(n^{2})$. A second shape asks for the precondition rather than the complexity: binary search needs a sorted list, so an unsorted list invalidates both the answer and the method. Keep the sentence "count the innermost statement" ready, because it converts a guess into work you can show.
 
 ### 5.5 Multiple-choice questions (8)
 
@@ -1884,8 +2006,6 @@ Target $70$ gives $[B, D]$ at $75\%$; target $90$ gives $[B, D, C]$ at $90\%$; r
 - B. $O(n^{2})$
 - C. $O(n^{2} + n)$
 - D. $O(3n^{2})$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1909,8 +2029,6 @@ for i in range(n):
 - C. $O(n^{2})$
 - D. $O(2^{n})$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: C**
 
 Why: the outer loop runs $n$ times and the inner loop $n$ times each, so the body runs $n^{2}$ times.
@@ -1925,8 +2043,6 @@ The other options: A sees only one loop; B has no halving; D has no subset enume
 - B. $O(\log n)$
 - C. $O(n)$
 - D. $O(n\log n)$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1943,8 +2059,6 @@ The other options: A the count depends on $n$; C that is a loop decrementing by 
 - C. sort it and scan from the start each time
 - D. store it in a tuple and test with $\text{in}$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: hashing gives $O(1)$ per test, and one $O(n)$ conversion pays for all later lookups.
@@ -1959,8 +2073,6 @@ The other options: A and D are linear scans; C still scans, ignoring the order (
 - B. sorted
 - C. free of duplicates
 - D. stored in a list
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -1977,8 +2089,6 @@ The other options: A floats work too; C duplicates are allowed; D tuples and arr
 - C. the first only works on numbers
 - D. the second returns a sorted copy
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: sorted is a built-in function returning a new list; sort is a method mutating the list and returning $\text{None}$.
@@ -1994,7 +2104,10 @@ The other options: A ignores the return value, and $x = \text{data.sort()}$ give
 - C. $O(\varphi^{n})$ with $\varphi\approx 1.618$
 - D. $O(n^{2})$
 
-<details><summary>Answer and explanation</summary>
+- A. $O(n)$
+- B. $O(n\log n)$
+- C. $O(\varphi^{n})$, $\varphi\approx 1.618$
+- D. $O(n^{2})$
 
 **Answer: C**
 
@@ -2010,8 +2123,6 @@ The other options: A is the loop version; B is unrelated to sorting; D is far sl
 - B. usually slower, because sorting costs $O(n\log n)$, more than one $O(n)$ pass
 - C. the same
 - D. incomparable
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -2032,10 +2143,719 @@ The other options: A holds only for many lookups; C ignores the sorting cost; D 
 - Writing $x = \text{data.sort()}$: $\text{None}$ is not a list.
 - Assuming greedy is always optimal: unequal costs break it.
 
+---
 
-### 5.4b How this chapter is examined
+## NumPy and matplotlib: the parts Sheets 3 and 4 use
 
-Chapter 5 is examined by attaching a complexity to a snippet, and the snippet is always a loop nest. Count the innermost statement, not the number of loops: two loops over the same list give $n^{2}$, two loops over the same list where the inner one starts at the outer index give about $n^{2}/2$, which is still $O(n^{2})$. A second shape asks for the precondition rather than the complexity: binary search needs a sorted list, so an unsorted list invalidates both the answer and the method. Keep the sentence "count the innermost statement" ready, because it converts a guess into work you can show.
+### 6.1 Arrays do arithmetic element by element
+
+```python
+import numpy as np
+x = np.linspace(0.0, 1.0, 5)      # 5 points, both ends included
+print(x)                           # [0.   0.25 0.5  0.75 1.  ]
+print(x ** 2)                      # [0.     0.0625 0.25   0.5625 1.    ]
+print(np.arange(0, 1, 0.25))       # [0.   0.25 0.5  0.75]  -- stop is excluded
+```
+
+The two array builders differ in the one way that matters for plots. `linspace(a, b, n)` takes the number of points and always hits both ends; `arange(a, b, step)` takes the spacing and stops before $b$. For a pulse that must be drawn from 0 to 40, use linspace, otherwise the last point is missing and the curve visibly stops short.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def pulse(x, t, width):
+    return np.exp(-((x - t) / width) ** 2)
+
+x = np.linspace(0.0, 40.0, 4001)
+for t in (10.0, 14.0, 18.0):
+    plt.plot(x, pulse(x, t, 0.8), label=f"t = {t}")
+plt.xlabel("time")
+plt.ylabel("signal")
+plt.legend()
+plt.show()
+```
+
+Three curves from one function, three lines of plotting code. The loop is over the parameters, not over the samples: the 4001 samples are handled by one array operation each time. That is the pattern Sheet 3 Question 1 needs, and it is why eighty pulses cost eighty lines rather than eighty thousand points.
+
+### 6.2 Matrices: the star is elementwise, the at sign is matrix product
+
+For two-dimensional arrays the star keeps the element-by-element meaning, so `sigma * sigma` squares every entry and is not $sigma^2$ in the matrix sense. The matrix product is `@`, so `R @ sigma @ R.T` is the similarity transformation that rotates a stress tensor. Writing the star where the at sign belongs is one of the two errors that costs the most marks in Sheet 3 Question 3; the other is forgetting the transpose, which leaves a $2	imes2$ by $2	imes2$ product that runs happily and returns a non-symmetric matrix.
+
+```python
+import numpy as np
+sigma = np.array([[120.0, 40.0], [40.0, 20.0]])
+angle = np.radians(30.0)
+R = np.array([[np.cos(angle), np.sin(angle)],
+              [-np.sin(angle), np.cos(angle)]])
+sigma_rot = R @ sigma @ R.T
+print(np.round(sigma_rot, 2))   # [[129.64 -23.3 ], [-23.3 10.36]]
+print(np.round(np.linalg.eigvalsh(sigma), 2))   # [ 5.97 134.03]
+```
+
+The two invariants give a free check that no marker can argue with. Trace and determinant do not change under a rotation, so a rotated matrix whose trace is not 140 or whose determinant is not 800 is wrong, full stop. Trace is 140 because $120 + 20 = 140$, and the determinant is 800 because $120 	imes 20 - 40^2 = 800$.
+
+### 6.3 Plotting data you did not invent
+
+Real data arrives as three parallel arrays: one number per record per column. The first job is to count categories with $\text{np.unique(..., return\_counts=True)}$, which returns sorted labels and their counts in one call, not in a loop. The second job is to plot honestly: transparency for overplotted points, a colour bar whenever colour carries a number, and a stated bin size whenever a histogram hides a choice.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+labels, counts = np.unique(category, return_counts=True)
+order = np.argsort(counts)[::-1]
+plt.bar(labels[order], counts[order])
+
+plt.scatter(lon, lat, s=4, alpha=0.15)
+plt.hist2d(lon, lat, bins=25)
+plt.colorbar(label="Number of reports")
+
+plt.loglog(ns, times, "o-")
+plt.xlabel("list size")
+plt.ylabel("seconds")
+```
+
+Transparency, bins and logarithmic axes each answer a question that a default plot answers wrongly. `alpha=0.15` turns a solid blob into a density you can read; `bins=25` versus `bins=50` can move an apparent hotspot, which is exactly what Sheet 3 Question 4 asks you to notice; a log-log axis turns a power law into a straight line whose slope is the exponent, which is how the timing experiment in Sheet 3 Question 2 is marked.
+
+### Example E6: eighty pulses without eighty loops
+
+**What is asked.** Sheet 3 Question 1 wants eighty curves of one pulse shape at eighty arrival times, with later pulses drawn on top and no tick labels, because eighty labels are unreadable. What is required is one array of times, one array of heights per pulse, and a plotting loop over the eighty parameters.
+
+**Why this route.** The shape is one formula $y = e^{-((x-t)/w)^2}$ and only $t$ changes, so the expensive object is the sample grid, built once, and the loop runs over the eighty values of $t$. Rebuilding the grid inside the loop would repeat the same 4001 numbers eighty times.
+
+**Step 1: build the grid once.** One call gives 4001 equally spaced samples 0.01 apart, so a pulse of width 0.8 collects about eighty samples and comes out smooth.
+
+$$x = \text{linspace}(0,\ 40,\ 4001),\qquad \Delta x = \frac{40}{4000} = 0.01$$
+
+**Step 2: evaluate one curve per call.** The call returns a height array the same length as $x$; the divisor 0.8 is the pulse width and changes the fatness of the curve, never its peak.
+
+$$y_t = \exp\left[-\left(\frac{x - t}{0.8}\right)^{2}\right]$$
+
+**Step 3: draw later pulses on top.** Matplotlib stacks later calls above earlier ones, so the arrival times must be plotted smallest first; plotting them the other way needs an explicit z-order on every line.
+
+$$z_{\text{later}} > z_{\text{earlier}} \;\Longleftrightarrow\; \text{plot order}$$
+
+**Step 4: drop eighty labels.** Above ten curves the tick labels overlap into a black band, so switching them off is part of the answer rather than a cosmetic choice.
+
+$$\text{ticks} = \varnothing \quad\text{when}\quad n_{\text{curves}} \gg 10$$
+
+**Where the constant comes from.** 4001 is not arbitrary: 40 divided into 4000 intervals gives 0.01, and a width of 0.8 needs a few dozen samples on each side to look smooth, which is $0.8/0.01 = 80$ samples. Writing 400 instead would give spacing 0.1 and only eight samples per pulse, which draws a zig-zag.
+
+**Sanity check.** Substituting $x = t$ makes the exponent zero and the height 1, so all eighty peaks must have the same height; a visibly short peak means its arrival time fell outside the grid or the width was typed wrong.
+
+**Answer.** One grid, one shape function, one loop over the parameters:
+
+$$\{x\}_{4001},\quad y_t = e^{-((x-t)/0.8)^2},\quad t \in \{t_1, \dots, t_{80}\}$$
+
+**Trap.** Three ways to lose marks: \text{arange}(0, 40, 0.01) misses the last point, so the curve stops short; rebuilding $x$ inside the loop wastes eighty grid builds; and no alpha or linewidth turns eighty curves into one black mass. The quietest one is putting $t$ outside the loop, which draws all eighty pulses in the same place so the figure shows a single line.
+
+![Worked example poster: eighty pulses from one grid and one loop over arrival times](figures/ex_ch6_pulses.png)
+
+## Scientific Python: functions that return, random numbers and pandas
+
+### 7.1 Functions that return, loops that accumulate
+
+A function that prints its answer hands nothing back: the caller receives `None`, and the next arithmetic operation fails with a `TypeError`. A function that returns its answer hands back a number that can be stored, compared and plotted. Sheet 1 Question 3 is built entirely on that difference, and so is every simulation in the course: a yearly step is a function that returns the new balance.
+
+```python
+def yearly_step(debt, salary, rate):
+    interest = debt * rate
+    repayment = min(0.09 * salary, debt)
+    return debt + interest - repayment
+
+debt = 80000.0
+for year in range(40):
+    debt = yearly_step(debt, 35000.0, 0.065)
+```
+
+The loop looks trivial and is the whole point: $\text{debt = yearly\_step(...)}$ works because the function returns a number. With a printing function the second iteration would add `None` to a float and the program would stop with a message about unsupported operand types.
+
+### 7.2 Random numbers, Monte Carlo, and the square-root law
+
+Monte Carlo replaces an integral with an average. Sample the region uniformly, evaluate the integrand at each sample, average, and multiply by the volume. For the ten-dimensional integral in Sheet 4 Question 1 the region is the unit cube, so the volume is 1 and the estimate is just the mean of $1/(1 + \sum x_i^2)$.
+
+```python
+import numpy as np
+rng = np.random.default_rng(1)
+N = 1_000_000
+points = rng.random((N, 10))
+values = 1.0 / (1.0 + np.sum(points ** 2, axis=1))
+print(values.mean())        # 0.2429 for this seed, target 0.243
+```
+
+The error of an average of $N$ independent samples falls as $1/\sqrt{N}$, so four more digits cost sixteen times the samples. That single sentence explains why Monte Carlo wins in ten dimensions (a grid with 10 points per axis already needs $10^{10}$ evaluations) and why it is hopeless for one dimension when a quadrature rule is available.
+
+$$\text{error} \propto \frac{\sigma}{\sqrt{N}}$$
+
+Here $\sigma$ is the standard deviation of one sample, not of the sample mean; the standard deviation of the mean is $\sigma/\sqrt{N}$, which is where the rule comes from, and it is why raising $N$ from $10^{4}$ to $10^{5}$ moves the root-mean-square error only from 0.0252 to 0.00707, a ratio of 3.56 against the predicted 3.16.
+
+### 7.3 pandas: split, apply, combine in one call
+
+`groupby` does no arithmetic; it only records how rows should be split, which is why it returns a GroupBy object you can print and see nothing useful. `.agg([...])` then applies each function to each group and stacks the answers into one row per group. Selecting one column before `.agg` is what keeps the result readable, and `count` (not `size`) is the one that ignores missing values.
+
+```python
+df["ld_ratio"] = df["lift_N"] / df["drag_N"]
+summary = df.groupby("config")["ld_ratio"].agg(["mean", "std", "count"])
+print(summary.round(3))
+```
+
+One agg call returns the mean, the standard deviation and the count side by side. The standard deviation uses $n-1$ in the denominator, so with five repeat runs it is the sample standard deviation, not the population one; quoting it as if it were exact is the difference between "Winglet is better by 2.2" and "Winglet is better by 2.2 with a spread of 0.6 over five runs".
+
+### Example E7: Buffon's needle and the square-root law
+
+**What is asked.** Sheet 4 Question 4 wants $\pi$ estimated by needle throws, first with one million throws, then with two hundred independent seeds to see the spread, then the root-mean-square error against $N$ to test the $1/\sqrt{N}$ law. No loop over individual needles: the throws must be arrays.
+
+**Why this route.** A needle of length $L$ at angle $\theta$ crosses a line when its centre falls within $(L/2)\sin\theta$ of one, so the crossing probability is $2L/(\pi D)$ with $D$ the line spacing. Setting $L = D$ gives $P = 2/\pi$, which inverts to $\pi \approx 2N/N_{\text{cross}}$, and both the angle and the centre can be drawn as arrays.
+
+**Step 1: draw angles and centres.** The angle only needs a quarter turn, because the other three quadrants repeat the same information by symmetry, and the centre only needs half the spacing.
+
+$$\theta \sim U\!\left(0, \tfrac{\pi}{2}\right),\qquad d \sim U\!\left(0, \tfrac{D}{2}\right)$$
+
+**Step 2: test the crossing.** The test returns a boolean array whose sum is the crossing count; with $L = D = 1$ the right-hand side is $\tfrac12 \sin\theta$.
+
+$$\text{cross} \iff d \le \frac{L}{2}\sin\theta$$
+
+**Step 3: invert the ratio.** One million throws with seed 42 cross 637,904 times, which gives $\hat{\pi} = 2 \times 10^{6}/637{,}904 = 3.1355$.
+
+$$\hat{\pi} = \frac{2N}{N_{\text{cross}}}$$
+
+**Step 4: watch the error fall.** The root-mean-square error drops from 0.241 at $N = 100$ to 0.00707 at $N = 10^{5}$, a ratio of 34.1 against the predicted $\sqrt{1000} = 31.6$.
+
+$$\text{RMSE}(N) \propto \frac{1}{\sqrt{N}}$$
+
+**Where the constant comes from.** The 2 in $2/\pi$ is not a slip: a needle can cross a line with either end leading, and when the length equals the spacing the two orientations add up to exactly 2. Writing $\pi \approx N/N_{\text{cross}}$ gives about 1.57, wrong by a factor of two, and the error is stable enough to look plausible.
+
+**Sanity check.** Two hundred seeds of ten thousand throws give a mean of 3.1449, a spread of 0.0249, and a range from 3.0859 to 3.2352; $\pi = 3.1416$ sits inside the cloud, which is what rules out a systematic bias.
+
+**Answer.** One array simulation plus one square-root law:
+
+$$\hat{\pi} = \frac{2N}{N_{\text{cross}}},\qquad \text{RMSE}(N) \propto N^{-1/2}$$
+
+**Trap.** Three ways to lose marks: setting the needle length different from the spacing but still using $2N/N_{\text{cross}}$ instead of $2LN/(D N_{\text{cross}})$; reseeding once and assuming every later call repeats, when each call advances the generator; and plotting RMSE against $N$ on ordinary axes, where the power law looks like nothing at all.
+
+![Worked example poster: Buffon needle, pi estimate and the square-root error law](figures/ex_ch7_buffon.png)
+
+## Canvas sheet solutions: every part, with the number it prints
+
+Every number below was produced by running the code shown, not by copying a printed answer key. The introductory sheet and Sheet 1 have Canvas solutions; Sheets 2 to 4 do not, so those answers are mine, written to the style of the published ones.
+
+### S0Q1: names, operators and type errors
+
+The four parts test one thing each: an unquoted name is a variable, not a string; an operator does what its symbol says; text and number cannot be added; and input always hands back text.
+
+```python
+name = John          # NameError: name 'John' is not defined
+name = "John"        # fine: a string
+print(7 // 2, 7 % 2, 2 ** 10, 7 / 2)     # 3 1 1024 3.5
+print("total: " + 42)                    # TypeError: can only concatenate str (not "int") to str
+print("total: " + str(42))               # total: 42
+age = int(input("age? "))                # input gives text; int converts it
+```
+
+Part (i) fails at the parse-free moment Python looks up the name: `John` has never been assigned, so the program stops with NameError. Part (ii) prints `3 1 1024 3.5` because `//` keeps the floor, `%` keeps the remainder, `**` is a power and a single `/` always returns a float. Part (iii) is a TypeError, not a silent `"total: 42"`. Part (iv), the starred one, is the same trap one step later: `"12" + "34"` gives `"1234"`, not 46, so anything arithmetic needs `int()` or `float()` first.
+
+### S0Q2: branches in order, and the three arguments of range
+
+An `if/elif/else` chain stops at the first true test, so the order of the tests is the logic; a test placed too early swallows the cases below it. `range(start, stop, step)` includes start, excludes stop, and steps by step.
+
+```python
+for i in range(1, 10, 3):
+    print(i)                    # 1 4 7
+for n in range(1, 6):
+    if n % 2 == 0:
+        print(n, "even")        # 2 even / 4 even
+```
+
+Part (i): with thresholds 25 and 10 written as `if t > 25` first, a temperature of exactly 25 falls through to the next test, which is the answer the sheet is fishing for, because `>` and $\ge$ differ only at the boundary. Part (ii): `range(1, 10, 3)` gives 1, 4, 7 and not 10, because the stop value is excluded. Part (iii), starred, adds the `if` inside the loop; the loop still runs all five values, it just prints on two of them.
+
+### S0Q3: a function that returns, a loop that calls it
+
+A function returns a value with `return`; without it the caller gets `None`. A loop over data calls the function once per item and does something with each result.
+
+```python
+def rectangle_area(width, height):
+    return width * height
+
+total = 0
+for w, h in [(2.0, 3.0), (1.5, 4.0), (10.0, 0.5)]:
+    total += rectangle_area(w, h)
+print(total)        # 17.0
+
+def classify(mark):
+    if mark >= 70:
+        return "distinction"
+    if mark >= 60:
+        return "merit"
+    if mark >= 40:
+        return "pass"
+    return "fail"
+
+print(classify(69.9), classify(70.0))    # merit distinction
+```
+
+The returned value is what makes the accumulation possible: $\text{total += rectangle\_area(...)}$ only works because a number comes back. In the starred part the thresholds are checked from the top, so 69.9 stops at the second test and 70.0 at the first; swapping the order would label 70.0 as merit, which is the mistake the part is designed to catch.
+
+### S0Q4: linspace, one plot, and a function called in a loop
+
+Plotting needs two arrays of the same length. `np.linspace(a, b, n)` builds the sample grid once, a function turns the grid into heights, and `plt.plot` draws one curve per call.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return np.sin(x) * np.exp(-0.2 * x)
+
+x = np.linspace(0.0, 10.0, 500)
+plt.plot(x, f(x), label="damped sine")
+for k in (0.1, 0.3):
+    plt.plot(x, f(x) * np.exp(-k * x), label=f"extra damping {k}")
+plt.legend()
+plt.xlabel("x")
+plt.ylabel("amplitude")
+plt.show()
+```
+
+Part (i) is the plain curve; part (ii) puts a second curve on the same axes and needs `label` plus `plt.legend()` or the reader cannot tell which is which. Part (iii), starred, calls the same function inside a loop over the parameter, which is the same pattern as Example E6.
+
+### S0Q5: a forty-year simulation, then a plot, then a function
+
+The repayment model is a state machine with one number of state, the outstanding debt. Each year applies interest to the debt, subtracts the repayment, and stores the new debt back into the same name.
+
+```python
+def yearly_repayment(debt, salary, rate=0.065):
+    interest = debt * rate
+    paid = min(0.09 * salary, debt + interest)
+    return debt + interest - paid
+
+debt = 80000.0
+history = []
+for year in range(40):
+    debt = yearly_repayment(debt, 35000.0)
+    history.append(debt)
+print(round(history[0], 2), round(history[-1], 2))
+
+plt.plot(range(1, 41), history)
+plt.xlabel("year")
+plt.ylabel("outstanding debt")
+plt.show()
+```
+
+Two details decide whether the simulation is right. `min(0.09 * salary, debt + interest)` stops the debt going negative, which a careless version does in the last years and then shows the bank paying the graduate. And $\text{debt = yearly\_repayment(debt, ...)}$ reuses the name on purpose: the new debt is the state for the next year. Part (iv), starred, is the wrapper: once the loop is inside a function, the salary and the starting debt become parameters and the history becomes the return value, which is what makes the printing version testable.
+
+### S1Q1: cancellation, and the one rearrangement that fixes it
+
+$\sqrt{x^{2}+1}-x$ subtracts two nearly equal numbers when x is large, so the true answer 5e-9 is destroyed by the subtraction of 1e8 from 1e8. Multiplying by the conjugate turns the difference into a quotient of two large numbers, which loses nothing.
+
+```python
+import math
+x = 1e8
+print(x * x + 1 == x * x)                     # True  -- the 1 is gone
+print(math.sqrt(x * x + 1) - x)               # 0.0
+print(1.0 / (math.sqrt(x * x + 1) + x))       # 5e-09
+```
+
+The check `x*x + 1 == x*x` being `True` is the whole diagnosis: a double holds about sixteen significant digits, and $10^{16} + 1$ needs seventeen, so the 1 is rounded away before the square root is even taken. Both formulas are algebraically identical, and only one of them is numerically usable; that is the difference between a correct formula and a correct program.
+
+### S1Q2: addition is not associative
+
+Floating-point addition rounds at every step, so $(a+b)+c$ and $a+(b+c)$ can differ. Shuffling a list changes the order of the additions, and chunking changes it again, which is why a distributed sum is not automatically the same sum.
+
+```python
+a, b, c = 0.1, 1e20, -1e20
+print((a + b) + c)     # 0.0
+print(a + (b + c))     # 0.1
+
+import random
+vals = [1e-10, 1e-5, 1e-2, 1, -1e-10, -1e-5, -1e-2, -1]
+random.seed(8)
+totals = set()
+for _ in range(10000):
+    random.shuffle(vals)
+    totals.add(sum(vals))
+print(len(totals), min(totals), max(totals))   # 9 -6.55e-17 6.55e-17
+
+def chunked(xs, k):
+    return sum(sum(xs[i:i + k]) for i in range(0, len(xs), k))
+print([chunked(vals, k) for k in (1, 2, 4, 8)])  # 0.0 8.08e-19 0.0 0.0
+```
+
+Part (i) is the smallest possible demonstration: $10^{20}$ swallows 0.1 completely, so the sum is 0 or 0.1 depending only on where the small number sits. Part (ii) shows nine different totals for ten thousand shuffles of the same eight numbers, all within $\pm 6.6\times10^{-17}$ of zero, which is the size of one rounding step at these magnitudes. Part (iii), starred, shows the chunk size changing the answer: only two distinct values survive here, but the number of distinct values is the point. Part (iv), also starred, asks how to buy batch invariance: $\text{math.fsum}$ keeps an exact running total and gives one answer for every order, at the cost of a slower loop, or sort by magnitude first, which costs $O(n\log n)$.
+
+### S1Q3: print versus return, and a margin that never updates
+
+The fuel check has three parts: compute the rate, multiply by the distance, subtract from the tank. The trap is that the function that should apply the safety margin assigns to its own parameter, so the caller's number never changes.
+
+```python
+rate = 1.2 + 2e-5 * 220 ** 2       # 2.168 L/km
+needed = 15 * rate                  # 32.52 L
+print(round(rate, 3), round(needed, 2), round(25.0 - needed, 2))   # 2.168 32.52 -7.52
+
+def add_reserve(fuel, fraction):
+    fuel = fuel * (1 + fraction)    # rebinding a local: caller unaffected
+    return fuel
+
+def decision(fuel, distance, v, reserve):
+    need = distance * (1.2 + 2e-5 * v ** 2)
+    add_reserve(need, reserve)
+    return fuel - need              # need is the ORIGINAL value
+
+print(decision(25.0, 15.0, 220.0, 0.05))    # -7.52
+print(decision(40.0, 15.0, 220.0, 0.05))    # 7.48
+```
+
+Part (i): 220 km/h gives 2.168 L/km, so 15 km needs 32.52 L. Part (ii): 25 L minus 32.52 L is $-7.52$, and the sheet's trace wants exactly that number with the correct sign. Part (iii): $\text{add\_reserve(need, reserve)}$ computes `need * 1.05` and throws it away, so the decision is still $-7.52$ instead of $-8.98$; the fix is $\text{need = add\_reserve(need, reserve)}$. A second car with a 40 L tank prints 7.48 and passes, which shows the bug only bites near the boundary, and that is why it survives a quick check.
+
+### S1Q4: range, crossover speed and the battery you cannot buy
+
+Two forces set the range: rolling resistance grows like $v$ in the fuel rate, aerodynamic drag grows like $v^{2}$ in the force and like $v^{3}$ in the power. Below the crossover speed the car is limited by rolling, above it by drag, and the range has a maximum at the crossover.
+
+```python
+import math
+m, Cr, Cd, A, rho, g = 1800.0, 0.01, 0.23, 2.22, 1.225, 9.81
+v_cross = math.sqrt(2 * Cr * m * g / (Cd * A * rho))     # 23.76 m/s
+E = 75 * 3.6e6
+def rng(v):
+    return E / (Cr * m * g + 0.5 * Cd * A * rho * v ** 2) / 1000.0
+print(round(v_cross, 2), round(v_cross * 3.6, 1))    # 23.76 85.5
+print(round(rng(31.29), 1), round(rng(22.35), 1))    # 565.9 823.3
+print(round((Cr*m*g + 0.5*Cd*A*rho*31.29**2) * 660 / 3.6e6, 2))   # 87.47 kWh
+```
+
+Part (i): setting the two forces equal gives $v = \sqrt{2C_r m g/(C_d A \rho)} = 23.76$ m/s, which is 85.5 km/h, so at 70 mph (31.3 m/s) the car is above the crossover. Part (ii): 31.3 m/s gives 565.9 km against a 660 km target, so the answer to "can it reach the next charger" is no; 22.35 m/s gives 823.3 km, so slowing down is not a small effect but a 46 per cent gain. Part (iii), starred: the energy actually needed for 660 km at 70 mph is 87.47 kWh, against a 75 kWh battery, so the car cannot do it even with the last electron; the answer is a required capacity, not a yes or no.
+
+### S2Q1: one list shared by every instance
+
+A list written in the class body belongs to the class, not to each instance, so every counter appends to the same history. The fix is one line in $\text{\_\_init\_\_}$, which gives each instance its own list.
+
+```python
+class Counter:
+    history = []                 # class attribute: shared
+    def __init__(self, value):
+        self.value = value
+    def bump(self):
+        self.value += 1
+        self.history.append(self.value)
+
+a, b = Counter(0), Counter(10)
+a.bump(); b.bump()
+print(a.history, b.history, a.history is b.history)   # [1, 11] [1, 11] True
+
+class Fixed:
+    def __init__(self, value):
+        self.value = value
+        self.history = []        # one list per instance
+    def bump(self):
+        self.value += 1
+        self.history.append(self.value)
+    def bump_until(self, target):
+        n = 0
+        while self.value < target:
+            self.bump(); n += 1
+        return n
+
+f = Fixed(0)
+print(f.bump_until(5), f.value, f.history)   # 5 5 [1, 2, 3, 4, 5]
+```
+
+Part (i): both counters print `[1, 11]` because `a.history` and `b.history` are the same object, and `is` proves it. Part (ii): the one-line fix is `self.history = []` in $\text{\_\_init\_\_}$, which creates a fresh list per instance. Part (iii), starred: $\text{bump\_until}$ returns the number of bumps, not the final value, and those differ when the target is reached from a non-zero start.
+
+### S2Q2: a next-word dictionary, then entropy
+
+The model is a dictionary from a word to the list of words that followed it. Building it is one pass over adjacent pairs; generating text is repeatedly looking up the current word and picking one successor; entropy measures how surprised the model is.
+
+```python
+log = ("fluid mechanics is the study of equilibrium and motion of fluids "
+       "under the action of forces while in solid mechanics equilibrium "
+       "and motion are of approximately equal importance in fluid "
+       "mechanics the study of equilibrium is but a very small part the "
+       "vast majority of fluid mechanics is about fluids in motion")
+words = log.split()
+next_words = {}
+for i in range(len(words) - 1):
+    next_words.setdefault(words[i], []).append(words[i + 1])
+print(len(next_words), next_words["of"])
+# 28 ['equilibrium', 'fluids', 'forces', 'approximately', 'equilibrium', 'fluid']
+
+def successors(model, word):
+    return model.get(word, [])
+print(successors(next_words, "turbulence"))     # []
+
+def most_common(options):
+    counts = {}
+    for w in options:
+        counts[w] = counts.get(w, 0) + 1
+    best = options[0]
+    for w in options:
+        if counts[w] > counts[best]:
+            best = w
+    return best
+
+def generate(model, start, n):
+    out = [start]
+    while len(out) < n:
+        opts = successors(model, out[-1])
+        if not opts:
+            break
+        out.append(most_common(opts))
+    return out
+print(" ".join(generate(next_words, "fluid", 12)))
+# fluid mechanics is the study of equilibrium and motion of equilibrium and
+```
+
+Part (i): 52 words give 51 transitions and 28 distinct contexts, and `"of"` has six successors. Part (ii): `model[word]` raises KeyError for a word never seen, while `model.get(word, [])` returns an empty list, which the generator needs because a dead end must end the sentence rather than crash. Part (iii): $\text{most\_common}$ compares counts in list order, so ties go to the word that appeared first, not to an alphabetical winner; the generated line above shows the model falling into a two-word loop, which is the honest behaviour of a first-order model. Part (iv), starred: the zero-order entropy is $H_0 = -\sum p(w)\log_2 p(w) = 4.522$ bits, the first-order entropy averages that over contexts and gives $H_1 = 0.819$ bits, an 81.9 per cent reduction, because 20 of the 28 contexts have only one successor and cost nothing to predict.
+
+### S2Q3: counting zeros and finding the longest run are different questions
+
+One function counts how many readings are zero; the other finds how many zeros in a row at worst. Two signals can agree on the count and disagree on the run, which is exactly what the sheet builds its answer around.
+
+```python
+readings = {"A1": [2.1, 2.4, 0.0, 2.2], "A2": [0.0, 2.3, 0.0, 2.1],
+            "B1": [1.8, 0.0, 0.0, 1.9], "B2": [0.0, 0.0, 0.0, 0.0]}
+
+def count_zeros(data):
+    return {k: sum(1 for x in v if x <= 0) for k, v in data.items()}
+
+def longest_zero_run(data):
+    result = {}
+    for k, v in data.items():
+        run = best = 0
+        for x in v:
+            if x > 0:
+                run = 0
+                continue
+            run += 1
+            best = max(best, run)
+        result[k] = best
+    return result
+
+print(count_zeros(readings))          # A1 1, A2 2, B1 2, B2 4
+print(longest_zero_run(readings))     # A1 1, A2 1, B1 2, B2 4
+```
+
+Part (i): A2 has two zeros, so its count is 2. Part (ii): the two functions need names that say which question they answer; `p` and `q` make a wrong call invisible in review, and one docstring per function is the cheapest fix. Part (iii): A2 disagrees, with count 2 and run 1, which is the whole point of the sheet: a sensor that drops out twice briefly is a different fault from a sensor that drops out for two readings in a row, and only the run tells them apart.
+
+### S2Q4: a greedy plan is not the fastest plan
+
+The greedy rule takes the farthest reachable airfield every time, which uses the fewest stops. It does not minimise time, because a nearer stop with a fast turnaround can beat a farther one with a slow one.
+
+```python
+def fuel_per_km(v, headwind):
+    return (22.0 + 0.00028 * v ** 2) / (v - headwind)
+
+V, HW, TANK, RESERVE, GOOSE = 250.0, 25.0, 300.0, 30.0, 3400.0
+fields = [("Stornoway", 300, 100), ("Vagar", 700, 80), ("Reykjavik", 1200, 150),
+          ("Kulusuk", 1450, 8), ("Nuuk", 2200, 60), ("Narsarsuaq", 2500, 80),
+          ("Iqaluit", 2900, 100)]
+fpm = fuel_per_km(V, HW)       # 0.17556 L/km
+```
+
+Part (i): from the start the reachable set is Stornoway, Vagar, Reykjavik and Kulusuk, because 300 L covers $300/0.17556 = 1708$ km and the 30 L reserve removes another 171 km, so the effective reach is about 1537 km. Part (ii): the greedy plan stops at Kulusuk (45.4 L left, 31.8 min refuel) and then at Iqaluit, 17.18 h in total. Part (iii), starred: closing Kulusuk forces a longer first leg to Reykjavik and the total time drops to 16.68 h, which is the sheet's point that a greedy plan is optimal for the number of stops and not for the clock.
+
+### S3Q1: eighty pulses, drawn in an order that occludes correctly
+
+The curves are the same shape at different arrival times, so one grid and eighty evaluations suffice. Drawing later pulses on top requires plotting in time order, and any background pulse that should sit behind must be drawn first.
+
+```python
+x = np.linspace(0.0, 40.0, 4001)
+times = [8.0 + 0.25 * i for i in range(80)]
+for t in times:
+    plt.plot(x, np.exp(-((x - t) / 0.8) ** 2), color="C0", alpha=0.6)
+plt.xticks([])          # eighty labels would be unreadable
+plt.show()
+
+# occlusion: plot the background first, then the one that must sit on top
+plt.plot(x, np.exp(-((x - 10.0) / 0.8) ** 2), color="C1", linewidth=3)
+plt.plot(x, np.exp(-((x - 10.0) / 0.8) ** 2), color="C0", linewidth=1)
+```
+
+Part (i): five pulses are readable drawn individually. Part (ii): at eighty, the ticks must go, otherwise the axis becomes a black band. Part (iii), starred: $\text{fill\_between}$ fills the area under a curve with a solid colour, so a later filled pulse hides an earlier one completely; that is why the order of the fill calls is the answer, and why `alpha` plus drawing from far to near is what makes the fan visible.
+
+### S3Q2: three duplicate checks, three different costs
+
+A nested double loop compares every pair and costs $O(n^{2})$; sorting first and then looking at neighbours costs $O(n\log n)$; a set costs $O(n)$ expected. The measured growth is what turns the algebra into a number.
+
+```python
+import time, random
+def nested(xs):
+    for i in range(len(xs)):
+        for j in range(i + 1, len(xs)):
+            if xs[i] == xs[j]:
+                return True
+    return False
+
+def sorted_pair(xs):
+    s = sorted(xs)
+    return any(a == b for a, b in zip(s, s[1:]))
+
+def set_pair(xs):
+    return len(set(xs)) != len(xs)
+
+random.seed(3)
+for n in (500, 1000, 2000):
+    xs = random.sample(range(n * 100), n)
+    t0 = time.perf_counter(); nested(xs); t1 = time.perf_counter()
+    sorted_pair(xs); t2 = time.perf_counter()
+    set_pair(xs); t3 = time.perf_counter()
+    print(n, round(t1 - t0, 4), round(t2 - t1, 5), round(t3 - t2, 5))
+# 500  0.0033  6e-05  2e-05
+# 1000 0.0123  1.3e-04 3e-05
+# 2000 0.0484  2.5e-04 1.1e-04
+```
+
+Part (i): the three functions answer the same question, so the only difference is cost. Part (ii): the experiment doubles $n$ twice, and the nested column grows by 3.7 and then 3.9, which is the $n^{2}$ signature ($2^{2} = 4$), while the sort column grows by about 2.1 each time ($2\log 2 \approx 2.1$) and the set column roughly doubles. Part (iii): at the largest $n$ the nested loop is 194 times slower than the set, so the ratio is not a preference but a decision: pick the set unless you need the actual duplicate pairs.
+
+### S3Q3: rotating a stress tensor and checking it did not cheat
+
+The rotation is $\sigma' = R\sigma R^{\mathsf{T}}$ with $R$ built from $\cos\theta$ and $\sin\theta$. Trace and determinant are invariants, so they must not move; the principal angle is where the off-diagonal entry vanishes.
+
+```python
+import numpy as np
+sigma = np.array([[120.0, 40.0], [40.0, 20.0]])
+def rot(sig, deg):
+    a = np.radians(deg)
+    R = np.array([[np.cos(a), np.sin(a)], [-np.sin(a), np.cos(a)]])
+    return R @ sig @ R.T
+print(np.round(rot(sigma, 30), 2))            # [[129.64 -23.3 ], [-23.3 10.36]]
+print(np.round(np.linalg.eigvalsh(sigma), 2)) # [  5.97 134.03]
+print(np.trace(sigma), np.linalg.det(sigma))  # 140.0 800.0
+print(np.trace(rot(sigma, 75)), np.linalg.det(rot(sigma, 75)))   # 140.0 800.0
+```
+
+Part (i): rotating 30 degrees gives a normal stress of 129.64 on the first face and a shear of $-23.3$, whose sign says the rotated face is being slid in the negative direction. Part (ii): `*` would square each entry, `@` multiplies matrices; the transpose is what makes the result symmetric, and a missing transpose still runs and produces a non-symmetric matrix. Part (iii): scanning the angle in 0.1 degree steps puts the zero shear at 109.3 degrees, where the normal stresses are 5.97 and 134.03, matching the eigenvalues. Part (iv), starred: `eigvalsh` returns the eigenvalues sorted, and the trace 140 and determinant 800 stay fixed through every rotation, which is the independent check.
+
+### S3Q4: latitude, longitude, and a histogram that hides a choice
+
+The data arrives as parallel arrays, one value per report per column. Counting categories, plotting points with transparency and binning into a 2D histogram are three different verbs, and the bin width is a choice the plot does not expose.
+
+```python
+labels, counts = np.unique(category, return_counts=True)
+print(labels, counts)                       # residential park road industrial
+                                            # 284 123 112 81
+order = np.argsort(counts)[::-1]
+plt.bar(labels[order], counts[order])
+
+plt.scatter(lon, lat, s=4, alpha=0.15)
+plt.plot(-0.13, 51.5, "r*", markersize=12)  # one marked site
+
+h, xe, ye = np.histogram2d(lon, lat, bins=25)
+plt.hist2d(lon, lat, bins=25); plt.colorbar(label="reports")
+```
+
+Part (i): the three arrays are extracted independently and must stay aligned; zip them only for display, never for counting. Part (ii): $\text{np.unique(..., return\_counts=True)}$ gives sorted labels and counts, so sorting by count needs `np.argsort` on the counts, not on the labels. Part (iii): `alpha=0.15` is what turns overlapping points into density; a marked site is added as a separate `plot` call. Part (iv): the 2D histogram prints the counts per cell, and the colour bar is what makes the colours mean something. Part (v), starred: at $25\times25$ bins only 62.6 per cent of cells are empty and the hottest cell holds 14 reports, at $50\times50$ the empty fraction rises to 83.0 per cent and the hottest cell holds 7; the hotspot does not move, but its apparent sharpness does, so any claim about a hotspot must state the bin size.
+
+### S4Q1: ten-dimensional Monte Carlo, and why a grid cannot compete
+
+The integral is the average of $1/(1+\sum x_i^{2})$ over the unit cube, so the volume is 1 and the estimate is a mean. In ten dimensions a grid with ten points per axis needs $10^{10}$ evaluations, while a million random points give three good digits.
+
+```python
+import numpy as np
+rng = np.random.default_rng(1)
+N = 1_000_000
+pts = rng.random((N, 10))                  # (N, 10) in one call
+vals = 1.0 / (1.0 + np.sum(pts ** 2, axis=1))
+print(round(vals.mean(), 4))               # 0.2429
+```
+
+The `axis=1` is the whole vectorisation: summing along axis 1 collapses the ten coordinates of each point into one number, and `vals` keeps length $N$. Change it to `axis=0` and the result is a ten-vector of averages over points, which has the right shape and the wrong meaning, and the estimate quietly becomes a number near 0.9 instead of 0.243. The value 0.2429 agrees with the sheet's quoted 0.243, which is what a correct implementation with a different seed should do.
+
+### S4Q2: one groupby, one agg, three columns
+
+`groupby` only splits; `.agg` computes. Selecting the ratio column before `.agg` keeps one column of results per statistic, and `count` tells you how many runs each mean is built from.
+
+```python
+df["ld_ratio"] = df["lift_N"] / df["drag_N"]
+summary = df.groupby("config")["ld_ratio"].agg(["mean", "std", "count"]).round(3)
+print(summary)
+```
+
+The printed table is Baseline 14.192 with a spread of 0.531 over 5 runs, Slotted 14.981 with 0.349, and Winglet 16.399 with 0.602. Part (i) wants exactly this shape: three groups, three statistics, no loops. Part (ii): Winglet has the highest mean, but the gap to Slotted is 1.4 while its own spread is 0.6 over five runs, so the honest statement is "Winglet is ahead, and the repeatability is about 0.6", not "Winglet is 1.4 better" as if the means were exact.
+
+### S4Q3: two printed outputs the sheet's own dictionary cannot produce
+
+This question is worth doing carefully because the sheet prints two outputs that its own $\text{gpt\_dict}$ cannot reproduce. The dictionary lists `"important"` twice, once as `"crucial"` and later as `"load-bearing"`; Python keeps the last one, so `important` becomes `load-bearing`, not the `crucial` in the printed answer. And `"area"` maps to `"landscape"`, so `areas` can become `landscapes` or stay `areas`, but never `realms`.
+
+```python
+gpt_dict = {"important": "crucial", "use": "leverage", "unknown": "layers of uncertainty",
+            "show": "underscore", "opinion": "subjective assessment", "many": "a myriad of",
+            "problem": "challenge", "error": "interesting correction", "area": "landscape",
+            "important": "load-bearing", "help": "facilitate", "clear": "nuanced",
+            "very": "deeply"}
+print(gpt_dict["important"])          # load-bearing -- the duplicate key wins
+
+def remove_punct(s):
+    return "".join(ch for ch in s if ch.isalnum())
+
+def gpt_speakify(s, gpt_dict):
+    out = []
+    for word in s.split():
+        core = remove_punct(word)
+        out.append(word.replace(core, gpt_dict[core]) if core in gpt_dict else word)
+    return " ".join(out)
+
+text = "this is a very important problem, and we can use data to help."
+print(gpt_speakify(text, gpt_dict))
+# this is a deeply load-bearing challenge, and we can leverage data to facilitate.
+```
+
+The punctuation survives because the replacement is done on the whole word: `"problem,".replace("problem", "challenge")` gives `"challenge,"`, comma included. The plural `problems` cannot be reached this way, because $\text{remove\_punct("problems")}$ is `"problems"`, which is not a key, so the word is left alone; the sheet's `challenges` needs a stem match, which is a different function. Both discrepancies are worth writing down rather than papering over: the printed answer is what the author intended, and the dictionary is what the code obeys.
+
+### S4Q4: Buffon's needle, and the square-root law on one plot
+
+Each throw samples an angle and a distance from the nearest line; the needle crosses when the distance is below $(L/2)\sin\theta$. With $L$ equal to the line spacing the crossing probability is $2/\pi$, so $\pi \approx 2N/N_{\text{cross}}$.
+
+```python
+import numpy as np
+def buffon_pi(n, seed):
+    np.random.seed(seed)
+    ang = np.random.uniform(0, np.pi / 2, n)
+    d = np.random.uniform(0, 0.5, n)
+    return 2 * n / np.sum(d <= 0.5 * np.sin(ang))
+
+print(round(buffon_pi(1_000_000, 42), 4))                   # 3.1355
+ests = [buffon_pi(10_000, s) for s in range(200)]
+print(round(np.mean(ests), 4), round(np.std(ests), 4))      # 3.1449 0.0249
+print(round(min(ests), 4), round(max(ests), 4))             # 3.0859 3.2352
+```
+
+Part (i): one million throws give 3.1355, which is 0.0061 below $\pi$ and inside the expected spread for that $N$. Part (ii): two hundred seeds of ten thousand throws give a mean of 3.1449, a spread of 0.0249 and a range from 3.0859 to 3.2352, so $\pi$ sits inside the cloud with no visible bias. Part (iii): the root-mean-square error falls from 0.241 at $N = 100$ to 0.00707 at $N = 10^{5}$, a factor of 34.1 for a thousandfold increase in $N$, against the predicted $\sqrt{1000} = 31.6$; the log-log plot of RMSE against $N$ is a straight line of slope $-1/2$, which is the check the question asks for. Part (iv), starred: darts inside a square estimate $\pi/4$ with probability $\pi/4$ and variance about $0.785 \times 0.215$, while the needle's indicator has probability $2/\pi \approx 0.637$ and variance about $0.637 \times 0.363$, so per throw the dart is slightly more variable; the needle wins only when you count the work per useful sample, which is not the same comparison.
+
+### S4Q5: peak grows, energy does not
+
+The toy profile $u_n(x) = \sqrt{n}\,(1 - n|x|)$ on $|x| \le 1/n$ has peak $\sqrt{n}$ and integral $1/\sqrt{n}$, so its energy $\int u_n^{2}$ is constant at $2/3$ while the peak diverges. This is the finite-time blow-up caricature, and it is the cleanest example in the whole course of "one quantity bounded, another not".
+
+```python
+import numpy as np
+def toy(n, x):
+    return np.where(np.abs(x) <= 1.0 / n, np.sqrt(n) * (1 - n * np.abs(x)), 0.0)
+x = np.linspace(-1, 1, 2001)
+for n in (1, 4, 16, 64):
+    y = toy(n, x)
+    print(n, round(y.max(), 3), round(np.trapezoid(y ** 2, x), 4))
+# 1  1.0  0.6667
+# 4  2.0  0.6667
+# 16 4.0  0.6668
+# 64 8.0  0.6680
+```
+
+Part (i): the profile is a triangle of height $\sqrt{n}$ and half-width $1/n$, and the trapezium rule on 2001 points reproduces its energy to four decimals. Part (ii): the peak doubles each time $n$ is multiplied by four, exactly as $\sqrt{n}$ says, and the energy stays at $2/3$ within $2\times10^{-3}$; the small drift at $n = 64$ is the grid, not the maths, because a triangle of half-width $1/64$ is only $31$ points wide on this grid. Part (iii): energy bounded and peak unbounded is a counterexample to "bounded energy implies bounded solution", so any existence proof that only controls $\int u^{2}$ cannot rule out blow-up. Part (iv), starred: the space-scale picture is the answer to "how can it be bounded and unbounded at once", because the profile narrows as it grows, keeping the area of $u^{2}$ fixed while the height rises.
+
+### Canvas gyms and the shape of a gym question
+
+A gym is a browser page of short exercises with instant feedback, hosted at the teaching site under the ME1Computing folder. There are five of them for this course and they are public, so you can open them without a login. They matter because half of both the progress test and the final is gym-style, which means "predict the output", "fix the bug" and "fill the blank", not long derivations.
+
+| Gym | What it drills | Read with |
+| --- | --- | --- |
+| [control_shape](https://imperialbubblelab.github.io/teaching/ME1Computing/control_shape.html) | trace if/elif chains and loop boundaries on a grid | chapter 3 |
+| [control_gym](https://imperialbubblelab.github.io/teaching/ME1Computing/control_gym.html) | branches, while, break and continue | chapter 3 |
+| [data_structures_gym](https://imperialbubblelab.github.io/teaching/ME1Computing/data_structures_gym.html) | list aliasing, dictionaries, tuples | chapter 4 |
+| [algorithms_gym](https://imperialbubblelab.github.io/teaching/ME1Computing/algorithms_gym.html) | linear versus binary search, sorting cost | chapter 5 |
+| [numpy_gym](https://imperialbubblelab.github.io/teaching/ME1Computing/numpy_gym.html) | array arithmetic, broadcasting, matrix product | chapter 6 |
+| [scientific_python_gym](https://imperialbubblelab.github.io/teaching/ME1Computing/scientific_python_gym.html) | pandas and Monte Carlo in one notebook-sized session | chapter 7 |
+
+The last few questions of every gym are starred challenges and are not examinable, so a twenty-minute session should stop at the first starred question and go back over the unstarred ones, because those are the ones that reappear in the test with different numbers.
+
+Practice a gym by writing the expected output on paper before pressing run. When the page disagrees with the paper, the disagreement is the lesson, and it is worth more than ten pages of reading that produces no disagreement at all.
 
 ## Tracing drills
 
@@ -2176,8 +2996,6 @@ $$\frac{-3500}{400}=-8.75 \;\Longrightarrow\; \left\lfloor -8.75\right\rfloor = 
 
 The first line gives $8$, and the second gives $-9$: floor always moves toward minus infinity, which for a negative number is away from zero.
 
-**Get the remainder from the identity**
-
 $$a = b\left\lfloor \frac{a}{b}\right\rfloor + (a \bmod b)$$
 
 $$3500 = 400\times 8 + 300 \;\Longrightarrow\; 3500 \bmod 400 = 300$$
@@ -2185,8 +3003,6 @@ $$3500 = 400\times 8 + 300 \;\Longrightarrow\; 3500 \bmod 400 = 300$$
 $$-3500 = 400\times(-9) + 100 \;\Longrightarrow\; -3500 \bmod 400 = 100$$
 
 Substituting the floors from step 1 leaves $300$ and $100$, and both remainders come out with the sign of the divisor, which is the property that makes the identity work for negatives.
-
-**Decide the float comparison**
 
 $$3\times 0.1 = 0.30000000000000004 \;\ne\; 0.3$$
 
@@ -2204,7 +3020,7 @@ $$8,\quad -9,\quad 300,\quad 100,\quad \text{False}$$
 
 **Trap** — Truncating instead of flooring gives the pair $(-8,\,-300)$, which still satisfies $a=bq+r$ but breaks Python's rule that the remainder takes the sign of the divisor; pairing $q=-8$ with Python's own remainder $+100$ gives $400\times(-8)+100=-3100\ne-3500$, which is how the identity actually falls apart. Writing "floating point is imprecise" without the mantissa explanation loses the explanation mark.
 
-![Worked example poster: simulated paper A1, floor division and one float test](figures/ex_sim_a1.png)
+![Figure: worked example poster](figures/ex_sim_a1.png)
 
 ### A2 A mutable default argument and a fixed version
 
@@ -2227,19 +3043,13 @@ print(add_item2("a"), add_item2("b"))
 
 **Why this route** — The two functions differ in exactly one place, the default value, so the route is to ask when each default is evaluated. Default values are evaluated once, when the `def` statement runs, not once per call; that single fact decides both lines.
 
-**Count the objects**
-
 $$\text{call }1: \text{basket}\to L_1,\quad \text{call }2: \text{basket}\to L_1,\quad \text{call }3: \text{basket}\to L_1$$
 
 The default list $L_1$ is created once at definition, so all three calls append to the same object, and the returned lengths are $1,2,3$.
 
-**See what an explicit argument does**
-
 $$\text{add\_item}(x, [\,])\Rightarrow \text{basket}\to L_{\text{new}}$$
 
 Passing a list yourself replaces the default, so the guard only matters when the argument is omitted; the default object survives between calls in either case.
-
-**Rebuild from None**
 
 $$\text{basket}=\text{None}\Rightarrow \text{basket}\to L_2 \text{ (fresh each call)}$$
 
@@ -2255,7 +3065,7 @@ $$1\ 2\ 3 \qquad\text{then}\qquad [\text{a}]\ [\text{b}]$$
 
 **Trap** — Saying "the default is re-created each call" gives $1\ 1\ 1$ and loses the whole question; the fix is not to forbid defaults but to use an immutable sentinel such as `None` and build inside the body.
 
-![Worked example poster: simulated paper A2, a mutable default argument](figures/ex_sim_a2.png)
+![Figure: worked example poster](figures/ex_sim_a2.png)
 
 ### A3 A loop that skips and stops
 
@@ -2274,8 +3084,6 @@ print(total, n)
 
 **Why this route** — There are two exit conditions on the same pass, `continue` before the accumulator and `break` before it, so the only reliable route is a pass-by-pass table with the order of the two tests preserved.
 
-**Tabulate every pass**
-
 $$n=1:\ total=0+1=1 \qquad n=2:\ total=1+2=3$$
 
 $$n=3:\ 3\bmod 3=0 \Rightarrow \text{continue} \qquad n=4:\ total=3+4=7$$
@@ -2284,13 +3092,9 @@ $$n=5:\ 7+5=12>10 \Rightarrow \text{break}$$
 
 The first two passes add, the third is skipped before it can add, the fourth adds, and the fifth trips the guard and leaves.
 
-**Confirm what the break carries out**
-
 $$\text{printed}:\quad \text{total}=7,\quad n=5$$
 
 `break` leaves the loop without executing the body's remaining statements, so $n$ keeps the value that triggered it, $5$, and `total` keeps the last value it had, $7$.
-
-**Compute a control case**
 
 $$\text{without the break}:\ total=1+2+4+5+7=19$$
 
@@ -2306,7 +3110,7 @@ $$\text{total}=7,\qquad n=5$$
 
 **Trap** — Adding on the `continue` pass gives $10$ and then a different $n$; and forgetting that `break` skips the rest of the body gives $n=4$ from a lazily read table.
 
-![Worked example poster: simulated paper A3, a loop that skips and stops](figures/ex_sim_a3.png)
+![Figure: worked example poster](figures/ex_sim_a3.png)
 
 ### A4 One grid, three names
 
@@ -2325,19 +3129,13 @@ print(deep)
 
 **Why this route** — Three names, three different amounts of copying: plain assignment would share everything, a slice copies one level, and a comprehension over slices copies two. The route is to draw the object graph, not to remember the words "shallow" and "deep".
 
-**Draw the outer level**
-
 $$\text{cp} = \text{grid}[:] \Rightarrow \text{new outer list},\ \text{same inner rows}$$
 
 The slice builds a new outer list whose three slots point at the same inner lists, so the rows are shared even though the container is not.
 
-**Draw the inner level**
-
 $$\text{deep} = [\,row[:]\ \text{for}\ row\ \text{in}\ \text{grid}\,] \Rightarrow \text{new rows too}$$
 
 The comprehension applies the slice to each row, so `deep` has new inner lists and shares nothing mutable with `grid`.
-
-**Append one at a time**
 
 $$\text{cp}[0].\text{append}(9) \Rightarrow \text{grid} = [[1,2,9],[3,4]]$$
 
@@ -2355,11 +3153,11 @@ $$\text{grid} = [[1,2,9],[3,4]],\quad \text{cp} = [[1,2,9],[3,4]],\quad \text{de
 
 **Trap** — Trusting the slice as a full copy gives `deep` sharing rows and a wrong third line; and `copy.deepcopy` is not needed here, so answering with library calls instead of the object graph loses the explanation mark.
 
-![Worked example poster: simulated paper A4, one grid and three names](figures/ex_sim_a4.png)
+![Figure: worked example poster](figures/ex_sim_a4.png)
 
 ---
 
-## 6 Twelve mixed questions
+## Twelve mixed questions
 
 **Q6.1** What does this print?
 
@@ -2378,7 +3176,9 @@ print(f([0.1, 0.2]) == 0.3)
 - C. $\text{None}$
 - D. an error
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{True}$
+- B. $\text{False}$
+- C. $\text{None}$
 
 **Answer: B**
 
@@ -2404,8 +3204,6 @@ print(add_item(2))
 - C. the second prints $[2]$
 - D. append cannot be used with a default argument
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: the default is evaluated once at definition time, so both calls share one list (chapter 2).
@@ -2420,8 +3218,6 @@ The other options: A it does not fail, and the silence is the danger; C is intui
 - B. a dictionary mapping temperature to a count or a list
 - C. a tuple
 - D. a string
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -2447,8 +3243,6 @@ for i in range(n):
 - C. $O(n^{2})$
 - D. $O(n\log n)$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: C**
 
 Why: the outer loop runs $n$ times; the inner loop advances by $2$ and so runs $n/2$ times, which is still $O(n)$; the product is $O(n^{2})$ (chapter 5).
@@ -2470,8 +3264,6 @@ print(len(a), len(b))
 - B. $3\ 4$
 - C. $3\ 3$
 - D. $4\ 3$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -2497,8 +3289,6 @@ while n != 1:
 - C. no, because there is no break
 - D. it raises $\text{ZeroDivisionError}$
 
-<details><summary>Answer and explanation</summary>
-
 **Answer: B**
 
 Why: $10$ halves to $5$, the odd branch maps $5$ to $16$, then halving reaches $1$; that is six passes through the body, and the seventh check sees $n=1$ and exits (chapter 3).
@@ -2513,8 +3303,6 @@ The other options: A even steps divide immediately; C a break is not needed when
 - B. keep a list in arrival order
 - C. group in a set
 - D. group in a tuple
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: A**
 
@@ -2531,7 +3319,10 @@ The other options: B is insertion order, not temperature order; C loses the key-
 - C. $\text{if } 0 \le x < 10:\ \text{print("in range")}$
 - D. $\text{if isinstance}(x, \text{int}):\ \text{print("int")}$
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{if } x \ne 0:\ \ y = 10 / x$
+- B. $\text{if } x == 0.1 + 0.2:\ \ \text{print}("hit")$
+- C. $\text{if } 0 \le x < 10:\ \ \text{print}("in range")$
+- D. $\text{if } \text{isinstance}(x, \text{int}):\ \ \text{print}("int")$
 
 **Answer: B**
 
@@ -2557,7 +3348,9 @@ print(g(4))
 - C. $24$
 - D. infinite recursion
 
-<details><summary>Answer and explanation</summary>
+- A. $4$
+- B. $10$
+- C. $24$
 
 **Answer: C**
 
@@ -2574,7 +3367,9 @@ The other options: A only one level; B that is a sum; D the base case prevents i
 - C. $\text{if } h[i] < h_{\text{enable}}:\ c += 1$
 - D. $c = c + 1$ every cycle
 
-<details><summary>Answer and explanation</summary>
+- A. $\text{if } \text{touch}[i]:\ c += 1$
+- B. $\text{if } h[i] < h_{\text{enable}} \text{ and } \text{touch}[i]:\ c += 1\ \text{else}:\ c = 0$
+- C. $\text{if } h[i] < h_{\text{enable}}:\ c += 1$
 
 **Answer: B**
 
@@ -2590,8 +3385,6 @@ The other options: A drops the gate; C drops the trigger; D ignores the data ent
 - B. never
 - C. $m$ is large enough that $O(n\log n + m\log n) < O(mn)$
 - D. it does not depend on $m$
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: C**
 
@@ -2617,8 +3410,6 @@ x = mean([1, 2, 3]) * 2
 - B. $\text{mean}$ prints but never returns, so $x$ is $\text{None}$ and $\text{None}\times 2$ raises $\text{TypeError}$
 - C. len cannot be used on a list
 - D. nothing
-
-<details><summary>Answer and explanation</summary>
 
 **Answer: B**
 
@@ -2672,7 +3463,7 @@ Do these seven things in this order and stop when the time is gone. Nothing here
 
 ---
 
-## 7 One-page revision sheet
+## One-page revision sheet
 
 ### 7.1 Formula card
 
@@ -2695,6 +3486,8 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | $O(n^{2})$ | quadratic | loop inside a loop | $10^{12}$ |
 | $O(2^{n})$ | exponential | every subset, naive recursion | $10^{301030}$ |
 
+| --- | --- | --- | --- |
+
 ### 7.3 Trap list, to read five minutes before the test
 
 - $0.1+0.2 \ne 0.3$; compare floats with $\text{math.isclose}$, and use $\text{abs\_tol}$ near zero.
@@ -2710,7 +3503,7 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 - Binary search needs sorted data, otherwise the answer is meaningless and no error is raised.
 - Assignment does not copy; $\text{copy()}$ is shallow; nested structures need $\text{deepcopy}$.
 
-## 8 Answer key
+## Answer key
 
 | Chapter | Questions | Answers |
 | --- | --- | --- |
@@ -2721,7 +3514,14 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | Ch5 | Q5.1 – Q5.8 | B C B B B B C B |
 | mixed | Q6.1 – Q6.12 | B B B C B B A B C B C B |
 
-## 9 Coverage table
+| --- | --- | --- |
+| Ch1 | Q1.1 – Q1.8 | B B B C A C B B |
+| Ch2 | Q2.1 – Q2.8 | B B B B C C C B |
+| Ch3 | Q3.1 – Q3.8 | A A C C B B B B |
+| Ch4 | Q4.1 – Q4.8 | B B B C B B B B |
+| Ch5 | Q5.1 – Q5.8 | B C B B B B C B |
+
+## Coverage table
 
 | Notes chapter | Section | Covered in |
 | --- | --- | --- |
@@ -2748,7 +3548,33 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | | 5.3 sorting | §5.2(7)(8)(9) |
 | | 5.4 Air France 447 | §5.4 E5 |
 
-## 10 Glossary
+| --- | --- | --- |
+| | §1.6 Ariane 5 | §1.4 E1 |
+| | §2.4 return vs print | §2.2(5) |
+| | §2.8 Mars Climate Orbiter | §2.4 E2 |
+| | §3.2 if/elif/else | §3.2(5) |
+| | §3.6 Mars Polar Lander | §3.4 E3 |
+| | §4.6 Challenger | §4.4 E4 |
+| Ch5 Algorithms and Complexity | §5.1 Big-O | §5.2(1)–(4) |
+| | §5.4 Air France 447 | §5.4 E5 |
+
+## Canvas sheet coverage
+
+Every Canvas item that carries questions is listed here with the part of this review that answers it. The two published solution PDFs are used as a style reference, not copied.
+
+| Canvas item | Questions | Answered in |
+| --- | --- | --- |
+| Introductory Examples Sheet | 5 questions, 17 parts | S0Q1 to S0Q5 |
+| Examples Sheet 1 | 4 questions, 11 parts | S1Q1 to S1Q4 |
+| Examples Sheet 2 | 4 questions, 13 parts | S2Q1 to S2Q4 |
+| Examples Sheet 3 | 4 questions, 15 parts | S3Q1 to S3Q4 |
+| Examples Sheet 4 | 5 questions, 12 parts | S4Q1 to S4Q5 |
+| Official notes, chapters 1 to 5 | the whole of the course so far | chapters 1 to 5 |
+| Official notes, chapters 6 and 7 | NumPy, matplotlib, pandas, Monte Carlo | chapters 6 and 7 |
+
+The coverage claim is deliberately narrow: every part of every sheet is answered above, but the notes' chapters 8 and 9 are not in this review, because no example sheet touches them and the final examination's coverage of them is a separate matter.
+
+## Glossary
 
 | Term | One-line meaning |
 | --- | --- |
@@ -2762,6 +3588,12 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | in-place | mutating the original object, as $\text{list.sort}()$ does |
 | shallow copy | copying only the outer container, still sharing the inner objects |
 | aliasing | two names referring to one object |
+| vectorisation | writing arithmetic once over a whole array instead of looping in Python |
+| broadcasting | stretching length-one axes so two arrays of different shapes can be combined |
+| view | an array that shares memory with another instead of copying it |
+| Monte Carlo | estimating a quantity by averaging random samples |
+| pseudo-random generator | a deterministic rule that produces numbers that pass as random, restarted by a seed |
+| groupby | a lazy split of rows into groups, waiting for an aggregate to finish the job |
 | scope | the region in which a name is visible |
 | docstring | the triple-quoted description under a function definition |
 | short-circuit evaluation | skipping the second operand once the outcome is known |
@@ -2771,11 +3603,13 @@ $$\theta = \frac{\sum \text{faulty}}{\sum \text{tests}}\ \text{(pooled, not aver
 | linearithmic | $O(n\log n)$, the typical cost of a good sort |
 | common-mode failure | duplicates sharing one assumption, so both fail together |
 
-## 11 Self-check
+| --- | --- | --- |
+
+## Self-check
 
 - Coverage: every section of notes Ch1–Ch5, item by item in the §9 coverage table (20 rows).
 - Worked examples: 9 (E1–E5 and the four questions of simulated paper A), all written to the eight-part template, each with its own poster.
 - Questions: $8\times 5 + 12 + 4 = 56$: forty multiple-choice, twelve mixed and four simulated, each with an answer and the reasoning that reaches it.
 - Figures: 7 concept figures plus 9 posters, 16 references in total, no duplicates and none missing, all pointing at existing files under `figures/`.
-- Formulas: inline $\ldots$ and display $$\ldots$$ throughout; no align environment, no boxed, no newcommand.
+- Formulas: inline $\ldots$ and display math with $\ldots$ throughout; no align environment, no boxed, no newcommand.
 - Numbers rechecked: $2^{-52}\approx 2.22\times10^{-16}$, $2^{53}=9\,007\,199\,254\,740\,992$, $32767/10=3276.7$, $3/5=0.6$, $\varphi^{5}\approx 11.09$, all restated exactly as the notes give them.
