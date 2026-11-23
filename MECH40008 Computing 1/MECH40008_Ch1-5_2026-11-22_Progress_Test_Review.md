@@ -2990,11 +2990,15 @@ print(3 * 0.1 == 0.3)
 
 **Why this route** — Every symbol here is decided by Python's definitions, not by the numbers: `//` is defined as the floor of the true quotient, and `%` is defined so that the identity below holds for any sign combination, so the route is to apply the definitions in order rather than to divide and round by intuition.
 
+**Step 1: Turn `//` into a floor**
+
 $$\frac{3500}{400}=8.75 \;\Longrightarrow\; \left\lfloor 8.75\right\rfloor = 8$$
 
 $$\frac{-3500}{400}=-8.75 \;\Longrightarrow\; \left\lfloor -8.75\right\rfloor = -9$$
 
 The first line gives $8$, and the second gives $-9$: floor always moves toward minus infinity, which for a negative number is away from zero.
+
+**Step 2: Get the remainder from the identity**
 
 $$a = b\left\lfloor \frac{a}{b}\right\rfloor + (a \bmod b)$$
 
@@ -3003,6 +3007,8 @@ $$3500 = 400\times 8 + 300 \;\Longrightarrow\; 3500 \bmod 400 = 300$$
 $$-3500 = 400\times(-9) + 100 \;\Longrightarrow\; -3500 \bmod 400 = 100$$
 
 Substituting the floors from step 1 leaves $300$ and $100$, and both remainders come out with the sign of the divisor, which is the property that makes the identity work for negatives.
+
+**Step 3: Decide the float comparison**
 
 $$3\times 0.1 = 0.30000000000000004 \;\ne\; 0.3$$
 
@@ -3043,13 +3049,19 @@ print(add_item2("a"), add_item2("b"))
 
 **Why this route** — The two functions differ in exactly one place, the default value, so the route is to ask when each default is evaluated. Default values are evaluated once, when the `def` statement runs, not once per call; that single fact decides both lines.
 
+**Step 1: Count the objects**
+
 $$\text{call }1: \text{basket}\to L_1,\quad \text{call }2: \text{basket}\to L_1,\quad \text{call }3: \text{basket}\to L_1$$
 
 The default list $L_1$ is created once at definition, so all three calls append to the same object, and the returned lengths are $1,2,3$.
 
+**Step 2: See what an explicit argument does**
+
 $$\text{add\_item}(x, [\,])\Rightarrow \text{basket}\to L_{\text{new}}$$
 
 Passing a list yourself replaces the default, so the guard only matters when the argument is omitted; the default object survives between calls in either case.
+
+**Step 3: Rebuild from None**
 
 $$\text{basket}=\text{None}\Rightarrow \text{basket}\to L_2 \text{ (fresh each call)}$$
 
@@ -3084,6 +3096,8 @@ print(total, n)
 
 **Why this route** — There are two exit conditions on the same pass, `continue` before the accumulator and `break` before it, so the only reliable route is a pass-by-pass table with the order of the two tests preserved.
 
+**Step 1: Tabulate every pass**
+
 $$n=1:\ total=0+1=1 \qquad n=2:\ total=1+2=3$$
 
 $$n=3:\ 3\bmod 3=0 \Rightarrow \text{continue} \qquad n=4:\ total=3+4=7$$
@@ -3092,9 +3106,13 @@ $$n=5:\ 7+5=12>10 \Rightarrow \text{break}$$
 
 The first two passes add, the third is skipped before it can add, the fourth adds, and the fifth trips the guard and leaves.
 
+**Step 2: Confirm what the break carries out**
+
 $$\text{printed}:\quad \text{total}=7,\quad n=5$$
 
 `break` leaves the loop without executing the body's remaining statements, so $n$ keeps the value that triggered it, $5$, and `total` keeps the last value it had, $7$.
+
+**Step 3: Compute a control case**
 
 $$\text{without the break}:\ total=1+2+4+5+7=19$$
 
@@ -3129,13 +3147,19 @@ print(deep)
 
 **Why this route** — Three names, three different amounts of copying: plain assignment would share everything, a slice copies one level, and a comprehension over slices copies two. The route is to draw the object graph, not to remember the words "shallow" and "deep".
 
+**Step 1: Draw the outer level**
+
 $$\text{cp} = \text{grid}[:] \Rightarrow \text{new outer list},\ \text{same inner rows}$$
 
 The slice builds a new outer list whose three slots point at the same inner lists, so the rows are shared even though the container is not.
 
+**Step 2: Draw the inner level**
+
 $$\text{deep} = [\,row[:]\ \text{for}\ row\ \text{in}\ \text{grid}\,] \Rightarrow \text{new rows too}$$
 
 The comprehension applies the slice to each row, so `deep` has new inner lists and shares nothing mutable with `grid`.
+
+**Step 3: Append one at a time**
 
 $$\text{cp}[0].\text{append}(9) \Rightarrow \text{grid} = [[1,2,9],[3,4]]$$
 

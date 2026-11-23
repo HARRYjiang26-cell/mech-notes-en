@@ -12,6 +12,7 @@
 | Chapter | Date | Topic | Notes |
 |---|---|---|---|
 | **Ch 4-5 (4.8-5.8)** | 2026-11-16 | Full recording notes: reluctance, magnetomotive force and magnetic flux, pole-face force, air gaps and pull-in and holding currents, the Lorentz force and Fleming's left-hand rule, induced EMF, how a commutator works, and how multiple windings reduce torque ripple. **2 eight-part worked examples and 4 posters** | [MECH40004_Ch3-4_2026-11-16_Electromagnets_Brushed_DC.md](./MECH40004_Ch3-4_2026-11-16_Electromagnets_Brushed_DC.md) |
+| **Ch 5** | 2026-11-23 | Full recording notes: the brushed DC machine as a circuit element, the machine constant $k_e$, the armature circuit model and current, power balance and the torque law $T_e=k_eI_a$, Lenz's law, sign conventions, electromagnetic, friction and shaft torques, the no-load speed and stall point, and the torque, current, power and efficiency curves. **2 eight-part worked examples and 6 figures** | [MECH40004_Ch5-5_2026-11-23_DC_Machine_Model_Motor_Characteristics.md](./MECH40004_Ch5-5_2026-11-23_DC_Machine_Model_Motor_Characteristics.md) |
 
 ---
 

@@ -12,6 +12,7 @@
 | Chapter | Date | Topic | Notes |
 |---|---|---|---|
 | **Ch 2 (2.3-2.5)** | 2026-11-16 | Full recording notes: moments about an arbitrary axis, the scalar triple product, calculating moments using the cross product, two forces on a crankshaft, work as a dot product, friction and static equilibrium on a slope, and the coefficient of static friction. **5 eight-part worked examples and 5 posters** | [MECH40009_Ch2-3_2026-11-16_Moments_Work_Friction.md](./MECH40009_Ch2-3_2026-11-16_Moments_Work_Friction.md) |
+| **Ch 3** | 2026-11-23 | Full recording notes: static and kinetic friction, a conveyor belt at 40 degrees, a ladder against a smooth wall, two blocks joined over a pulley on a slope, and the moment needed to raise a load with a screw thread. **4 eight-part worked examples and 9 figures** | [MECH40009_Ch3-3_2026-11-23_Friction_Ladder_Two_Blocks_Screw_Threads.md](./MECH40009_Ch3-3_2026-11-23_Friction_Ladder_Two_Blocks_Screw_Threads.md) |
 
 ---
 
